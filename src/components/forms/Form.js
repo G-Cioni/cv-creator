@@ -23,7 +23,8 @@ class Form extends Component {
   }
 
   render() {
-    const { formFields, formTitle, formName } = this.state;
+    const { formFields, formTitle, formType } = this.state;
+    const { formId } = this.props;
     const inputs = Object.keys(this.state.formFields).map((inputName) => {
       const { id, placeHolder } = formFields[inputName];
       const { name, inputValue } = formFields[inputName];
@@ -40,7 +41,11 @@ class Form extends Component {
     return (
       <div className="form">
         <h1>{formTitle}</h1>
-        <form onSubmit={(e) => this.props.onFormSave(e, formName, formFields)}>
+        <form
+          onSubmit={(e) =>
+            this.props.onFormSave(e, formType, formId, formFields)
+          }
+        >
           {inputs}
           <Button text={'Save'} />
         </form>

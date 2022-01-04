@@ -9,8 +9,9 @@ class App extends Component {
     this.onFormSave = this.onFormSave.bind(this);
   }
 
-  onFormSave(e, formName, formFields) {
+  onFormSave(e, formType, formId, formFields) {
     e.preventDefault();
+    const formName = `${formType}-${formId}`;
     this.setState({
       ...this.state,
       [formName]: {

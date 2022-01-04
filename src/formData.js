@@ -3,7 +3,7 @@ import uniqid from 'uniqid';
 const formData = {
   personalInfo: {
     formTitle: 'Personal Info',
-    formName: 'personalInfo',
+    formType: 'personalInfo',
     formFields: {
       title: {
         name: 'title',
@@ -46,7 +46,7 @@ const formData = {
 
   workExperiences: {
     formTitle: 'Work Experiences',
-    formName: 'workExperiences',
+    formType: 'workExperiences',
     formFields: {
       position: {
         name: 'position',
@@ -82,7 +82,7 @@ const formData = {
   },
   education: {
     formTitle: 'Education',
-    formName: 'education',
+    formType: 'education',
     formFields: {
       degree: {
         name: 'degree',
