@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Forms from './components/forms/Forms';
+import { getFormName } from './utils';
 import './styles/App.css';
 
 class App extends Component {
@@ -11,7 +12,7 @@ class App extends Component {
 
   onFormSave(e, formType, formId, formFields) {
     e.preventDefault();
-    const formName = `${formType}-${formId}`;
+    const formName = getFormName(formType, formId);
     this.setState((state) => {
       return {
         ...state,
