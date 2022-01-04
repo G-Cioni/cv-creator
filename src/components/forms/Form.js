@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import Input from './Input';
 import Button from './Button';
 import uniqid from 'uniqid';
+import { setCounter } from '../../utils';
 
 class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
       ...this.props.formData,
-      extraInputCounter: [uniqid(), uniqid()],
+      extraInputCounter: [],
     };
     this.onInputChange = this.onInputChange.bind(this);
   }
@@ -29,10 +30,14 @@ class Form extends Component {
   }
 
   componentDidMount() {
-    const { formType } = this.state;
+    const { formType, extraInputCounter } = this.state;
+
+    let extraInputs = [];
+
     let inputName;
     let inputPlaceholder;
     let inputType;
+
     switch (!inputName && !inputPlaceholder && !inputType) {
       case formType === 'workExperiences':
         inputName = 'workDuty';
@@ -56,8 +61,8 @@ class Form extends Component {
         break;
     }
 
-    const extraInputs = this.state.extraInputCounter.reduce(
-      (accumulator, id) => {
+    if (['workExperiences'].includes(formType)) {
+      extraInputs = setCounter(extraInputCounter).reduce((accumulator, id) => {
         accumulator = {
           ...accumulator,
           [`${inputName}-${id}`]: {
@@ -69,19 +74,18 @@ class Form extends Component {
           },
         };
         return accumulator;
-      },
-      {},
-    );
+      }, {});
 
-    this.setState((state) => {
-      return {
-        ...state,
-        formFields: {
-          ...state.formFields,
-          ...extraInputs,
-        },
-      };
-    });
+      this.setState((state) => {
+        return {
+          ...state,
+          formFields: {
+            ...state.formFields,
+            ...extraInputs,
+          },
+        };
+      });
+    }
   }
 
   render() {

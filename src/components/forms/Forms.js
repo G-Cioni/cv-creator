@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Form from './Form';
 import formData from '../../formData';
 import uniqid from 'uniqid';
-import { getCounterName, getFormName } from '../../utils';
+import { getCounterName, getFormName, setCounter } from '../../utils';
 
 class Forms extends Component {
   constructor(props) {
@@ -46,30 +46,15 @@ class Forms extends Component {
     const { personalFormsCounter, workFormsCounter, educationFormsCounter } =
       this.state;
 
-    if (personalFormsCounter.length < 1) {
-      this.setState((state) => {
-        return {
-          ...state,
-          personalFormsCounter: personalFormsCounter.concat(uniqid()),
-        };
-      });
-    }
-    if (workFormsCounter.length < 1) {
-      this.setState((state) => {
-        return {
-          ...state,
-          workFormsCounter: workFormsCounter.concat(uniqid()),
-        };
-      });
-    }
-    if (educationFormsCounter.length < 1) {
-      this.setState((state) => {
-        return {
-          ...state,
-          educationFormsCounter: educationFormsCounter.concat(uniqid()),
-        };
-      });
-    }
+    // Sets form counters to 1 if they are empty
+    this.setState((state) => {
+      return {
+        ...state,
+        personalFormsCounter: setCounter(personalFormsCounter),
+        workFormsCounter: setCounter(workFormsCounter),
+        educationFormsCounter: setCounter(educationFormsCounter),
+      };
+    });
   }
 
   render() {
