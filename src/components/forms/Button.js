@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 class Button extends Component {
   render() {
-    const { onFormSave, text } = this.props;
-    return <button onClick={onFormSave}>{text}</button>;
+    const { text } = this.props;
+    return <button type="submit">{text}</button>;
   }
 }
 

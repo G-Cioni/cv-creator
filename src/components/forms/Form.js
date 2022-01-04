@@ -40,11 +40,10 @@ class Form extends Component {
     return (
       <div className="form">
         <h1>{formTitle}</h1>
-        {inputs}
-        <Button
-          onFormSave={() => this.props.onFormSave(formName, formFields)}
-          text={'Save'}
-        />
+        <form onSubmit={(e) => this.props.onFormSave(e, formName, formFields)}>
+          {inputs}
+          <Button text={'Save'} />
+        </form>
       </div>
     );
   }
