@@ -66,17 +66,19 @@ class Form extends Component {
       }
 
       extraInputs = newCounter.reduce((accumulator, id) => {
-        accumulator = {
-          ...accumulator,
-          [`${inputName}-${id}`]: {
-            id,
-            inputValue: '',
-            name: `${inputName}-${id}`,
-            placeHolder: inputPlaceholder,
-            type: inputType,
-          },
-        };
-        return accumulator;
+        if (!extraInputsCounter.includes(id)) {
+          accumulator = {
+            ...accumulator,
+            [`${inputName}-${id}`]: {
+              id,
+              inputValue: '',
+              name: `${inputName}-${id}`,
+              placeHolder: inputPlaceholder,
+              type: inputType,
+            },
+          };
+          return accumulator;
+        }
       }, {});
 
       this.setState((state) => {
