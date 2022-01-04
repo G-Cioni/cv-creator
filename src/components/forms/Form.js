@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Input from './Input';
 import Button from './Button';
 import uniqid from 'uniqid';
-import { setCounter } from '../../utils';
 
 class Form extends Component {
   constructor(props) {
@@ -97,7 +96,7 @@ class Form extends Component {
     const { hasExtraInputs } = this.props;
 
     const { formType, extraInputsCounter } = this.state;
-    const newCounter = setCounter(extraInputsCounter);
+    const newCounter = extraInputsCounter.concat(uniqid());
 
     if (hasExtraInputs) {
       let extraInputs = [];
