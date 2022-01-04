@@ -40,7 +40,7 @@ class Form extends Component {
       let inputPlaceholder;
       let inputType;
 
-      switch (!inputName && !inputPlaceholder && !inputType) {
+      switch (!(inputName || inputPlaceholder || inputType)) {
         case formType === 'workExperiences':
           inputName = 'workDuty';
           inputPlaceholder = 'Work Duty';
