@@ -26,7 +26,7 @@ class Form extends Component {
 
   render() {
     const { formFields, formTitle, formType } = this.state;
-    const { formId, addForm, onFormSave } = this.props;
+    const { formId, addForm, onFormSave, removeForm } = this.props;
     const inputs = Object.keys(formFields).map((inputName) => {
       const { id, placeHolder, name, inputValue, type } = formFields[inputName];
       return (
@@ -48,6 +48,10 @@ class Form extends Component {
           {addForm ? (
             <Button onClick={() => addForm(formType)} text={'Add Form'} />
           ) : null}
+          <Button
+            onClick={() => removeForm(formType, formId)}
+            text={'Remove Form'}
+          />
           <button type="submit">Save</button>
         </form>
       </div>

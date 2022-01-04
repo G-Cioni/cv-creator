@@ -6,6 +6,7 @@ class App extends Component {
   constructor() {
     super();
     this.onFormSave = this.onFormSave.bind(this);
+    this.deleteFormState = this.deleteFormState.bind(this);
   }
 
   onFormSave(e, formType, formId, formFields) {
@@ -21,10 +22,20 @@ class App extends Component {
     });
   }
 
+  deleteFormState(formName) {
+    this.setState((state) => {
+      delete state[formName];
+      return state;
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <Forms onFormSave={this.onFormSave} />
+        <Forms
+          onFormSave={this.onFormSave}
+          deleteFormState={this.deleteFormState}
+        />
       </div>
     );
   }

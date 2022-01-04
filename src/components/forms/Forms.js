@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Form from './Form';
 import formData from '../../formData';
 import uniqid from 'uniqid';
+import { getCounterName } from '../../utils';
 
 class Forms extends Component {
   constructor(props) {
@@ -12,21 +13,33 @@ class Forms extends Component {
       educationFormsCounter: [],
     };
     this.addForm = this.addForm.bind(this);
+    this.removeForm = this.removeForm.bind(this);
   }
 
   addForm(formType) {
-    const counterName =
-      formType === 'personalInfo'
-        ? 'personalFormsCounter'
-        : formType === 'workExperiences'
-        ? 'workFormsCounter'
-        : 'educationFormsCounter';
+    const counterName = getCounterName(formType);
+
     this.setState((state) => {
       return {
         ...state,
         [counterName]: state[counterName].concat(uniqid()),
       };
     });
+  }
+
+  removeForm(formType, formId) {
+    const formName = `${formType}-${formId}`;
+    const counterName = getCounterName(formType);
+    const { deleteFormState } = this.props;
+    if (this.state[counterName].length > 1) {
+      this.setState((state) => {
+        return {
+          ...state,
+          [counterName]: state[counterName].filter((id) => id !== formId),
+        };
+      });
+      deleteFormState(formName);
+    }
   }
 
   componentDidMount() {
@@ -80,6 +93,7 @@ class Forms extends Component {
         onFormSave={onFormSave}
         formData={workExperiences}
         addForm={this.addForm}
+        removeForm={this.removeForm}
       />
     ));
 
@@ -90,6 +104,7 @@ class Forms extends Component {
         onFormSave={onFormSave}
         formData={education}
         addForm={this.addForm}
+        removeForm={this.removeForm}
       />
     ));
 
