@@ -5,7 +5,6 @@ import './styles/App.css';
 class App extends Component {
   constructor() {
     super();
-    this.state = {};
     this.onFormSave = this.onFormSave.bind(this);
   }
 
