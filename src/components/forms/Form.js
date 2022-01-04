@@ -12,6 +12,7 @@ class Form extends Component {
     };
     this.onInputChange = this.onInputChange.bind(this);
     this.addExtraInput = this.addExtraInput.bind(this);
+    this.removeExtraInput = this.removeExtraInput.bind(this);
   }
 
   // Updates state on input change
@@ -100,6 +101,22 @@ class Form extends Component {
     }
   }
 
+  // Removes a specific input field from the state and counter
+  removeExtraInput(name, inputId) {
+    const { extraInputsCounter } = this.state;
+    if (extraInputsCounter.length > 1) {
+      this.setState((state) => {
+        delete state.formFields[name];
+        return {
+          ...state,
+          extraInputsCounter: state.extraInputsCounter.filter(
+            (id) => id !== inputId,
+          ),
+        };
+      });
+    }
+  }
+
   componentDidMount() {
     // Add's the first uniqid to the extraInputCounter
     this.addExtraInput();
@@ -124,11 +141,14 @@ class Form extends Component {
       return (
         <Input
           key={id}
+          inputId={id}
           type={type}
           placeHolder={placeHolder}
           name={name}
+          parentFormType={formType}
           inputValue={inputValue}
           handleOnChange={this.onInputChange}
+          removeExtraInput={name.includes(id) ? this.removeExtraInput : null}
         />
       );
     });
