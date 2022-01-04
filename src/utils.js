@@ -1,9 +1,10 @@
-const getCounterName = (formType) => {
-  return formType === 'personalInfo'
+const getCounterName = (formType) =>
+  formType === 'personalInfo'
     ? 'personalFormsCounter'
     : formType === 'workExperiences'
     ? 'workFormsCounter'
     : 'educationFormsCounter';
-};
 
-export { getCounterName };
+const getFormName = (formType, formId) => `${formType}-${formId}`;
+
+export { getCounterName, getFormName };

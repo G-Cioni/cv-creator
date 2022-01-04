@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Form from './Form';
 import formData from '../../formData';
 import uniqid from 'uniqid';
-import { getCounterName } from '../../utils';
+import { getCounterName, getFormName } from '../../utils';
 
 class Forms extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class Forms extends Component {
   }
 
   removeForm(formType, formId) {
-    const formName = `${formType}-${formId}`;
+    const formName = getFormName(formType, formId);
     const counterName = getCounterName(formType);
     const { deleteFormState } = this.props;
     if (this.state[counterName].length > 1) {
