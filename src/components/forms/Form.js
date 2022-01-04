@@ -93,66 +93,7 @@ class Form extends Component {
   }
 
   componentDidMount() {
-    const { hasExtraInputs } = this.props;
-
-    const { formType, extraInputsCounter } = this.state;
-    const newCounter = extraInputsCounter.concat(uniqid());
-
-    if (hasExtraInputs) {
-      let extraInputs = [];
-
-      let inputName;
-      let inputPlaceholder;
-      let inputType;
-
-      switch (!(inputName || inputPlaceholder || inputType)) {
-        case formType === 'workExperiences':
-          inputName = 'workDuty';
-          inputPlaceholder = 'Work Duty';
-          inputType = 'textarea';
-          break;
-        case formType === 'skills':
-          inputName = 'skill';
-          inputPlaceholder = 'Skill';
-          inputType = 'input';
-          break;
-        case formType === 'certificates':
-          inputName = 'certificate';
-          inputPlaceholder = 'Certificate';
-          inputType = 'input';
-          break;
-        default:
-          inputName = '';
-          inputPlaceholder = '';
-          inputType = '';
-          break;
-      }
-
-      extraInputs = newCounter.reduce((accumulator, id) => {
-        accumulator = {
-          ...accumulator,
-          [`${inputName}-${id}`]: {
-            id,
-            inputValue: '',
-            name: `${inputName}-${id}`,
-            placeHolder: inputPlaceholder,
-            type: inputType,
-          },
-        };
-        return accumulator;
-      }, {});
-
-      this.setState((state) => {
-        return {
-          ...state,
-          formFields: {
-            ...state.formFields,
-            ...extraInputs,
-          },
-          extraInputsCounter: newCounter,
-        };
-      });
-    }
+    this.addExtraInput();
   }
 
   render() {
@@ -171,6 +112,7 @@ class Form extends Component {
         />
       );
     });
+
     return (
       <div className="form">
         <h1>{formTitle}</h1>
