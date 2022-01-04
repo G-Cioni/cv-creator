@@ -14,6 +14,7 @@ class Form extends Component {
     this.addExtraInput = this.addExtraInput.bind(this);
   }
 
+  // Updates state on input change
   onInputChange(e, field) {
     this.setState((state) => {
       return {
@@ -29,6 +30,7 @@ class Form extends Component {
     });
   }
 
+  // Adds an extra input and takes into consideration it's context
   addExtraInput() {
     const { hasExtraInputs } = this.props;
 
@@ -38,10 +40,12 @@ class Form extends Component {
     if (hasExtraInputs) {
       let extraInputs = [];
 
+      // Declare variables which will be used to update state
       let inputName;
       let inputPlaceholder;
       let inputType;
 
+      // Assigns correct values to the variables
       switch (!(inputName || inputPlaceholder || inputType)) {
         case formType === 'workExperiences':
           inputName = 'workDuty';
@@ -65,6 +69,7 @@ class Form extends Component {
           break;
       }
 
+      // Creates a new object which temporarily holds the new state for each new input field
       extraInputs = newCounter.reduce((accumulator, id) => {
         if (!extraInputsCounter.includes(id)) {
           accumulator = {
@@ -81,6 +86,7 @@ class Form extends Component {
         return accumulator;
       }, {});
 
+      // Adds all of the extra input fields to the state and updates the counter
       this.setState((state) => {
         return {
           ...state,
@@ -95,6 +101,7 @@ class Form extends Component {
   }
 
   componentDidMount() {
+    // Add's the first uniqid to the extraInputCounter
     this.addExtraInput();
   }
 
@@ -103,6 +110,7 @@ class Form extends Component {
     const { formId, addForm, onFormSave, removeForm, hasExtraInputs } =
       this.props;
 
+    // Assigns the extra input fields name based on it's context
     const extraInputName =
       formType === 'workExperiences'
         ? 'Work Duty'
@@ -110,6 +118,7 @@ class Form extends Component {
         ? 'Skill'
         : 'Certificate';
 
+    // Creates an array of all the input fields to then render
     const inputs = Object.keys(formFields).map((inputName) => {
       const { id, placeHolder, name, inputValue, type } = formFields[inputName];
       return (
@@ -144,7 +153,6 @@ class Form extends Component {
               text={'Remove Form'}
             />
           ) : null}
-
           <button type="submit">Save</button>
         </form>
       </div>

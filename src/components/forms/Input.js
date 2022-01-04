@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 class Input extends Component {
   render() {
     const { handleOnChange, placeHolder, inputValue, name, type } = this.props;
+
+    // Conditionally renders an input field or a textarea
     return type === 'input' ? (
       <input
         value={inputValue}

@@ -18,6 +18,7 @@ class Forms extends Component {
     this.removeForm = this.removeForm.bind(this);
   }
 
+  // Add a new form
   addForm(formType) {
     const counterName = getCounterName(formType);
 
@@ -29,6 +30,7 @@ class Forms extends Component {
     });
   }
 
+  // Remove a specific form
   removeForm(formType, formId) {
     const formName = getFormName(formType, formId);
     const counterName = getCounterName(formType);
@@ -53,7 +55,7 @@ class Forms extends Component {
       certificatesFormsCounter,
     } = this.state;
 
-    // Sets form counters length to 1
+    // Adds first uniqid to each form counter
     this.setState((state) => {
       return {
         ...state,
@@ -78,6 +80,7 @@ class Forms extends Component {
     } = this.state;
     const { onFormSave } = this.props;
 
+    // Generates arrays for each form type which will then be rendered
     const personalForms = personalFormsCounter.map((formId) => (
       <Form
         key={formId}
@@ -97,7 +100,6 @@ class Forms extends Component {
         hasExtraInputs={true}
       />
     ));
-
     const educationForms = educationFormsCounter.map((formId) => (
       <Form
         key={formId}
