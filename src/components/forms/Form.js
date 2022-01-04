@@ -77,8 +77,8 @@ class Form extends Component {
               type: inputType,
             },
           };
-          return accumulator;
         }
+        return accumulator;
       }, {});
 
       this.setState((state) => {
