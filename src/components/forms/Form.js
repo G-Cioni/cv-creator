@@ -98,7 +98,16 @@ class Form extends Component {
 
   render() {
     const { formFields, formTitle, formType } = this.state;
-    const { formId, addForm, onFormSave, removeForm } = this.props;
+    const { formId, addForm, onFormSave, removeForm, hasExtraInputs } =
+      this.props;
+
+    const extraInputName =
+      formType === 'workExperiences'
+        ? 'Work Duty'
+        : formType === 'skills'
+        ? 'Skill'
+        : 'Certificate';
+
     const inputs = Object.keys(formFields).map((inputName) => {
       const { id, placeHolder, name, inputValue, type } = formFields[inputName];
       return (
@@ -118,7 +127,12 @@ class Form extends Component {
         <h1>{formTitle}</h1>
         <form onSubmit={(e) => onFormSave(e, formType, formId, formFields)}>
           {inputs}
-          <Button onClick={this.addExtraInput} text="add input" />
+          {hasExtraInputs ? (
+            <Button
+              onClick={this.addExtraInput}
+              text={`Add ${extraInputName}`}
+            />
+          ) : null}
           {addForm ? (
             <Button onClick={() => addForm(formType)} text={'Add Form'} />
           ) : null}
