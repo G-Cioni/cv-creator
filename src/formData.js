@@ -139,6 +139,16 @@ const formData = {
       },
     },
   },
+  skills: {
+    formTitle: 'Skills',
+    formType: 'skills',
+    formFields: {},
+  },
+  certificates: {
+    formTitle: 'Certificates',
+    formType: 'certificates',
+    formFields: {},
+  },
 };
 
 export default formData;

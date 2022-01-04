@@ -11,6 +11,8 @@ class Forms extends Component {
       personalFormsCounter: [],
       workFormsCounter: [],
       educationFormsCounter: [],
+      skillsFormsCounter: [],
+      certificatesFormsCounter: [],
     };
     this.addForm = this.addForm.bind(this);
     this.removeForm = this.removeForm.bind(this);
@@ -43,8 +45,13 @@ class Forms extends Component {
   }
 
   componentDidMount() {
-    const { personalFormsCounter, workFormsCounter, educationFormsCounter } =
-      this.state;
+    const {
+      personalFormsCounter,
+      workFormsCounter,
+      educationFormsCounter,
+      skillsFormsCounter,
+      certificatesFormsCounter,
+    } = this.state;
 
     // Sets form counters to 1 if they are empty
     this.setState((state) => {
@@ -53,14 +60,22 @@ class Forms extends Component {
         personalFormsCounter: setCounter(personalFormsCounter),
         workFormsCounter: setCounter(workFormsCounter),
         educationFormsCounter: setCounter(educationFormsCounter),
+        skillsFormsCounter: setCounter(skillsFormsCounter),
+        certificatesFormsCounter: setCounter(certificatesFormsCounter),
       };
     });
   }
 
   render() {
-    const { personalInfo, workExperiences, education } = formData;
-    const { personalFormsCounter, workFormsCounter, educationFormsCounter } =
-      this.state;
+    const { personalInfo, workExperiences, education, skills, certificates } =
+      formData;
+    const {
+      personalFormsCounter,
+      workFormsCounter,
+      educationFormsCounter,
+      skillsFormsCounter,
+      certificatesFormsCounter,
+    } = this.state;
     const { onFormSave } = this.props;
 
     const personalForms = personalFormsCounter.map((formId) => (
@@ -93,12 +108,32 @@ class Forms extends Component {
         removeForm={this.removeForm}
       />
     ));
+    const skillsForms = skillsFormsCounter.map((formId) => (
+      <Form
+        key={formId}
+        formId={formId}
+        onFormSave={onFormSave}
+        formData={skills}
+        hasExtraInputs={true}
+      />
+    ));
+    const certificatesForms = certificatesFormsCounter.map((formId) => (
+      <Form
+        key={formId}
+        formId={formId}
+        onFormSave={onFormSave}
+        formData={certificates}
+        hasExtraInputs={true}
+      />
+    ));
 
     return (
       <div id="forms">
         {personalForms}
         {workForms}
         {educationForms}
+        {skillsForms}
+        {certificatesForms}
       </div>
     );
   }
