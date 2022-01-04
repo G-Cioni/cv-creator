@@ -1,3 +1,4 @@
+import uniqid from 'uniqid';
 const getCounterName = (formType) =>
   formType === 'personalInfo'
     ? 'personalFormsCounter'
@@ -7,4 +8,10 @@ const getCounterName = (formType) =>
 
 const getFormName = (formType, formId) => `${formType}-${formId}`;
 
-export { getCounterName, getFormName };
+// Sets a counter to 1 if it's empty
+const setCounter = (counter) => {
+  const newCounter = [];
+  if (counter.length < 1) newCounter.push(uniqid());
+  return newCounter;
+};
+export { getCounterName, getFormName, setCounter };
