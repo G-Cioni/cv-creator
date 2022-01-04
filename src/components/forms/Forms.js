@@ -11,6 +11,20 @@ class Forms extends Component {
       workFormsCounter: [],
       educationFormsCounter: [],
     };
+    this.addForm = this.addForm.bind(this);
+  }
+
+  addForm(formType) {
+    const counterName =
+      formType === 'personalInfo'
+        ? 'personalFormsCounter'
+        : formType === 'workExperiences'
+        ? 'workFormsCounter'
+        : 'educationFormsCounter';
+    this.setState({
+      ...this.state,
+      [counterName]: this.state[counterName].concat(uniqid()),
+    });
   }
 
   componentDidMount() {
@@ -65,6 +79,7 @@ class Forms extends Component {
         formId={formId}
         onFormSave={onFormSave}
         formData={workExperiences}
+        addForm={this.addForm}
       />
     ));
 
@@ -74,6 +89,7 @@ class Forms extends Component {
         formId={formId}
         onFormSave={onFormSave}
         formData={education}
+        addForm={this.addForm}
       />
     ));
 

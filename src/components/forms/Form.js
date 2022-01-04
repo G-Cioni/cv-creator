@@ -24,7 +24,7 @@ class Form extends Component {
 
   render() {
     const { formFields, formTitle, formType } = this.state;
-    const { formId } = this.props;
+    const { formId, addForm } = this.props;
     const inputs = Object.keys(this.state.formFields).map((inputName) => {
       const { id, placeHolder, name, inputValue, type } = formFields[inputName];
       return (
@@ -47,7 +47,10 @@ class Form extends Component {
           }
         >
           {inputs}
-          <Button text={'Save'} />
+          {addForm ? (
+            <Button onClick={() => addForm(formType)} text={'Add Form'} />
+          ) : null}
+          <button type="submit">Save</button>
         </form>
       </div>
     );
