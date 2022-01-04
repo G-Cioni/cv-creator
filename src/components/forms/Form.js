@@ -26,11 +26,11 @@ class Form extends Component {
     const { formFields, formTitle, formType } = this.state;
     const { formId } = this.props;
     const inputs = Object.keys(this.state.formFields).map((inputName) => {
-      const { id, placeHolder } = formFields[inputName];
-      const { name, inputValue } = formFields[inputName];
+      const { id, placeHolder, name, inputValue, type } = formFields[inputName];
       return (
         <Input
           key={id}
+          type={type}
           placeHolder={placeHolder}
           name={name}
           inputValue={inputValue}
