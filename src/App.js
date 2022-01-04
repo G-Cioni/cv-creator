@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Forms from './components/forms/Forms';
+import './styles/App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {};
+    this.onFormSave = this.onFormSave.bind(this);
+  }
+
+  onFormSave(formName, formFields) {
+    console.log(formName, formFields);
+    this.setState({
+      ...this.state,
+      [formName]: {
+        ...formFields,
+      },
+    });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Forms onFormSave={this.onFormSave} />
+      </div>
+    );
+  }
 }
 
 export default App;

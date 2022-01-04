@@ -1,0 +1,53 @@
+import React, { Component } from 'react';
+import Input from './Input';
+import Button from './Button';
+
+class Form extends Component {
+  constructor(props) {
+    super(props);
+    this.state = this.props.formData;
+    this.onInputChange = this.onInputChange.bind(this);
+  }
+
+  onInputChange(e, field) {
+    this.setState({
+      ...this.state,
+      formFields: {
+        ...this.state.formFields,
+        [field]: {
+          ...this.state.formFields[field],
+          inputValue: e.target.value,
+        },
+      },
+    });
+  }
+
+  render() {
+    const { formFields, formTitle, formName } = this.state;
+    const inputs = Object.keys(this.state.formFields).map((inputName) => {
+      const { id, placeHolder } = formFields[inputName];
+      const { name, inputValue } = formFields[inputName];
+      return (
+        <Input
+          key={id}
+          placeHolder={placeHolder}
+          name={name}
+          inputValue={inputValue}
+          handleOnChange={this.onInputChange}
+        />
+      );
+    });
+    return (
+      <div className="form">
+        <h1>{formTitle}</h1>
+        {inputs}
+        <Button
+          onFormSave={() => this.props.onFormSave(formName, formFields)}
+          text={'Save'}
+        />
+      </div>
+    );
+  }
+}
+
+export default Form;
