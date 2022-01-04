@@ -12,11 +12,13 @@ class App extends Component {
   onFormSave(e, formType, formId, formFields) {
     e.preventDefault();
     const formName = `${formType}-${formId}`;
-    this.setState({
-      ...this.state,
-      [formName]: {
-        ...formFields,
-      },
+    this.setState((state) => {
+      return {
+        ...state,
+        [formName]: {
+          ...formFields,
+        },
+      };
     });
   }
 

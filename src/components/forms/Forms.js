@@ -21,42 +21,42 @@ class Forms extends Component {
         : formType === 'workExperiences'
         ? 'workFormsCounter'
         : 'educationFormsCounter';
-    this.setState({
-      ...this.state,
-      [counterName]: this.state[counterName].concat(uniqid()),
+    this.setState((state) => {
+      return {
+        ...state,
+        [counterName]: state[counterName].concat(uniqid()),
+      };
     });
   }
 
   componentDidMount() {
-    let updatedState = this.state;
     const { personalFormsCounter, workFormsCounter, educationFormsCounter } =
       this.state;
 
     if (personalFormsCounter.length < 1) {
-      updatedState = {
-        ...updatedState,
-        personalFormsCounter: updatedState.personalFormsCounter.concat(
-          uniqid(),
-        ),
-      };
+      this.setState((state) => {
+        return {
+          ...state,
+          personalFormsCounter: personalFormsCounter.concat(uniqid()),
+        };
+      });
     }
     if (workFormsCounter.length < 1) {
-      updatedState = {
-        ...updatedState,
-        workFormsCounter: updatedState.workFormsCounter.concat(uniqid()),
-      };
+      this.setState((state) => {
+        return {
+          ...state,
+          workFormsCounter: workFormsCounter.concat(uniqid()),
+        };
+      });
     }
-
     if (educationFormsCounter.length < 1) {
-      updatedState = {
-        ...updatedState,
-        educationFormsCounter: updatedState.educationFormsCounter.concat(
-          uniqid(),
-        ),
-      };
+      this.setState((state) => {
+        return {
+          ...state,
+          educationFormsCounter: educationFormsCounter.concat(uniqid()),
+        };
+      });
     }
-
-    this.setState(updatedState);
   }
 
   render() {

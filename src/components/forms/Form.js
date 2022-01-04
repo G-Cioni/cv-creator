@@ -10,15 +10,17 @@ class Form extends Component {
   }
 
   onInputChange(e, field) {
-    this.setState({
-      ...this.state,
-      formFields: {
-        ...this.state.formFields,
-        [field]: {
-          ...this.state.formFields[field],
-          inputValue: e.target.value,
+    this.setState((state) => {
+      return {
+        ...state,
+        formFields: {
+          ...state.formFields,
+          [field]: {
+            ...state.formFields[field],
+            inputValue: e.target.value,
+          },
         },
-      },
+      };
     });
   }
 
