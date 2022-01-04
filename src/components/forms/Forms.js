@@ -13,8 +13,10 @@ class Forms extends Component {
   }
 
   componentDidMount() {
+    const { workExperiencesCounter, educationCounter } = this.state;
     let updatedState = this.state;
-    if (this.state.workExperiencesCounter.length < 1) {
+
+    if (workExperiencesCounter.length < 1) {
       updatedState = {
         ...updatedState,
         workExperiencesCounter: updatedState.workExperiencesCounter.concat(
@@ -22,14 +24,17 @@ class Forms extends Component {
         ),
       };
     }
-    if (this.state.educationCounter.length < 1) {
+
+    if (educationCounter.length < 1) {
       updatedState = {
         ...updatedState,
         educationCounter: updatedState.educationCounter.concat(uniqid()),
       };
     }
+
     this.setState(updatedState);
   }
+
   render() {
     const { personalInfo, workExperiences, education } = formData;
     return (
