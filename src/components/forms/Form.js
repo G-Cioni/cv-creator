@@ -29,21 +29,22 @@ class Form extends Component {
   }
 
   componentDidMount() {
+    const { formType } = this.state;
     let inputName;
     let inputPlaceholder;
     let inputType;
     switch (!inputName && !inputPlaceholder && !inputType) {
-      case this.state.formType === 'workExperiences':
+      case formType === 'workExperiences':
         inputName = 'workDuty';
         inputPlaceholder = 'Work Duty';
         inputType = 'textarea';
         break;
-      case this.state.formType === 'skills':
+      case formType === 'skills':
         inputName = 'skill';
         inputPlaceholder = 'Skill';
         inputType = 'input';
         break;
-      case this.state.formType === 'certificates':
+      case formType === 'certificates':
         inputName = 'certificate';
         inputPlaceholder = 'Certificate';
         inputType = 'input';
@@ -54,6 +55,7 @@ class Form extends Component {
         inputType = '';
         break;
     }
+
     const extraInputs = this.state.extraInputCounter.reduce(
       (accumulator, id) => {
         accumulator = {
