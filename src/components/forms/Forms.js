@@ -79,6 +79,7 @@ class Forms extends Component {
         formData={workExperiences}
         addForm={this.addForm}
         removeForm={this.removeForm}
+        hasExtraInputs={true}
       />
     ));
 

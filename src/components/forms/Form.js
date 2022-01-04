@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Input from './Input';
 import Button from './Button';
-import uniqid from 'uniqid';
 import { setCounter } from '../../utils';
 
 class Form extends Component {
@@ -30,38 +29,40 @@ class Form extends Component {
   }
 
   componentDidMount() {
-    const { formType, extraInputCounter } = this.state;
+    const { hasExtraInputs } = this.props;
 
-    let extraInputs = [];
+    if (hasExtraInputs) {
+      const { formType, extraInputCounter } = this.state;
 
-    let inputName;
-    let inputPlaceholder;
-    let inputType;
+      let extraInputs = [];
 
-    switch (!inputName && !inputPlaceholder && !inputType) {
-      case formType === 'workExperiences':
-        inputName = 'workDuty';
-        inputPlaceholder = 'Work Duty';
-        inputType = 'textarea';
-        break;
-      case formType === 'skills':
-        inputName = 'skill';
-        inputPlaceholder = 'Skill';
-        inputType = 'input';
-        break;
-      case formType === 'certificates':
-        inputName = 'certificate';
-        inputPlaceholder = 'Certificate';
-        inputType = 'input';
-        break;
-      default:
-        inputName = '';
-        inputPlaceholder = '';
-        inputType = '';
-        break;
-    }
+      let inputName;
+      let inputPlaceholder;
+      let inputType;
 
-    if (['workExperiences'].includes(formType)) {
+      switch (!inputName && !inputPlaceholder && !inputType) {
+        case formType === 'workExperiences':
+          inputName = 'workDuty';
+          inputPlaceholder = 'Work Duty';
+          inputType = 'textarea';
+          break;
+        case formType === 'skills':
+          inputName = 'skill';
+          inputPlaceholder = 'Skill';
+          inputType = 'input';
+          break;
+        case formType === 'certificates':
+          inputName = 'certificate';
+          inputPlaceholder = 'Certificate';
+          inputType = 'input';
+          break;
+        default:
+          inputName = '';
+          inputPlaceholder = '';
+          inputType = '';
+          break;
+      }
+
       extraInputs = setCounter(extraInputCounter).reduce((accumulator, id) => {
         accumulator = {
           ...accumulator,
@@ -112,10 +113,13 @@ class Form extends Component {
           {addForm ? (
             <Button onClick={() => addForm(formType)} text={'Add Form'} />
           ) : null}
-          <Button
-            onClick={() => removeForm(formType, formId)}
-            text={'Remove Form'}
-          />
+          {removeForm ? (
+            <Button
+              onClick={() => removeForm(formType, formId)}
+              text={'Remove Form'}
+            />
+          ) : null}
+
           <button type="submit">Save</button>
         </form>
       </div>
