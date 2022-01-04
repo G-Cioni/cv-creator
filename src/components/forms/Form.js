@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Input from './Input';
 import Button from './Button';
+import uniqid from 'uniqid';
 import { setCounter } from '../../utils';
 
 class Form extends Component {
@@ -8,9 +9,10 @@ class Form extends Component {
     super(props);
     this.state = {
       ...this.props.formData,
-      extraInputCounter: [],
+      extraInputsCounter: [],
     };
     this.onInputChange = this.onInputChange.bind(this);
+    this.addExtraInput = this.addExtraInput.bind(this);
   }
 
   onInputChange(e, field) {
@@ -28,12 +30,13 @@ class Form extends Component {
     });
   }
 
-  componentDidMount() {
+  addExtraInput() {
     const { hasExtraInputs } = this.props;
 
-    if (hasExtraInputs) {
-      const { formType, extraInputCounter } = this.state;
+    let { formType, extraInputsCounter } = this.state;
+    const newCounter = extraInputsCounter.concat(uniqid());
 
+    if (hasExtraInputs) {
       let extraInputs = [];
 
       let inputName;
@@ -63,7 +66,7 @@ class Form extends Component {
           break;
       }
 
-      extraInputs = setCounter(extraInputCounter).reduce((accumulator, id) => {
+      extraInputs = newCounter.reduce((accumulator, id) => {
         accumulator = {
           ...accumulator,
           [`${inputName}-${id}`]: {
@@ -84,6 +87,70 @@ class Form extends Component {
             ...state.formFields,
             ...extraInputs,
           },
+          extraInputsCounter: newCounter,
+        };
+      });
+    }
+  }
+
+  componentDidMount() {
+    const { hasExtraInputs } = this.props;
+
+    const { formType, extraInputsCounter } = this.state;
+    const newCounter = setCounter(extraInputsCounter);
+
+    if (hasExtraInputs) {
+      let extraInputs = [];
+
+      let inputName;
+      let inputPlaceholder;
+      let inputType;
+
+      switch (!(inputName || inputPlaceholder || inputType)) {
+        case formType === 'workExperiences':
+          inputName = 'workDuty';
+          inputPlaceholder = 'Work Duty';
+          inputType = 'textarea';
+          break;
+        case formType === 'skills':
+          inputName = 'skill';
+          inputPlaceholder = 'Skill';
+          inputType = 'input';
+          break;
+        case formType === 'certificates':
+          inputName = 'certificate';
+          inputPlaceholder = 'Certificate';
+          inputType = 'input';
+          break;
+        default:
+          inputName = '';
+          inputPlaceholder = '';
+          inputType = '';
+          break;
+      }
+
+      extraInputs = newCounter.reduce((accumulator, id) => {
+        accumulator = {
+          ...accumulator,
+          [`${inputName}-${id}`]: {
+            id,
+            inputValue: '',
+            name: `${inputName}-${id}`,
+            placeHolder: inputPlaceholder,
+            type: inputType,
+          },
+        };
+        return accumulator;
+      }, {});
+
+      this.setState((state) => {
+        return {
+          ...state,
+          formFields: {
+            ...state.formFields,
+            ...extraInputs,
+          },
+          extraInputsCounter: newCounter,
         };
       });
     }
@@ -110,6 +177,7 @@ class Form extends Component {
         <h1>{formTitle}</h1>
         <form onSubmit={(e) => onFormSave(e, formType, formId, formFields)}>
           {inputs}
+          <Button onClick={this.addExtraInput} text="add input" />
           {addForm ? (
             <Button onClick={() => addForm(formType)} text={'Add Form'} />
           ) : null}
