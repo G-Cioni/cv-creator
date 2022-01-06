@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import Card from './Card';
 
-class Cv extends Component {
+class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
   render() {
-    return <div id="cv"></div>;
+    return <div className="card"></div>;
   }
 }
 
-export default Cv;
+export default Card;
