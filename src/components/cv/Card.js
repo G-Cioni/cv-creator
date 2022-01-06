@@ -7,14 +7,19 @@ const Card = ({ formData, className }) => {
         const className = name.includes('-')
           ? name.substring(0, name.indexOf('-'))
           : name;
-        //todo consider rendering different html tags instead of always a div
-        return (
-          <div key={id} className={className}>
+
+        return ['workDuty', 'description'].includes(className) ? (
+          <p key={id} className={className}>
             {text}
-          </div>
+          </p>
+        ) : (
+          <span key={id} className={className}>
+            {text}
+          </span>
         );
       })
     : null;
+
   return <div className={className}>{details}</div>;
 };
 
