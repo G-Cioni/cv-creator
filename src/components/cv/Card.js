@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
 class Card extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
   render() {
     const { formData } = this.props;
     const details = formData

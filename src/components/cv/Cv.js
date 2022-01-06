@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import Card from './Card';
 
 class Cv extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
   render() {
     const { allFormsData } = this.props;
     const cards = allFormsData
