@@ -1,7 +1,8 @@
+import './styles/App.css';
 import React, { Component } from 'react';
 import Forms from './components/forms/Forms';
+import Cv from './components/cv/Cv';
 import { getFormName } from './utils';
-import './styles/App.css';
 
 class App extends Component {
   constructor() {
@@ -37,6 +38,7 @@ class App extends Component {
           onFormSave={this.onFormSave}
           deleteFormState={this.deleteFormState}
         />
+        <Cv />
       </div>
     );
   }
