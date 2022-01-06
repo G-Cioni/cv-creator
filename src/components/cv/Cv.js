@@ -5,7 +5,10 @@ const Cv = ({ allFormsData }) => {
   const cards = allFormsData
     ? Object.keys(allFormsData).map((card) => {
         const id = card.substring(card.indexOf('-') + 1);
-        return <Card key={id} formData={allFormsData[card]} />;
+        const className = card.substring(0, card.indexOf('-'));
+        return (
+          <Card key={id} className={className} formData={allFormsData[card]} />
+        );
       })
     : null;
   return <div id="cv">{cards}</div>;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Card = ({ formData }) => {
+const Card = ({ formData, className }) => {
   const details = formData
     ? Object.keys(formData).map((detail) => {
         const { inputValue: text, id, name } = formData[detail];
@@ -15,7 +15,7 @@ const Card = ({ formData }) => {
         );
       })
     : null;
-  return <div className="card">{details}</div>;
+  return <div className={className}>{details}</div>;
 };
 
 export default Card;
