@@ -90,8 +90,8 @@ const formData = {
         inputValue: '',
         type: 'input',
       },
-      city: {
-        name: 'city',
+      workCity: {
+        name: 'workCity',
         placeHolder: 'City',
         id: uniqid(),
         inputValue: '',
@@ -132,8 +132,8 @@ const formData = {
         inputValue: '',
         type: 'input',
       },
-      city: {
-        name: 'city',
+      educationCity: {
+        name: 'educationCity',
         placeHolder: 'City',
         id: uniqid(),
         inputValue: '',
