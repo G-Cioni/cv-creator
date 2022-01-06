@@ -9,6 +9,7 @@ class Forms extends Component {
     super(props);
     this.state = {
       personalFormsCounter: [],
+      contactFormsCounter: [],
       workFormsCounter: [],
       educationFormsCounter: [],
       skillsFormsCounter: [],
@@ -49,6 +50,7 @@ class Forms extends Component {
   componentDidMount() {
     const {
       personalFormsCounter,
+      contactFormsCounter,
       workFormsCounter,
       educationFormsCounter,
       skillsFormsCounter,
@@ -60,6 +62,7 @@ class Forms extends Component {
       return {
         ...state,
         personalFormsCounter: personalFormsCounter.concat(uniqid()),
+        contactFormsCounter: contactFormsCounter.concat(uniqid()),
         workFormsCounter: workFormsCounter.concat(uniqid()),
         educationFormsCounter: educationFormsCounter.concat(uniqid()),
         skillsFormsCounter: skillsFormsCounter.concat(uniqid()),
@@ -69,10 +72,17 @@ class Forms extends Component {
   }
 
   render() {
-    const { personalInfo, workExperiences, education, skills, certificates } =
-      formData;
+    const {
+      personalInfo,
+      contact,
+      workExperiences,
+      education,
+      skills,
+      certificates,
+    } = formData;
     const {
       personalFormsCounter,
+      contactFormsCounter,
       workFormsCounter,
       educationFormsCounter,
       skillsFormsCounter,
@@ -87,6 +97,14 @@ class Forms extends Component {
         formId={formId}
         onFormSave={onFormSave}
         formData={personalInfo}
+      />
+    ));
+    const contactForms = contactFormsCounter.map((formId) => (
+      <Form
+        key={formId}
+        formId={formId}
+        onFormSave={onFormSave}
+        formData={contact}
       />
     ));
     const workForms = workFormsCounter.map((formId) => (
@@ -132,6 +150,7 @@ class Forms extends Component {
     return (
       <div id="forms">
         {personalForms}
+        {contactForms}
         {workForms}
         {educationForms}
         {skillsForms}

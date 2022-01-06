@@ -26,13 +26,20 @@ const formData = {
         inputValue: '',
         type: 'input',
       },
-      email: {
-        name: 'email',
-        placeHolder: 'Email',
+      description: {
+        name: 'description',
+        placeHolder: 'Description',
         id: uniqid(),
         inputValue: '',
-        type: 'input',
+        type: 'textarea',
       },
+    },
+  },
+
+  contact: {
+    formTitle: 'Contact Details',
+    formType: 'contact',
+    formFields: {
       phoneNumber: {
         name: 'phoneNumber',
         placeHolder: 'Phone Number',
@@ -40,6 +47,14 @@ const formData = {
         inputValue: '',
         type: 'input',
       },
+      email: {
+        name: 'email',
+        placeHolder: 'Email',
+        id: uniqid(),
+        inputValue: '',
+        type: 'input',
+      },
+
       location: {
         name: 'location',
         placeHolder: 'Location',
@@ -47,12 +62,12 @@ const formData = {
         inputValue: '',
         type: 'input',
       },
-      description: {
-        name: 'description',
-        placeHolder: 'Description',
+      linkedin: {
+        name: 'linkedin',
+        placeHolder: 'LinkedIn',
         id: uniqid(),
         inputValue: '',
-        type: 'textarea',
+        type: 'input',
       },
     },
   },
@@ -98,6 +113,7 @@ const formData = {
       },
     },
   },
+
   education: {
     formTitle: 'Education',
     formType: 'education',
@@ -139,11 +155,13 @@ const formData = {
       },
     },
   },
+
   skills: {
     formTitle: 'Skills',
     formType: 'skills',
     formFields: {},
   },
+
   certificates: {
     formTitle: 'Certificates',
     formType: 'certificates',
