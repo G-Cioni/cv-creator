@@ -38,7 +38,7 @@ class App extends Component {
           onFormSave={this.onFormSave}
           deleteFormState={this.deleteFormState}
         />
-        <Cv />
+        <Cv allFormsData={this.state} />
       </div>
     );
   }

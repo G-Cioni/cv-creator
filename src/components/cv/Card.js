@@ -6,7 +6,16 @@ class Card extends Component {
     this.state = {};
   }
   render() {
-    return <div className="card"></div>;
+    const { formData } = this.props;
+    const details = formData
+      ? Object.keys(formData).map((detail) => {
+          const text = formData[detail].inputValue;
+          const id = formData[detail].id;
+          return <div key={id}>{text}</div>;
+        })
+      : null;
+
+    return <div className="card">{details}</div>;
   }
 }
 

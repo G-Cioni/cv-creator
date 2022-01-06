@@ -7,7 +7,14 @@ class Cv extends Component {
     this.state = {};
   }
   render() {
-    return <div id="cv"></div>;
+    const { allFormsData } = this.props;
+    const cards = allFormsData
+      ? Object.keys(allFormsData).map((card) => {
+          const id = card.substring(card.indexOf('-') + 1);
+          return <Card key={id} formData={allFormsData[card]} />;
+        })
+      : null;
+    return <div id="cv">{cards}</div>;
   }
 }
 
