@@ -31,11 +31,15 @@ const Cv = ({ allFormsData }) => {
     <div id="Cv">
       {personalInfo}
       {contact}
-      <div id="workExperiencesCV">{workExperiences}</div>
-      <div id="educationCv">{education}</div>
-      {skills}
-      {certificates}
-      {languages}
+      <div id="workEducation">
+        <div id="workExperiencesCV">{workExperiences}</div>
+        <div id="educationCv">{education}</div>
+      </div>
+      <div id="scl">
+        {skills}
+        {certificates}
+        {languages}
+      </div>
     </div>
   );
 };
