@@ -1,6 +1,6 @@
 :root {
   --cv-height: 95vh;
-  --cv-aspect-ratio: 1 / 1.4142; /* A4 paper aspect ratio*/
+  --cv-width: calc(var(--cv-height) / 1.4142); /* A4 paper aspect ratio*/
   --border-radius: 0.3em;
 }
 
@@ -65,10 +65,10 @@ button {
 
 #Cv {
   align-self: start;
-  aspect-ratio: var(--cv-aspect-ratio);
-  border: 1px solid black;
   border-radius: var(--border-radius);
+  border: 1px solid black;
   height: var(--cv-height);
   position: sticky;
   top: 2vh;
+  width: var(--cv-width);
 }
