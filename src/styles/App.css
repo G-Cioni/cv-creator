@@ -1,9 +1,0 @@
-:root {
-  /* Set Cv size ratio to that of an A4  */
-  --cv-height: 100vh;
-  --cv-width: calc(var(--cv-height) / 1.4142);
-}
-#Cv {
-  height: var(--cv-height);
-  width: var(--cv-width);
-}
