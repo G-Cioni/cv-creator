@@ -8,13 +8,15 @@ class Forms extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      personalFormsCounter: [],
-      contactFormsCounter: [],
-      workFormsCounter: [],
-      educationFormsCounter: [],
-      skillsFormsCounter: [],
-      certificatesFormsCounter: [],
-      languagesFormsCounter:[],
+      counters: {
+        personalFormsCounter: [],
+        contactFormsCounter: [],
+        workFormsCounter: [],
+        educationFormsCounter: [],
+        skillsFormsCounter: [],
+        certificatesFormsCounter: [],
+        languagesFormsCounter:[],
+      },
     };
     this.addForm = this.addForm.bind(this);
     this.removeForm = this.removeForm.bind(this);
@@ -57,19 +59,22 @@ class Forms extends Component {
       skillsFormsCounter,
       certificatesFormsCounter,
       languagesFormsCounter,
-    } = this.state;
+    } = this.state.counters;
 
     // Adds first uniqid to each form counter
     this.setState((state) => {
       return {
         ...state,
-        personalFormsCounter: personalFormsCounter.concat(uniqid()),
-        contactFormsCounter: contactFormsCounter.concat(uniqid()),
-        workFormsCounter: workFormsCounter.concat(uniqid()),
-        educationFormsCounter: educationFormsCounter.concat(uniqid()),
-        skillsFormsCounter: skillsFormsCounter.concat(uniqid()),
-        certificatesFormsCounter: certificatesFormsCounter.concat(uniqid()),
-        languagesFormsCounter: languagesFormsCounter.concat(uniqid()),
+        counters:{
+          ...state.counters,
+          personalFormsCounter: personalFormsCounter.concat(uniqid()),
+          contactFormsCounter: contactFormsCounter.concat(uniqid()),
+          workFormsCounter: workFormsCounter.concat(uniqid()),
+          educationFormsCounter: educationFormsCounter.concat(uniqid()),
+          skillsFormsCounter: skillsFormsCounter.concat(uniqid()),
+          certificatesFormsCounter: certificatesFormsCounter.concat(uniqid()),
+          languagesFormsCounter: languagesFormsCounter.concat(uniqid()),
+        },
       };
     });
   }
@@ -84,6 +89,7 @@ class Forms extends Component {
       certificates,
       languages,
     } = formData;
+
     const {
       personalFormsCounter,
       contactFormsCounter,
@@ -92,7 +98,8 @@ class Forms extends Component {
       skillsFormsCounter,
       certificatesFormsCounter,
       languagesFormsCounter,
-    } = this.state;
+    } = this.state.counters;
+
     const { onFormSave } = this.props;
 
     // Generates arrays for each form type which will then be rendered
