@@ -3,7 +3,18 @@
   --cv-height: 100vh;
   --cv-width: calc(var(--cv-height) / 1.4142);
 }
+
+#App {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1em;
+}
+
+#Forms {
+  width: 25em;
+}
 #Cv {
+  border: 1px solid black;
   height: var(--cv-height);
   width: var(--cv-width);
 }
