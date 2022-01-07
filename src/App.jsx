@@ -33,7 +33,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div id="App">
         <Forms
           onFormSave={this.onFormSave}
           deleteFormState={this.deleteFormState}

@@ -148,7 +148,7 @@ class Forms extends Component {
     ));
 
     return (
-      <div id="forms">
+      <div id="Forms">
         {personalForms}
         {contactForms}
         {workForms}

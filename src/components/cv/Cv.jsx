@@ -11,7 +11,7 @@ const Cv = ({ allFormsData }) => {
         );
       })
     : null;
-  return <div id="cv">{cards}</div>;
+  return <div id="Cv">{cards}</div>;
 };
 
 export default Cv;
