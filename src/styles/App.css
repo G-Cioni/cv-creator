@@ -1,7 +1,11 @@
 :root {
-  --cv-height: 95vh;
-  --cv-aspect-ratio: 1 / 1.4142; /* A4 paper aspect ratio*/
   --border-radius: 0.3em;
+  --cv-height: 95vh;
+  --cv-width: calc(var(--cv-height) / 1.4142); /* A4 paper aspect ratio*/
+  --secondary-bg-color-1: #353535;
+  --secondary-bg-color-2: #60afff;
+  --secondary-bg-color-3: #284b63;
+  --secondary-bg-color-4: #cfd11a;
 }
 
 /* =====
@@ -64,11 +68,50 @@ button {
    ==== */
 
 #Cv {
+  align-items: start;
   align-self: start;
-  aspect-ratio: var(--cv-aspect-ratio);
-  border: 1px solid black;
   border-radius: var(--border-radius);
+  border: 1px solid black;
+  display: grid;
+  grid-template-areas:
+    'personalContact personalContact'
+    'workEducation scl ';
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto 1fr;
   height: var(--cv-height);
   position: sticky;
   top: 2vh;
+  width: var(--cv-width);
+}
+
+#personalContact {
+  grid-area: personalContact;
+  display: flex;
+}
+
+#workEducation {
+  grid-area: workEducation;
+  display: flex;
+  flex-direction: column;
+}
+
+#scl {
+  grid-area: scl;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cards */
+
+.contactCard {
+  border-left-style: solid;
+  border-color: var(--secondary-bg-color-2);
+  height: max-content;
+  width: minmax(1em, 10em);
+  margin-left: auto;
+}
+
+span {
+  display: block;
+  background-color: red;
 }
