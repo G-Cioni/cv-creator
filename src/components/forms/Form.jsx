@@ -35,57 +35,23 @@ class Form extends Component {
   addExtraInput() {
     const { hasExtraInputs } = this.props;
 
-    let { formType, extraInputsCounter } = this.state;
+    let { extraInputsCounter, extraInputType, extraInputPlaceHolder, extraInputName} = this.state;
     const newCounter = extraInputsCounter.concat(uniqid());
 
     if (hasExtraInputs) {
       let extraInputs = [];
-
-      // Declare variables which will be used to update state
-      let inputName;
-      let inputPlaceholder;
-      let inputType;
-
-      // Assigns correct values to the variables
-      switch (!(inputName || inputPlaceholder || inputType)) {
-        case formType === 'workExperiences':
-          inputName = 'workDuty';
-          inputPlaceholder = 'Work Duty';
-          inputType = 'textarea';
-          break;
-        case formType === 'skills':
-          inputName = 'skill';
-          inputPlaceholder = 'Skill';
-          inputType = 'input';
-          break;
-        case formType === 'certificates':
-          inputName = 'certificate';
-          inputPlaceholder = 'Certificate';
-          inputType = 'input';
-          break;
-        case formType === 'languages':
-          inputName = 'language';
-          inputPlaceholder = 'Language';
-          inputType = 'input';
-          break;
-        default:
-          inputName = '';
-          inputPlaceholder = '';
-          inputType = '';
-          break;
-      }
 
       // Creates a new object which temporarily holds the new state for each new input field
       extraInputs = newCounter.reduce((accumulator, id) => {
         if (!extraInputsCounter.includes(id)) {
           accumulator = {
             ...accumulator,
-            [`${inputName}-${id}`]: {
+            [`${extraInputName}-${id}`]: {
               id,
               inputValue: '',
-              name: `${inputName}-${id}`,
-              placeHolder: inputPlaceholder,
-              type: inputType,
+              name: `${extraInputName}-${id}`,
+              placeHolder: extraInputPlaceHolder,
+              type: extraInputType,
             },
           };
         }
@@ -128,22 +94,9 @@ class Form extends Component {
   }
 
   render() {
-    const { formFields, formType } = this.state;
+    const { formFields, formType,extraInputName } = this.state;
     const { formId, addForm, counter, onFormSave, removeForm, hasExtraInputs } =
       this.props;
-
-    // Assigns the extra input fields name based on it's context
-    let extraInputName 
-
-    if (formType === 'workExperiences') {
-      extraInputName = 'Work Duty'
-    } else if (formType === "skills") {
-      extraInputName = "Skill"
-    } else if (formType=== "certificates"){
-      extraInputName = "Certificate"
-    } else if (formType === "languages") {
-      extraInputName = "Language"
-    }
 
     // Creates an array of all the input fields to then render
     const inputs = Object.keys(formFields).map((inputName) => {

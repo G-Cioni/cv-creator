@@ -75,6 +75,9 @@ const formData = {
   workExperiences: {
     formTitle: 'Work Experiences',
     formType: 'workExperiences',
+    extraInputType: 'textarea',
+    extraInputPlaceHolder: 'Work Duty',
+    extraInputName: 'workDuty',
     formFields: {
       position: {
         name: 'position',
@@ -159,18 +162,27 @@ const formData = {
   skills: {
     formTitle: 'Skills',
     formType: 'skills',
+    extraInputType: 'input',
+    extraInputPlaceHolder: 'Skill',
+    extraInputName: 'skill',
     formFields: {},
   },
 
   certificates: {
     formTitle: 'Certificates',
     formType: 'certificates',
+    extraInputType: 'input',
+    extraInputPlaceHolder: 'Certificate',
+    extraInputName: 'certificate',
     formFields: {},
   },
 
   languages: {
     formTitle: 'Languages',
     formType: 'languages',
+    extraInputType: 'input',
+    extraInputPlaceHolder: 'Language',
+    extraInputName: 'language',
     formFields: {},
   },
 };
