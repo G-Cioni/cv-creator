@@ -9,8 +9,8 @@
 
 #App {
   display: grid;
-  grid-template-columns: auto auto;
   grid-gap: 2em;
+  grid-template-columns: auto auto;
   width: max-content;
 }
 
@@ -19,8 +19,8 @@
    ======= */
 
 #Forms {
-  width: 25em;
   border: 1px solid black;
+  width: 25em;
 }
 
 .formSection {
@@ -36,8 +36,8 @@ input,
 textarea {
   display: block;
   font-size: 0.9rem;
-  width: 95%;
   margin: 0.3em auto;
+  width: 95%;
 }
 input {
   height: 2em;
@@ -53,9 +53,9 @@ textarea {
 
 #Cv {
   align-self: start;
-  position: sticky;
-  top: 2vh;
-  height: var(--cv-height);
   aspect-ratio: var(--cv-aspect-ratio);
   border: 1px solid black;
+  height: var(--cv-height);
+  position: sticky;
+  top: 2vh;
 }
