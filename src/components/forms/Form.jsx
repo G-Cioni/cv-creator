@@ -43,6 +43,7 @@ class Form extends Component {
 
       // Creates a new object which temporarily holds the new state for each new input field
       extraInputs = newCounter.reduce((accumulator, id) => {
+        //Checks if the extra input is already in state and updates the accumulator if it isn't
         if (!extraInputsCounter.includes(id)) {
           accumulator = {
             ...accumulator,
