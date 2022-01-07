@@ -42,11 +42,14 @@ class Forms extends Component {
     const formName = getFormName(formType, formId);
     const counterName = getCounterName(formType);
     const { deleteFormState } = this.props;
-    if (this.state[counterName].length > 1) {
+    if (this.state.counters[counterName].length > 1) {
       this.setState((state) => {
         return {
           ...state,
-          [counterName]: state[counterName].filter((id) => id !== formId),
+          counters: {
+            ...state.counters,
+            [counterName]: state.counters[counterName].filter((id) => id !== formId),
+          }
         };
       });
       deleteFormState(formName);
@@ -163,20 +166,34 @@ class Forms extends Component {
 
     return (
       <div id="Forms">
+        <div className="formSection">
         <h2 className="formTitle">Personal Info</h2>
         {personalForms}
+        </div>
+        <div className="formSection">
         <h2 className="formTitle">Contact Info</h2>
         {contactForms}
+        </div>
+        <div className="formSection">
         <h2 className="formTitle">Work Experiences</h2>
         {workForms}
+        </div>
+        <div className="formSection">
         <h2 className="formTitle">Education</h2>
         {educationForms}
+        </div>
+        <div className="formSection">
         <h2 className="formTitle">Skills</h2>
         {skillsForms}
+        </div>
+        <div className="formSection">
         <h2 className="formTitle">Certificates</h2>
         {certificatesForms}
+        </div>
+        <div className="formSection">
         <h2 className="formTitle">Languages</h2>
         {languagesForms}
+        </div>
       </div>
     );
   }

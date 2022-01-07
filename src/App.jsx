@@ -7,6 +7,7 @@ import { getFormName } from './helpers/utils';
 class App extends Component {
   constructor() {
     super();
+    this.state={}
     this.onFormSave = this.onFormSave.bind(this);
     this.deleteFormState = this.deleteFormState.bind(this);
   }
@@ -25,10 +26,10 @@ class App extends Component {
   }
 
   deleteFormState(formName) {
-    this.setState((state) => {
-      delete state[formName];
-      return state;
-    });
+      this.setState((state) => {
+        delete state[formName];
+        return state;
+      });
   }
 
   render() {
