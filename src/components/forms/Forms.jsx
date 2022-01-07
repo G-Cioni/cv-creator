@@ -29,7 +29,10 @@ class Forms extends Component {
     this.setState((state) => {
       return {
         ...state,
-        [counterName]: state[counterName].concat(uniqid()),
+        counters: {
+          ...state.counters,
+          [counterName]: state.counters[counterName].concat(uniqid()),
+        }
       };
     });
   }
