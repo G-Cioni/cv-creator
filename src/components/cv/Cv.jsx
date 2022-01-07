@@ -26,7 +26,6 @@ const Cv = ({ allFormsData }) => {
     certificates,
     languages,
   } = cards;
-
   return (
     <div id="Cv">
       <div id="personalContact">
@@ -34,12 +33,23 @@ const Cv = ({ allFormsData }) => {
         {contact}
       </div>
       <div id="workEducation">
-        <div id="workExperiencesCV">{workExperiences}</div>
-        <div id="educationCv">{education}</div>
+        <div id="workExperiencesCV">
+          <h2 className="cvTitle">
+            {workExperiences ? 'Work Experience' : null}
+          </h2>
+          {workExperiences}
+        </div>
+        <div id="educationCv">
+          <h2 className="cvTitle">{education ? 'Education' : null}</h2>
+          {education}
+        </div>
       </div>
       <div id="scl">
+        <h2 className="cvTitle">{skills ? 'Skills' : null}</h2>
         {skills}
+        <h2 className="cvTitle">{certificates ? 'Certificates' : null}</h2>
         {certificates}
+        <h2 className="cvTitle">{languages ? 'Languages' : null}</h2>
         {languages}
       </div>
     </div>
