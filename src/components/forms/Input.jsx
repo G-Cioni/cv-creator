@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component} from 'react';
 import Button from './Button';
 
 class Input extends Component {
@@ -11,7 +11,8 @@ class Input extends Component {
       type,
       removeExtraInput,
       inputId,
-      extraInputName
+      extraInputName,
+      counter
     } = this.props;
 
     // Conditionally renders an input field or a textarea
@@ -30,7 +31,7 @@ class Input extends Component {
             placeholder={placeHolder}
           />
         )}
-        {removeExtraInput ? (
+        {removeExtraInput && counter.length > 1 ? (
           <Button
             onClick={() => removeExtraInput(name, inputId)}
             text={`Remove ${extraInputName}`}

@@ -95,7 +95,7 @@ class Form extends Component {
   }
 
   render() {
-    const { formFields, formType,extraInputName } = this.state;
+    const { formFields, formType,extraInputName,extraInputsCounter } = this.state;
     const { formId, addForm, counter, onFormSave, removeForm, hasExtraInputs } =
       this.props;
 
@@ -114,6 +114,7 @@ class Form extends Component {
           handleOnChange={this.onInputChange}
           removeExtraInput={name.includes(id) ? this.removeExtraInput : null}
           extraInputName = {(extraInputName?? null)}
+          counter = {extraInputsCounter}
         />
       );
     });
@@ -132,7 +133,7 @@ class Form extends Component {
           {(counter?.indexOf(formId) === counter?.length - 1) ? (
             <Button onClick={() => addForm(formType)} text={'Add Form'} />
           ) : null}
-          {removeForm ? (
+          {removeForm && counter.length > 1? (
             <Button
               onClick={() => removeForm(formType, formId)}
               text={'Remove Form'}
