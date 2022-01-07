@@ -1,20 +1,25 @@
 :root {
   /* Set Cv size ratio to that of an A4  */
-  --cv-height: 100vh;
+  --cv-height: 95vh;
   --cv-width: calc(var(--cv-height) / 1.4142);
 }
 
 #App {
   display: grid;
   grid-template-columns: auto auto;
-  gap: 1em;
+  grid-gap: 2em;
+  width: max-content;
 }
 
 #Forms {
   width: 25em;
 }
+
 #Cv {
-  border: 1px solid black;
+  align-self: start;
+  position: sticky;
+  top: 2vh;
   height: var(--cv-height);
   width: var(--cv-width);
+  border: 1px solid black;
 }
