@@ -51,30 +51,18 @@ class Forms extends Component {
   }
 
   componentDidMount() {
-    const {
-      personalFormsCounter,
-      contactFormsCounter,
-      workFormsCounter,
-      educationFormsCounter,
-      skillsFormsCounter,
-      certificatesFormsCounter,
-      languagesFormsCounter,
-    } = this.state.counters;
-
+    const { counters } = this.state;
+    
     // Adds first uniqid to each form counter
+    const updatedCounters = Object.keys(counters).reduce((accumulator, counterName) =>{
+      accumulator[counterName] = counters[counterName].concat(uniqid())
+      return accumulator
+    },{})
+
     this.setState((state) => {
       return {
         ...state,
-        counters:{
-          ...state.counters,
-          personalFormsCounter: personalFormsCounter.concat(uniqid()),
-          contactFormsCounter: contactFormsCounter.concat(uniqid()),
-          workFormsCounter: workFormsCounter.concat(uniqid()),
-          educationFormsCounter: educationFormsCounter.concat(uniqid()),
-          skillsFormsCounter: skillsFormsCounter.concat(uniqid()),
-          certificatesFormsCounter: certificatesFormsCounter.concat(uniqid()),
-          languagesFormsCounter: languagesFormsCounter.concat(uniqid()),
-        },
+         counters: updatedCounters,
       };
     });
   }
