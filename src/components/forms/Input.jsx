@@ -16,7 +16,7 @@ class Input extends Component {
 
     // Conditionally renders an input field or a textarea
     return (
-      <Fragment>
+      <div>
         {type === 'input' ? (
           <input
             value={inputValue}
@@ -36,7 +36,7 @@ class Input extends Component {
             text={`Remove ${extraInputName}`}
           />
         ) : null}
-      </Fragment>
+      </div>
     );
   }
 }
