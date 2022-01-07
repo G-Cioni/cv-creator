@@ -128,12 +128,17 @@ class Form extends Component {
       this.props;
 
     // Assigns the extra input fields name based on it's context
-    const extraInputName =
-      formType === 'workExperiences'
-        ? 'Work Duty'
-        : formType === 'skills'
-        ? 'Skill'
-        : 'Certificate';
+    let extraInputName 
+
+    if (formType === 'workExperiences') {
+      extraInputName = 'Work Duty'
+    } else if (formType === "skills") {
+      extraInputName = "Skill"
+    } else if (formType=== "certificates"){
+      extraInputName = "Certificate"
+    } else if (formType === "languages") {
+      extraInputName = "Language"
+    }
 
     // Creates an array of all the input fields to then render
     const inputs = Object.keys(formFields).map((inputName) => {
