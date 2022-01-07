@@ -63,6 +63,11 @@ class Form extends Component {
           inputPlaceholder = 'Certificate';
           inputType = 'input';
           break;
+        case formType === 'languages':
+          inputName = 'language';
+          inputPlaceholder = 'Language';
+          inputType = 'input';
+          break;
         default:
           inputName = '';
           inputPlaceholder = '';
@@ -154,6 +159,7 @@ class Form extends Component {
           inputValue={inputValue}
           handleOnChange={this.onInputChange}
           removeExtraInput={name.includes(id) ? this.removeExtraInput : null}
+          extraInputName = {(extraInputName?? null)}
         />
       );
     });

@@ -14,6 +14,7 @@ class Forms extends Component {
       educationFormsCounter: [],
       skillsFormsCounter: [],
       certificatesFormsCounter: [],
+      languagesFormsCounter:[],
     };
     this.addForm = this.addForm.bind(this);
     this.removeForm = this.removeForm.bind(this);
@@ -55,6 +56,7 @@ class Forms extends Component {
       educationFormsCounter,
       skillsFormsCounter,
       certificatesFormsCounter,
+      languagesFormsCounter,
     } = this.state;
 
     // Adds first uniqid to each form counter
@@ -67,6 +69,7 @@ class Forms extends Component {
         educationFormsCounter: educationFormsCounter.concat(uniqid()),
         skillsFormsCounter: skillsFormsCounter.concat(uniqid()),
         certificatesFormsCounter: certificatesFormsCounter.concat(uniqid()),
+        languagesFormsCounter: languagesFormsCounter.concat(uniqid()),
       };
     });
   }
@@ -79,6 +82,7 @@ class Forms extends Component {
       education,
       skills,
       certificates,
+      languages,
     } = formData;
     const {
       personalFormsCounter,
@@ -87,6 +91,7 @@ class Forms extends Component {
       educationFormsCounter,
       skillsFormsCounter,
       certificatesFormsCounter,
+      languagesFormsCounter,
     } = this.state;
     const { onFormSave } = this.props;
 
@@ -148,6 +153,15 @@ class Forms extends Component {
         hasExtraInputs={true}
       />
     ));
+    const languagesForms = languagesFormsCounter.map((formId) => (
+      <Form
+        key={formId}
+        formId={formId}
+        onFormSave={onFormSave}
+        formData={languages}
+        hasExtraInputs={true}
+      />
+    ));
 
     return (
       <div id="Forms">
@@ -163,6 +177,8 @@ class Forms extends Component {
         {skillsForms}
         <h2 className="formTitle">Certificates</h2>
         {certificatesForms}
+        <h2 className="formTitle">Languages</h2>
+        {languagesForms}
       </div>
     );
   }

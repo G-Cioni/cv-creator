@@ -167,6 +167,12 @@ const formData = {
     formType: 'certificates',
     formFields: {},
   },
+
+  languages: {
+    formTitle: 'Languages',
+    formType: 'languages',
+    formFields: {},
+  },
 };
 
 export default formData;
