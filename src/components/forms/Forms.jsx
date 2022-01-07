@@ -163,20 +163,34 @@ class Forms extends Component {
 
     return (
       <div id="Forms">
+        <div className="formSection">
         <h2 className="formTitle">Personal Info</h2>
         {personalForms}
+        </div>
+        <div className="formSection">
         <h2 className="formTitle">Contact Info</h2>
         {contactForms}
+        </div>
+        <div className="formSection">
         <h2 className="formTitle">Work Experiences</h2>
         {workForms}
+        </div>
+        <div className="formSection">
         <h2 className="formTitle">Education</h2>
         {educationForms}
+        </div>
+        <div className="formSection">
         <h2 className="formTitle">Skills</h2>
         {skillsForms}
+        </div>
+        <div className="formSection">
         <h2 className="formTitle">Certificates</h2>
         {certificatesForms}
+        </div>
+        <div className="formSection">
         <h2 className="formTitle">Languages</h2>
         {languagesForms}
+        </div>
       </div>
     );
   }
