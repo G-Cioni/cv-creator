@@ -151,11 +151,17 @@ class Forms extends Component {
 
     return (
       <div id="Forms">
+        <h2 className="formTitle">Personal Info</h2>
         {personalForms}
+        <h2 className="formTitle">Contact Info</h2>
         {contactForms}
+        <h2 className="formTitle">Work Experiences</h2>
         {workForms}
+        <h2 className="formTitle">Education</h2>
         {educationForms}
+        <h2 className="formTitle">Skills</h2>
         {skillsForms}
+        <h2 className="formTitle">Certificates</h2>
         {certificatesForms}
       </div>
     );

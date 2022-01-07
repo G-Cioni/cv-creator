@@ -123,7 +123,7 @@ class Form extends Component {
   }
 
   render() {
-    const { formFields, formTitle, formType } = this.state;
+    const { formFields, formType } = this.state;
     const { formId, addForm, counter, onFormSave, removeForm, hasExtraInputs } =
       this.props;
 
@@ -155,7 +155,6 @@ class Form extends Component {
 
     return (
       <div className="form">
-        <h1>{formTitle}</h1>
         <form onSubmit={(e) => onFormSave(e, formType, formId, formFields)}>
           {inputs}
           {hasExtraInputs ? (
