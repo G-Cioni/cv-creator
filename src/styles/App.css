@@ -1,7 +1,11 @@
 :root {
+  --border-radius: 0.3em;
   --cv-height: 95vh;
   --cv-width: calc(var(--cv-height) / 1.4142); /* A4 paper aspect ratio*/
-  --border-radius: 0.3em;
+  --secondary-bg-color-1: #353535;
+  --secondary-bg-color-2: #60afff;
+  --secondary-bg-color-3: #284b63;
+  --secondary-bg-color-4: #cfd11a;
 }
 
 /* =====
@@ -82,12 +86,32 @@ button {
 
 #personalContact {
   grid-area: personalContact;
+  display: flex;
 }
 
 #workEducation {
   grid-area: workEducation;
+  display: flex;
+  flex-direction: column;
 }
 
 #scl {
   grid-area: scl;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cards */
+
+.contactCard {
+  border-left-style: solid;
+  border-color: var(--secondary-bg-color-2);
+  height: max-content;
+  width: minmax(1em, 10em);
+  margin-left: auto;
+}
+
+span {
+  display: block;
+  background-color: red;
 }
