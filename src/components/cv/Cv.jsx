@@ -29,8 +29,10 @@ const Cv = ({ allFormsData }) => {
 
   return (
     <div id="Cv">
-      {personalInfo}
-      {contact}
+      <div id="personalContact">
+        {personalInfo}
+        {contact}
+      </div>
       <div id="workEducation">
         <div id="workExperiencesCV">{workExperiences}</div>
         <div id="educationCv">{education}</div>

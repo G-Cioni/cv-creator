@@ -64,11 +64,30 @@ button {
    ==== */
 
 #Cv {
+  align-items: start;
   align-self: start;
   border-radius: var(--border-radius);
   border: 1px solid black;
+  display: grid;
+  grid-template-areas:
+    'personalContact personalContact'
+    'workEducation scl ';
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto 1fr;
   height: var(--cv-height);
   position: sticky;
   top: 2vh;
   width: var(--cv-width);
+}
+
+#personalContact {
+  grid-area: personalContact;
+}
+
+#workEducation {
+  grid-area: workEducation;
+}
+
+#scl {
+  grid-area: scl;
 }
