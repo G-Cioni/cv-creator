@@ -1,0 +1,74 @@
+:root {
+  --cv-height: 95vh;
+  --cv-aspect-ratio: 1 / 1.4142; /* A4 paper aspect ratio*/
+  --border-radius: 0.3em;
+}
+
+/* =====
+    App
+   ===== */
+
+#App {
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: auto auto;
+  width: max-content;
+}
+
+/* =======
+    Forms
+   ======= */
+
+#Forms {
+  border: 1px solid black;
+  border-radius: var(--border-radius);
+  width: 25em;
+}
+
+.formSection {
+  margin: 1em;
+}
+.formTitle {
+  margin: 0.5em 0.2em;
+}
+
+/* Inputs */
+
+input,
+textarea {
+  border-radius: var(--border-radius);
+  display: block;
+  font-size: 0.9rem;
+  margin: 0.3em auto;
+  width: 95%;
+}
+input {
+  height: 2em;
+}
+
+textarea {
+  height: 4em;
+  resize: vertical;
+}
+
+/* Buttons */
+button {
+  border-radius: var(--border-radius);
+  display: block;
+  margin: 0.3em auto;
+  width: 95%;
+}
+
+/* ====
+    Cv
+   ==== */
+
+#Cv {
+  align-self: start;
+  aspect-ratio: var(--cv-aspect-ratio);
+  border: 1px solid black;
+  border-radius: var(--border-radius);
+  height: var(--cv-height);
+  position: sticky;
+  top: 2vh;
+}
