@@ -11,16 +11,9 @@ class Input extends Component {
       type,
       removeExtraInput,
       inputId,
-      parentFormType,
+      extraInputName
     } = this.props;
 
-    // Assigns the extra input fields name based on it's context
-    const extraInputName =
-      parentFormType === 'workExperiences'
-        ? 'Work Duty'
-        : parentFormType === 'skills'
-        ? 'Skill'
-        : 'Certificate';
     // Conditionally renders an input field or a textarea
     return (
       <Fragment>
