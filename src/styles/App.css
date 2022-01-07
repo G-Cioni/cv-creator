@@ -1,7 +1,7 @@
 :root {
   /* Set Cv size ratio to that of an A4  */
   --cv-height: 95vh;
-  --cv-width: calc(var(--cv-height) / 1.4142);
+  --cv-aspect-ratio: 1/ 1.4142;
 }
 
 #App {
@@ -20,6 +20,6 @@
   position: sticky;
   top: 2vh;
   height: var(--cv-height);
-  width: var(--cv-width);
+  aspect-ratio: var(--cv-aspect-ratio);
   border: 1px solid black;
 }
