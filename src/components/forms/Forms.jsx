@@ -113,6 +113,7 @@ class Forms extends Component {
         formId={formId}
         onFormSave={onFormSave}
         formData={workExperiences}
+        counter={workFormsCounter}
         addForm={this.addForm}
         removeForm={this.removeForm}
         hasExtraInputs={true}
@@ -124,6 +125,7 @@ class Forms extends Component {
         formId={formId}
         onFormSave={onFormSave}
         formData={education}
+        counter={educationFormsCounter}
         addForm={this.addForm}
         removeForm={this.removeForm}
       />

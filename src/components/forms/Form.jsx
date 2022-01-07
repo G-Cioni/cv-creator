@@ -124,7 +124,7 @@ class Form extends Component {
 
   render() {
     const { formFields, formTitle, formType } = this.state;
-    const { formId, addForm, onFormSave, removeForm, hasExtraInputs } =
+    const { formId, addForm, counter, onFormSave, removeForm, hasExtraInputs } =
       this.props;
 
     // Assigns the extra input fields name based on it's context
@@ -164,7 +164,8 @@ class Form extends Component {
               text={`Add ${extraInputName}`}
             />
           ) : null}
-          {addForm ? (
+          {/* Only renders "Add form" button if its the last form of its type */}
+          {(counter?.indexOf(formId) === counter?.length - 1) ? (
             <Button onClick={() => addForm(formType)} text={'Add Form'} />
           ) : null}
           {removeForm ? (
