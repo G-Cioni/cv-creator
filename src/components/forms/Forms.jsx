@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Form from './Form';
-import formData from '../../formData';
+import formData from '../../helpers/formData';
 import uniqid from 'uniqid';
-import { getCounterName, getFormName } from '../../utils';
+import { getCounterName, getFormName } from '../../helpers/utils';
 
 class Forms extends Component {
   constructor(props) {
