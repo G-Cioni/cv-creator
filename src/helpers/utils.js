@@ -1,4 +1,3 @@
-import uniqid from 'uniqid';
 const getCounterName = (formType) =>
   formType === 'personalInfo'
     ? 'personalFormsCounter'
