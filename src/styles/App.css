@@ -1,8 +1,11 @@
 :root {
-  /* Set Cv size ratio to that of an A4  */
   --cv-height: 95vh;
-  --cv-aspect-ratio: 1/ 1.4142;
+  --cv-aspect-ratio: 1 / 1.4142; /* A4 paper aspect ratio*/
 }
+
+/* =====
+    App
+   ===== */
 
 #App {
   display: grid;
@@ -11,9 +14,17 @@
   width: max-content;
 }
 
+/* =======
+    Forms
+   ======= */
+
 #Forms {
   width: 25em;
 }
+
+/* ====
+    Cv
+   ==== */
 
 #Cv {
   align-self: start;
