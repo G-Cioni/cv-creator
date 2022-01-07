@@ -3,15 +3,41 @@ import Card from './Card';
 
 const Cv = ({ allFormsData }) => {
   const cards = allFormsData
-    ? Object.keys(allFormsData).map((card) => {
+    ? Object.keys(allFormsData).reduce((accumulator, card) => {
         const id = card.substring(card.indexOf('-') + 1);
-        const className = card.substring(0, card.indexOf('-')) + 'Card';
-        return (
-          <Card key={id} className={className} formData={allFormsData[card]} />
+        const cardArray = card.substring(0, card.indexOf('-'));
+        const className = cardArray + 'Card';
+        if (accumulator[cardArray] === undefined) {
+          accumulator[cardArray] = [];
+        }
+        accumulator[cardArray].push(
+          <Card key={id} className={className} formData={allFormsData[card]} />,
         );
-      })
+        return accumulator;
+      }, {})
     : null;
-  return <div id="Cv">{cards}</div>;
+
+  const {
+    personalInfo,
+    contact,
+    workExperiences,
+    education,
+    skills,
+    certificates,
+    languages,
+  } = cards;
+
+  return (
+    <div id="Cv">
+      {personalInfo}
+      {contact}
+      <div id="workExperiencesCV">{workExperiences}</div>
+      <div id="educationCv">{education}</div>
+      {skills}
+      {certificates}
+      {languages}
+    </div>
+  );
 };
 
 export default Cv;
