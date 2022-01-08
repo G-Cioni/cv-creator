@@ -1,24 +1,27 @@
 import React from 'react';
 import Card from './Card';
-import { checkValuePresence } from '../../helpers/utils';
+import { checkValuePresence, getCardDetails } from '../../helpers/utils';
 
 const Cv = ({ allFormsData }) => {
+  // Creates a cards object which will be rendered in JSX
   const cards = allFormsData
-    ? Object.keys(allFormsData).reduce((accumulator, card) => {
-        const id = card.substring(card.indexOf('-') + 1);
-        const cardArray = card.substring(0, card.indexOf('-'));
-        const className = cardArray + 'Card';
+    ? Object.keys(allFormsData).reduce((accumulator, cardName) => {
+        const { id, cardArray, className } = getCardDetails(cardName);
 
-        if (accumulator[cardArray] === undefined) {
-          accumulator[cardArray] = [];
-        }
-        accumulator[cardArray].push(
-          <Card key={id} className={className} formData={allFormsData[card]} />,
-        );
-        accumulator[`${cardArray}HasValue`] = checkValuePresence(
-          allFormsData,
-          card,
-        );
+        accumulator[cardArray] = accumulator[cardArray] ?? [];
+
+        accumulator = {
+          ...accumulator,
+          [`${cardArray}HasValue`]: checkValuePresence(allFormsData, cardName),
+          [cardArray]: accumulator[cardArray].concat(
+            <Card
+              key={id}
+              className={className}
+              formData={allFormsData[cardName]}
+            />,
+          ),
+        };
+
         return accumulator;
       }, {})
     : null;
@@ -37,6 +40,7 @@ const Cv = ({ allFormsData }) => {
     languages,
     languagesHasValue,
   } = cards;
+
   return (
     <div id="Cv">
       <div id="personalContact">
