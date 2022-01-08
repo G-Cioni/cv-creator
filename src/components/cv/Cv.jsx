@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './Card';
+import { checkValuePresence } from '../../helpers/utils';
 
 const Cv = ({ allFormsData }) => {
   const cards = allFormsData
@@ -8,28 +9,16 @@ const Cv = ({ allFormsData }) => {
         const cardArray = card.substring(0, card.indexOf('-'));
         const className = cardArray + 'Card';
 
-        //Checks if any input in the formData has an input value. Returns a boolean
-        let valuePresent = false;
-
-        Object.keys(allFormsData[card]).forEach((inputName) => {
-          Object.keys(allFormsData[card][inputName]).forEach(
-            (inputProperty) => {
-              if (inputProperty === 'inputValue') {
-                valuePresent =
-                  valuePresent ||
-                  allFormsData[card][inputName][inputProperty] !== '';
-              }
-            },
-          );
-        });
-
         if (accumulator[cardArray] === undefined) {
           accumulator[cardArray] = [];
         }
         accumulator[cardArray].push(
           <Card key={id} className={className} formData={allFormsData[card]} />,
         );
-        accumulator[`${cardArray}HasValue`] = valuePresent;
+        accumulator[`${cardArray}HasValue`] = checkValuePresence(
+          allFormsData,
+          card,
+        );
         return accumulator;
       }, {})
     : null;
