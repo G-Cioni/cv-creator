@@ -99,68 +99,68 @@ class Forms extends Component {
     // Generates arrays for each form type which will then be rendered
     const personalForms = personalFormsCounter.map((formId) => (
       <Form
-        key={formId}
-        formId={formId}
-        onFormSave={onFormSave}
         formData={personalInfo}
+        formId={formId}
+        key={formId}
+        onFormSave={onFormSave}
       />
     ));
     const contactForms = contactFormsCounter.map((formId) => (
       <Form
-        key={formId}
-        formId={formId}
-        onFormSave={onFormSave}
         formData={contact}
+        formId={formId}
+        key={formId}
+        onFormSave={onFormSave}
       />
     ));
     const workForms = workFormsCounter.map((formId) => (
       <Form
-        key={formId}
-        formId={formId}
-        onFormSave={onFormSave}
-        formData={workExperiences}
-        counter={workFormsCounter}
         addForm={this.addForm}
-        removeForm={this.removeForm}
+        counter={workFormsCounter}
+        formData={workExperiences}
+        formId={formId}
         hasExtraInputs={true}
+        key={formId}
+        onFormSave={onFormSave}
+        removeForm={this.removeForm}
       />
     ));
     const educationForms = educationFormsCounter.map((formId) => (
       <Form
-        key={formId}
-        formId={formId}
-        onFormSave={onFormSave}
-        formData={education}
-        counter={educationFormsCounter}
         addForm={this.addForm}
+        counter={educationFormsCounter}
+        formData={education}
+        formId={formId}
+        key={formId}
+        onFormSave={onFormSave}
         removeForm={this.removeForm}
       />
     ));
     const skillsForms = skillsFormsCounter.map((formId) => (
       <Form
-        key={formId}
-        formId={formId}
-        onFormSave={onFormSave}
         formData={skills}
+        formId={formId}
         hasExtraInputs={true}
+        key={formId}
+        onFormSave={onFormSave}
       />
     ));
     const certificatesForms = certificatesFormsCounter.map((formId) => (
       <Form
-        key={formId}
-        formId={formId}
-        onFormSave={onFormSave}
         formData={certificates}
+        formId={formId}
         hasExtraInputs={true}
+        key={formId}
+        onFormSave={onFormSave}
       />
     ));
     const languagesForms = languagesFormsCounter.map((formId) => (
       <Form
-        key={formId}
-        formId={formId}
-        onFormSave={onFormSave}
         formData={languages}
+        formId={formId}
         hasExtraInputs={true}
+        key={formId}
+        onFormSave={onFormSave}
       />
     ));
 

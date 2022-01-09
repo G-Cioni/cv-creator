@@ -95,8 +95,8 @@ class Form extends Component {
   }
 
   render() {
-    const { formFields, formType,extraInputName } = this.state;
-    const { formId, addForm, counter, onFormSave, removeForm, hasExtraInputs } =
+    const { extraInputsCounter, extraInputName,  formFields, formType, } = this.state;
+    const {  addForm, counter, formId, hasExtraInputs, onFormSave, removeForm, } =
       this.props;
 
     // Creates an array of all the input fields to then render
@@ -104,16 +104,17 @@ class Form extends Component {
       const { id, placeHolder, name, inputValue, type } = formFields[inputName];
       return (
         <Input
-          key={id}
+          counter = {extraInputsCounter}
+          extraInputName = {(extraInputName?? null)}
+          handleOnChange={this.onInputChange}
           inputId={id}
-          type={type}
-          placeHolder={placeHolder}
+          inputValue={inputValue}
+          key={id}
           name={name}
           parentFormType={formType}
-          inputValue={inputValue}
-          handleOnChange={this.onInputChange}
+          placeHolder={placeHolder}
           removeExtraInput={name.includes(id) ? this.removeExtraInput : null}
-          extraInputName = {(extraInputName?? null)}
+          type={type}
         />
       );
     });
@@ -132,7 +133,7 @@ class Form extends Component {
           {(counter?.indexOf(formId) === counter?.length - 1) ? (
             <Button onClick={() => addForm(formType)} text={'Add Form'} />
           ) : null}
-          {removeForm ? (
+          {removeForm && counter.length > 1? (
             <Button
               onClick={() => removeForm(formType, formId)}
               text={'Remove Form'}

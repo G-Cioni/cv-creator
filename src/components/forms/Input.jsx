@@ -1,17 +1,18 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component} from 'react';
 import Button from './Button';
 
 class Input extends Component {
   render() {
     const {
+      counter,
+      extraInputName,
       handleOnChange,
-      placeHolder,
+      inputId,
       inputValue,
       name,
-      type,
+      placeHolder,
       removeExtraInput,
-      inputId,
-      extraInputName
+      type,
     } = this.props;
 
     // Conditionally renders an input field or a textarea
@@ -19,18 +20,18 @@ class Input extends Component {
       <div>
         {type === 'input' ? (
           <input
-            value={inputValue}
             onChange={(e) => handleOnChange(e, name)}
             placeholder={placeHolder}
+            value={inputValue}
           />
         ) : (
           <textarea
-            value={inputValue}
             onChange={(e) => handleOnChange(e, name)}
             placeholder={placeHolder}
+            value={inputValue}
           />
         )}
-        {removeExtraInput ? (
+        {removeExtraInput && counter.length > 1 ? (
           <Button
             onClick={() => removeExtraInput(name, inputId)}
             text={`Remove ${extraInputName}`}

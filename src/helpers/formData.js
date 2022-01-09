@@ -26,6 +26,13 @@ const formData = {
         inputValue: '',
         type: 'input',
       },
+      desiredRole: {
+        name: 'desiredRole',
+        placeHolder: 'Desired Role',
+        id: uniqid(),
+        inputValue: '',
+        type: 'input',
+      },
       description: {
         name: 'description',
         placeHolder: 'Description',
