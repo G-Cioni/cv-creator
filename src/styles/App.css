@@ -2,9 +2,9 @@
   --border-radius: 0.3em;
   --cv-height: 60em;
   /*  Can set % of --cv-left-side with decimals */
-  --cv-left-side: calc(var(--cv-width) * 0.6);
+  --cv-left-width: calc(var(--cv-width) * 0.6);
   /*  Right side is calculated automatically when --cv-left-side is set */
-  --cv-right-side: calc(var(--cv-width) - var(--cv-left-side));
+  --cv-right-width: calc(var(--cv-width) - var(--cv-left-width));
   --cv-width: calc(var(--cv-height) / 1.4142); /* A4 paper aspect ratio*/
   --secondary-bg-color-1: #353535;
   --secondary-bg-color-2: #60afff;
@@ -139,7 +139,7 @@ span {
   border-width: 0.15rem;
   height: max-content;
   margin: 0.5em 0.5em 0.5em auto;
-  max-width: var(--cv-right-side);
+  max-width: var(--cv-right-width);
   width: max-content;
   word-wrap: break-word;
 }
