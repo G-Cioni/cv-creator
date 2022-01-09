@@ -111,11 +111,15 @@ button {
 .contactCard {
   border-color: var(--secondary-bg-color-2);
   border-left-style: solid;
+  border-width: 0.15rem;
   height: max-content;
-  margin-left: auto;
-  width: var(--cv-right-side);
+  margin: 0.5em 0.5em 0.5em auto;
+  max-width: var(--cv-right-side);
+  width: max-content;
+  word-wrap: break-word;
 }
 
 span {
   display: block;
+  margin: 0.3em;
 }
