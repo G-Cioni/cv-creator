@@ -80,12 +80,19 @@ button {
   grid-template-areas:
     'personalContact personalContact'
     'workEducation scl ';
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 3.7fr 2.3fr;
   grid-template-rows: auto 1fr;
+  grid-gap: 0em 1em;
   height: var(--cv-height);
   position: sticky;
   top: 2vh;
   width: var(--cv-width);
+}
+
+.cvTitle {
+  margin-bottom: 0.5em;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 #personalContact {
@@ -98,6 +105,7 @@ button {
   grid-area: workEducation;
   display: flex;
   flex-direction: column;
+  margin-left: 1em;
 }
 
 /* Stands for "skills-certificates-languages" */
@@ -105,6 +113,8 @@ button {
   grid-area: scl;
   display: flex;
   flex-direction: column;
+  margin-right: 1em;
+  text-align: right;
 }
 
 /* Cards */
@@ -123,9 +133,14 @@ p {
 }
 
 .personalInfoCard {
-  margin: 0.5em auto 0.5em 0.5em;
+  margin: 0.5em auto 0em 0.5em;
   max-width: 60%;
 }
+
+.description {
+  margin-bottom: 0em;
+}
+
 .title,
 .firstName,
 .lastName {
@@ -142,12 +157,20 @@ p {
 .contactCard {
   border-color: var(--secondary-bg-color-2);
   border-left-style: solid;
+  border-radius: var(--border-radius);
   border-width: 0.15rem;
   height: max-content;
   margin: 0.5em 0.5em 0.5em auto;
   max-width: var(--cv-right-width);
   width: max-content;
   word-wrap: break-word;
+}
+
+.phoneNumber,
+.email,
+.location,
+.webSite {
+  margin: 0.4em;
 }
 
 .workExperiencesCard,
@@ -206,4 +229,13 @@ p {
 
 .workDuty {
   margin: 1em auto 0em auto;
+}
+
+.skill,
+.language {
+  background-color: var(--secondary-bg-color-2);
+  margin: 0.5em;
+  display: inline-block;
+  padding: 0.2em 0.4em;
+  border-radius: var(--border-radius);
 }
