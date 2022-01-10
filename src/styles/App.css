@@ -108,7 +108,8 @@ Cv
 
 /* Cards */
 
-span {
+span,
+p {
   display: block;
   font-size: 0.9rem;
 }
@@ -142,4 +143,40 @@ span {
   max-width: var(--cv-right-width);
   width: max-content;
   word-wrap: break-word;
+}
+
+.workExperiencesCard,
+.educationCard {
+  display: grid;
+  grid-template-rows: auto auto auto repeat(5em);
+  grid-template-areas:
+    'primary primary from'
+    'primary primary to'
+    'secondary city city ';
+}
+
+.workExperiencesCard {
+  grid-auto-flow: row;
+}
+
+.position,
+.degree {
+  grid-area: primary;
+}
+
+.company,
+.school {
+  grid-area: secondary;
+}
+
+.workCity,
+.educationCity {
+  grid-area: city;
+}
+
+.to {
+  grid-area: to;
+}
+.from {
+  grid-area: from;
 }
