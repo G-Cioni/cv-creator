@@ -148,15 +148,11 @@ p {
 .workExperiencesCard,
 .educationCard {
   display: grid;
-  grid-template-rows: auto auto auto repeat(5em);
   grid-template-areas:
     'primary primary from'
     'primary primary to'
-    'secondary city city ';
-}
-
-.workExperiencesCard {
-  grid-auto-flow: row;
+    'secondary city city '
+    'extraDetails extraDetails extraDetails';
 }
 
 .position,
@@ -179,4 +175,8 @@ p {
 }
 .from {
   grid-area: from;
+}
+
+.extraDetails {
+  grid-area: extraDetails;
 }
