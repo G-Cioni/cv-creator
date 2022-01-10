@@ -100,8 +100,14 @@ class Form extends Component {
   }
 
   render() {
-    const { extraInputsCounter, extraInputName, formFields, formType } =
-      this.state;
+    const {
+      extraInputsCounter,
+      extraInputName,
+      extraInputPlaceHolder,
+      formFields,
+      formType,
+    } = this.state;
+
     const { addForm, counter, formId, hasExtraInputs, onFormSave, removeForm } =
       this.props;
 
@@ -132,7 +138,7 @@ class Form extends Component {
           {hasExtraInputs ? (
             <Button
               onClick={this.addExtraInput}
-              text={`Add ${extraInputName}`}
+              text={`Add ${extraInputPlaceHolder}`}
             />
           ) : null}
           {/* Only renders "Add form" button if its the last form of its type */}
