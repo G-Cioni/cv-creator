@@ -68,8 +68,8 @@ button {
 }
 
 /* ====
-Cv
-==== */
+    Cv
+   ==== */
 
 #Cv {
   align-items: start;
@@ -100,6 +100,7 @@ Cv
   flex-direction: column;
 }
 
+/* Stands for "skills-certificates-languages" */
 #scl {
   grid-area: scl;
   display: flex;
@@ -111,7 +112,14 @@ Cv
 span,
 p {
   display: block;
+}
+
+span {
   font-size: 0.9rem;
+}
+
+p {
+  font-size: 0.8rem;
 }
 
 .personalInfoCard {
@@ -129,9 +137,6 @@ p {
 .desiredRole {
   font-size: 1.3rem;
   font-weight: bold;
-}
-.description {
-  font-size: 0.8rem;
 }
 
 .contactCard {
@@ -151,23 +156,41 @@ p {
   grid-template-areas:
     'primary primary from'
     'primary primary to'
-    'secondary city city '
+    'secondary secondary city '
     'extraDetails extraDetails extraDetails';
+  border-left-style: solid;
+  border-right-style: solid;
+  border-width: 0.15rem;
+  border-color: var(--secondary-bg-color-2);
+  border-radius: var(--border-radius);
+  padding: 0.5em;
 }
 
 .position,
 .degree {
   grid-area: primary;
+  font-size: 1.4rem;
+  font-weight: 500;
 }
 
 .company,
 .school {
   grid-area: secondary;
+  font-size: 1.2rem;
 }
 
 .workCity,
 .educationCity {
   grid-area: city;
+}
+
+.to,
+.from,
+.workCity,
+.educationCity {
+  text-align: right;
+  font-size: 0.8rem;
+  color: var(--secondary-bg-color-2);
 }
 
 .to {
@@ -179,4 +202,8 @@ p {
 
 .extraDetails {
   grid-area: extraDetails;
+}
+
+.workDuty {
+  margin: 1em auto 0em auto;
 }
