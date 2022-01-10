@@ -46,6 +46,9 @@ const formData = {
   contact: {
     formTitle: 'Contact Details',
     formType: 'contact',
+    extraInputType: 'input',
+    extraInputPlaceHolder: 'Website',
+    extraInputName: 'webSite',
     formFields: {
       phoneNumber: {
         name: 'phoneNumber',
@@ -61,17 +64,9 @@ const formData = {
         inputValue: '',
         type: 'input',
       },
-
       location: {
         name: 'location',
         placeHolder: 'Location',
-        id: uniqid(),
-        inputValue: '',
-        type: 'input',
-      },
-      linkedin: {
-        name: 'linkedin',
-        placeHolder: 'LinkedIn',
         id: uniqid(),
         inputValue: '',
         type: 'input',

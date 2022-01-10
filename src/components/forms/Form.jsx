@@ -35,7 +35,12 @@ class Form extends Component {
   addExtraInput() {
     const { hasExtraInputs } = this.props;
 
-    let { extraInputsCounter, extraInputType, extraInputPlaceHolder, extraInputName} = this.state;
+    let {
+      extraInputsCounter,
+      extraInputType,
+      extraInputPlaceHolder,
+      extraInputName,
+    } = this.state;
     const newCounter = extraInputsCounter.concat(uniqid());
 
     if (hasExtraInputs) {
@@ -95,8 +100,15 @@ class Form extends Component {
   }
 
   render() {
-    const { extraInputsCounter, extraInputName,  formFields, formType, } = this.state;
-    const {  addForm, counter, formId, hasExtraInputs, onFormSave, removeForm, } =
+    const {
+      extraInputsCounter,
+      extraInputName,
+      extraInputPlaceHolder,
+      formFields,
+      formType,
+    } = this.state;
+
+    const { addForm, counter, formId, hasExtraInputs, onFormSave, removeForm } =
       this.props;
 
     // Creates an array of all the input fields to then render
@@ -104,8 +116,8 @@ class Form extends Component {
       const { id, placeHolder, name, inputValue, type } = formFields[inputName];
       return (
         <Input
-          counter = {extraInputsCounter}
-          extraInputName = {(extraInputName?? null)}
+          counter={extraInputsCounter}
+          extraInputName={extraInputName ?? null}
           handleOnChange={this.onInputChange}
           inputId={id}
           inputValue={inputValue}
@@ -126,14 +138,14 @@ class Form extends Component {
           {hasExtraInputs ? (
             <Button
               onClick={this.addExtraInput}
-              text={`Add ${extraInputName}`}
+              text={`Add ${extraInputPlaceHolder}`}
             />
           ) : null}
           {/* Only renders "Add form" button if its the last form of its type */}
-          {(counter?.indexOf(formId) === counter?.length - 1) ? (
+          {counter?.indexOf(formId) === counter?.length - 1 ? (
             <Button onClick={() => addForm(formType)} text={'Add Form'} />
           ) : null}
-          {removeForm && counter.length > 1? (
+          {removeForm && counter.length > 1 ? (
             <Button
               onClick={() => removeForm(formType, formId)}
               text={'Remove Form'}

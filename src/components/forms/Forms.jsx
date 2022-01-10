@@ -15,7 +15,7 @@ class Forms extends Component {
         educationFormsCounter: [],
         skillsFormsCounter: [],
         certificatesFormsCounter: [],
-        languagesFormsCounter:[],
+        languagesFormsCounter: [],
       },
     };
     this.addForm = this.addForm.bind(this);
@@ -32,7 +32,7 @@ class Forms extends Component {
         counters: {
           ...state.counters,
           [counterName]: state.counters[counterName].concat(uniqid()),
-        }
+        },
       };
     });
   }
@@ -48,8 +48,10 @@ class Forms extends Component {
           ...state,
           counters: {
             ...state.counters,
-            [counterName]: state.counters[counterName].filter((id) => id !== formId),
-          }
+            [counterName]: state.counters[counterName].filter(
+              (id) => id !== formId,
+            ),
+          },
         };
       });
       deleteFormState(formName);
@@ -58,17 +60,20 @@ class Forms extends Component {
 
   componentDidMount() {
     const { counters } = this.state;
-    
+
     // Adds first uniqid to each form counter
-    const updatedCounters = Object.keys(counters).reduce((accumulator, counterName) =>{
-      accumulator[counterName] = counters[counterName].concat(uniqid())
-      return accumulator
-    },{})
+    const updatedCounters = Object.keys(counters).reduce(
+      (accumulator, counterName) => {
+        accumulator[counterName] = counters[counterName].concat(uniqid());
+        return accumulator;
+      },
+      {},
+    );
 
     this.setState((state) => {
       return {
         ...state,
-         counters: updatedCounters,
+        counters: updatedCounters,
       };
     });
   }
@@ -109,6 +114,7 @@ class Forms extends Component {
       <Form
         formData={contact}
         formId={formId}
+        hasExtraInputs={true}
         key={formId}
         onFormSave={onFormSave}
       />
@@ -167,32 +173,32 @@ class Forms extends Component {
     return (
       <div id="Forms">
         <div className="formSection">
-        <h2 className="formTitle">Personal Info</h2>
-        {personalForms}
+          <h2 className="formTitle">Personal Info</h2>
+          {personalForms}
         </div>
         <div className="formSection">
-        <h2 className="formTitle">Contact Info</h2>
-        {contactForms}
+          <h2 className="formTitle">Contact Info</h2>
+          {contactForms}
         </div>
         <div className="formSection">
-        <h2 className="formTitle">Work Experiences</h2>
-        {workForms}
+          <h2 className="formTitle">Work Experiences</h2>
+          {workForms}
         </div>
         <div className="formSection">
-        <h2 className="formTitle">Education</h2>
-        {educationForms}
+          <h2 className="formTitle">Education</h2>
+          {educationForms}
         </div>
         <div className="formSection">
-        <h2 className="formTitle">Skills</h2>
-        {skillsForms}
+          <h2 className="formTitle">Skills</h2>
+          {skillsForms}
         </div>
         <div className="formSection">
-        <h2 className="formTitle">Certificates</h2>
-        {certificatesForms}
+          <h2 className="formTitle">Certificates</h2>
+          {certificatesForms}
         </div>
         <div className="formSection">
-        <h2 className="formTitle">Languages</h2>
-        {languagesForms}
+          <h2 className="formTitle">Languages</h2>
+          {languagesForms}
         </div>
       </div>
     );
