@@ -5,7 +5,7 @@
   --cv-left-width: calc(var(--cv-width) * 0.6);
   /*  Right side is calculated automatically when --cv-left-side is set */
   --cv-right-width: calc(var(--cv-width) - var(--cv-left-width));
-  --cv-width: 45em;
+  --cv-width: 41em;
   --secondary-bg-color-1: #353535;
   --secondary-bg-color-2: #60afff;
   --secondary-bg-color-3: #284b63;
@@ -17,9 +17,13 @@
    ===== */
 
 #App {
+  align-items: center;
+  color: var(--secondary-bg-color-1);
   display: grid;
   grid-gap: 2em;
   grid-template-columns: auto auto;
+  margin-left: auto;
+  margin-right: auto;
   width: max-content;
 }
 
@@ -28,8 +32,8 @@
    ======= */
 
 #Forms {
-  border: 1px solid black;
   border-radius: var(--border-radius);
+  border: 1px solid black;
   width: 25em;
 }
 
@@ -77,42 +81,44 @@ button {
   border-radius: var(--border-radius);
   border: 1px solid black;
   display: grid;
+  grid-gap: 0em 1em;
   grid-template-areas:
     'personalContact personalContact'
     'workEducation scl ';
   grid-template-columns: 3.7fr 2.3fr;
   grid-template-rows: auto 1fr;
-  grid-gap: 0em 1em;
-  height: var(--cv-height);
+  height: minmax(var(--cv-height) max-content);
+  margin-right: 2em;
   position: sticky;
-  top: 2vh;
+  top: 1vh;
   width: var(--cv-width);
 }
 
 .cvTitle {
-  margin-bottom: 0.5em;
   font-size: 1.5rem;
   font-weight: 500;
+  margin-bottom: 0.5em;
+  margin-top: 0em;
 }
 
 #personalContact {
-  grid-area: personalContact;
   display: flex;
+  grid-area: personalContact;
   width: 100%;
 }
 
 #workEducation {
-  grid-area: workEducation;
   display: flex;
   flex-direction: column;
+  grid-area: workEducation;
   margin-left: 1em;
 }
 
 /* Stands for "skills-certificates-languages" */
 #scl {
-  grid-area: scl;
   display: flex;
   flex-direction: column;
+  grid-area: scl;
   margin-right: 1em;
   text-align: right;
 }
@@ -132,8 +138,14 @@ p {
   font-size: 0.8rem;
 }
 
+.desiredRole,
+.company,
+.school {
+  color: var(--secondary-bg-color-3);
+}
+
 .personalInfoCard {
-  margin: 0.5em auto 0em 0.5em;
+  margin: 1em auto 1em 1em;
   max-width: 60%;
 }
 
@@ -151,7 +163,7 @@ p {
 }
 .desiredRole {
   font-size: 1.3rem;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .contactCard {
@@ -160,7 +172,7 @@ p {
   border-radius: var(--border-radius);
   border-width: 0.15rem;
   height: max-content;
-  margin: 0.5em 0.5em 0.5em auto;
+  margin: 1em 1em 0.5em auto;
   max-width: var(--cv-right-width);
   width: max-content;
   word-wrap: break-word;
@@ -175,31 +187,32 @@ p {
 
 .workExperiencesCard,
 .educationCard {
+  border-color: var(--secondary-bg-color-2);
+  border-left-style: solid;
+  border-radius: var(--border-radius);
+  border-right-style: solid;
+  border-width: 0.15rem;
   display: grid;
   grid-template-areas:
     'primary primary from'
     'primary primary to'
     'secondary secondary city '
     'extraDetails extraDetails extraDetails';
-  border-left-style: solid;
-  border-right-style: solid;
-  border-width: 0.15rem;
-  border-color: var(--secondary-bg-color-2);
-  border-radius: var(--border-radius);
+  margin-bottom: 1.5em;
   padding: 0.5em;
 }
 
 .position,
 .degree {
-  grid-area: primary;
   font-size: 1.4rem;
   font-weight: 500;
+  grid-area: primary;
 }
 
 .company,
 .school {
-  grid-area: secondary;
   font-size: 1.2rem;
+  grid-area: secondary;
 }
 
 .workCity,
@@ -211,9 +224,9 @@ p {
 .from,
 .workCity,
 .educationCity {
-  text-align: right;
-  font-size: 0.8rem;
   color: var(--secondary-bg-color-2);
+  font-size: 0.8rem;
+  text-align: right;
 }
 
 .to {
@@ -234,8 +247,8 @@ p {
 .skill,
 .language {
   background-color: var(--secondary-bg-color-2);
-  margin: 0.5em;
-  display: inline-block;
-  padding: 0.2em 0.4em;
   border-radius: var(--border-radius);
+  display: inline-block;
+  margin: 0.5em;
+  padding: 0.2em 0.4em;
 }
