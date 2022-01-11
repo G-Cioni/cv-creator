@@ -1,11 +1,11 @@
 :root {
   --border-radius: 0.3em;
-  --cv-height: 60em;
+  --cv-height: calc(var(--cv-width) * 1.4142); /* A4 paper aspect ratio*/
   /*  Can set % of --cv-left-side with decimals */
   --cv-left-width: calc(var(--cv-width) * 0.6);
   /*  Right side is calculated automatically when --cv-left-side is set */
   --cv-right-width: calc(var(--cv-width) - var(--cv-left-width));
-  --cv-width: calc(var(--cv-height) / 1.4142); /* A4 paper aspect ratio*/
+  --cv-width: 45em;
   --secondary-bg-color-1: #353535;
   --secondary-bg-color-2: #60afff;
   --secondary-bg-color-3: #284b63;
