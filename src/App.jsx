@@ -28,15 +28,6 @@ class App extends Component {
         },
       };
     });
-    // const formName = getFormName(formType, formId);
-    // this.setState((state) => {
-    //   return {
-    //     ...state,
-    //     [formName]: {
-    //       ...formFields,
-    //     },
-    //   };
-    // });
   }
 
   deleteFormState(formName) {
