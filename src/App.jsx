@@ -7,29 +7,43 @@ import { getFormName } from './helpers/utils';
 class App extends Component {
   constructor() {
     super();
-    this.state={}
+    this.state = {};
     this.onFormSave = this.onFormSave.bind(this);
     this.deleteFormState = this.deleteFormState.bind(this);
   }
 
-  onFormSave(e, formType, formId, formFields) {
+  onFormSave(e, formType, formId, formFields, inputName) {
     e.preventDefault();
     const formName = getFormName(formType, formId);
     this.setState((state) => {
+      console.log(state);
       return {
         ...state,
         [formName]: {
-          ...formFields,
+          ...state[formName],
+          [inputName]: {
+            ...formFields[inputName],
+            inputValue: e.target.value,
+          },
         },
       };
     });
+    // const formName = getFormName(formType, formId);
+    // this.setState((state) => {
+    //   return {
+    //     ...state,
+    //     [formName]: {
+    //       ...formFields,
+    //     },
+    //   };
+    // });
   }
 
   deleteFormState(formName) {
-      this.setState((state) => {
-        delete state[formName];
-        return state;
-      });
+    this.setState((state) => {
+      delete state[formName];
+      return state;
+    });
   }
 
   render() {
@@ -38,6 +52,7 @@ class App extends Component {
         <Forms
           onFormSave={this.onFormSave}
           deleteFormState={this.deleteFormState}
+          appState={this.state}
         />
         <Cv allFormsData={this.state} />
       </div>

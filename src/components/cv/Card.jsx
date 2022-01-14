@@ -1,12 +1,12 @@
 import React from 'react';
 
 const Card = ({ formData, className }) => {
+  console.log(formData);
   const cardDetails = formData
     ? Object.keys(formData).reduce(
         (accumulator, detail) => {
           const { inputValue: text, id, name } = formData[detail];
           const { details, extraDetails } = accumulator;
-
           const detailClassName = name.includes('-')
             ? name.substring(0, name.indexOf('-'))
             : name;

@@ -108,6 +108,7 @@ class Forms extends Component {
         formId={formId}
         key={formId}
         onFormSave={onFormSave}
+        appState={this.props.appState}
       />
     ));
     const contactForms = contactFormsCounter.map((formId) => (
@@ -117,6 +118,7 @@ class Forms extends Component {
         hasExtraInputs={true}
         key={formId}
         onFormSave={onFormSave}
+        appState={this.props.appState}
       />
     ));
     const workForms = workFormsCounter.map((formId) => (
@@ -129,6 +131,7 @@ class Forms extends Component {
         key={formId}
         onFormSave={onFormSave}
         removeForm={this.removeForm}
+        appState={this.props.appState}
       />
     ));
     const educationForms = educationFormsCounter.map((formId) => (
@@ -140,6 +143,7 @@ class Forms extends Component {
         key={formId}
         onFormSave={onFormSave}
         removeForm={this.removeForm}
+        appState={this.props.appState}
       />
     ));
     const skillsForms = skillsFormsCounter.map((formId) => (
@@ -149,6 +153,7 @@ class Forms extends Component {
         hasExtraInputs={true}
         key={formId}
         onFormSave={onFormSave}
+        appState={this.props.appState}
       />
     ));
     const certificatesForms = certificatesFormsCounter.map((formId) => (
@@ -158,6 +163,7 @@ class Forms extends Component {
         hasExtraInputs={true}
         key={formId}
         onFormSave={onFormSave}
+        appState={this.props.appState}
       />
     ));
     const languagesForms = languagesFormsCounter.map((formId) => (
@@ -167,6 +173,7 @@ class Forms extends Component {
         hasExtraInputs={true}
         key={formId}
         onFormSave={onFormSave}
+        appState={this.props.appState}
       />
     ));
 

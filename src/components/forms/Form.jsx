@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Input from './Input';
 import Button from './Button';
 import uniqid from 'uniqid';
+import { getFormName } from '../../helpers/utils';
 
 class Form extends Component {
   constructor(props) {
@@ -17,6 +18,8 @@ class Form extends Component {
 
   // Updates state on input change
   onInputChange(e, field) {
+    console.log(this.state);
+    console.log(this.props);
     this.setState((state) => {
       return {
         ...state,
@@ -113,14 +116,17 @@ class Form extends Component {
 
     // Creates an array of all the input fields to then render
     const inputs = Object.keys(formFields).map((inputName) => {
-      const { id, placeHolder, name, inputValue, type } = formFields[inputName];
+      const { id, placeHolder, name, type } = formFields[inputName];
+      const formName = getFormName(formType, formId);
       return (
         <Input
           counter={extraInputsCounter}
           extraInputName={extraInputName ?? null}
-          handleOnChange={this.onInputChange}
+          handleOnChange={(e) =>
+            onFormSave(e, formType, formId, formFields, name)
+          }
           inputId={id}
-          inputValue={inputValue}
+          inputValue={this.props.appState[formName]?.inputValue}
           key={id}
           name={name}
           parentFormType={formType}
