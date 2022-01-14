@@ -1,17 +1,17 @@
 const getCounterName = (formType) =>
-  formType === 'personalInfo'
-    ? 'personalFormsCounter'
-    : formType === 'workExperiences'
-    ? 'workFormsCounter'
-    : 'educationFormsCounter';
+  formType === "personalInfo"
+    ? "personalFormsCounter"
+    : formType === "workExperiences"
+    ? "workFormsCounter"
+    : "educationFormsCounter";
 
-const getFormName = (formType, formId) => `${formType}-${formId}`;
+const getName = (name, id) => `${name}-${id}`;
 
 // Extracts card details from cardName
 const getCardDetails = (cardName) => {
-  const id = cardName.substring(cardName.indexOf('-') + 1);
-  const cardArray = cardName.substring(0, cardName.indexOf('-'));
-  const className = cardArray + 'Card';
+  const id = cardName.substring(cardName.indexOf("-") + 1);
+  const cardArray = cardName.substring(0, cardName.indexOf("-"));
+  const className = cardArray + "Card";
   return { id, cardArray, className };
 };
 
@@ -21,17 +21,17 @@ const checkValuePresence = (allFormsData, cardName) => {
     (accumulator, inputName) => {
       Object.keys(allFormsData[cardName][inputName]).forEach(
         (inputProperty) => {
-          if (inputProperty === 'inputValue') {
+          if (inputProperty === "inputValue") {
             accumulator =
               accumulator ||
-              allFormsData[cardName][inputName][inputProperty] !== '';
+              allFormsData[cardName][inputName][inputProperty] !== "";
           }
-        },
+        }
       );
       return accumulator;
     },
-    false,
+    false
   );
 };
 
-export { checkValuePresence, getCardDetails, getCounterName, getFormName };
+export { checkValuePresence, getCardDetails, getCounterName, getName };

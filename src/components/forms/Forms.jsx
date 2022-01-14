@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import Form from './Form';
-import formData from '../../helpers/formData';
-import uniqid from 'uniqid';
-import { getCounterName, getFormName } from '../../helpers/utils';
+import React, { Component } from "react";
+import Form from "./Form";
+import formData from "../../helpers/formData";
+import uniqid from "uniqid";
+import { getCounterName, getName } from "../../helpers/utils";
 
 class Forms extends Component {
   constructor(props) {
@@ -15,8 +15,8 @@ class Forms extends Component {
         educationFormsCounter: [],
         skillsFormsCounter: [],
         certificatesFormsCounter: [],
-        languagesFormsCounter: [],
-      },
+        languagesFormsCounter: []
+      }
     };
     this.addForm = this.addForm.bind(this);
     this.removeForm = this.removeForm.bind(this);
@@ -31,15 +31,15 @@ class Forms extends Component {
         ...state,
         counters: {
           ...state.counters,
-          [counterName]: state.counters[counterName].concat(uniqid()),
-        },
+          [counterName]: state.counters[counterName].concat(uniqid())
+        }
       };
     });
   }
 
   // Remove a specific form
   removeForm(formType, formId) {
-    const formName = getFormName(formType, formId);
+    const formName = getName(formType, formId);
     const counterName = getCounterName(formType);
     const { deleteFormState } = this.props;
     if (this.state.counters[counterName].length > 1) {
@@ -49,9 +49,9 @@ class Forms extends Component {
           counters: {
             ...state.counters,
             [counterName]: state.counters[counterName].filter(
-              (id) => id !== formId,
-            ),
-          },
+              (id) => id !== formId
+            )
+          }
         };
       });
       deleteFormState(formName);
@@ -67,13 +67,13 @@ class Forms extends Component {
         accumulator[counterName] = counters[counterName].concat(uniqid());
         return accumulator;
       },
-      {},
+      {}
     );
 
     this.setState((state) => {
       return {
         ...state,
-        counters: updatedCounters,
+        counters: updatedCounters
       };
     });
   }
@@ -86,7 +86,7 @@ class Forms extends Component {
       education,
       skills,
       certificates,
-      languages,
+      languages
     } = formData;
 
     const {
@@ -96,7 +96,7 @@ class Forms extends Component {
       educationFormsCounter,
       skillsFormsCounter,
       certificatesFormsCounter,
-      languagesFormsCounter,
+      languagesFormsCounter
     } = this.state.counters;
 
     const { onInputChange } = this.props;

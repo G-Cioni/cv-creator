@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Input from "./Input";
 import Button from "./Button";
 import uniqid from "uniqid";
-import { getFormName } from "../../helpers/utils";
+import { getName } from "../../helpers/utils";
 
 class Form extends Component {
   constructor(props) {
@@ -103,9 +103,9 @@ class Form extends Component {
 
     // Creates an array of all the input fields to then render
     const inputs = Object.keys(formFields).map((inputName) => {
-      const { id, placeHolder, name, type } = formFields[inputName];
-      const formName = getFormName(formType, formId);
-      console.log(id, name);
+      const { id: defaultId, placeHolder, name, type } = formFields[inputName];
+      const formName = getName(formType, formId);
+      const inputId = name.includes(defaultId) ? name : getName(name, formId);
       return (
         <Input
           counter={extraInputsCounter}
@@ -113,13 +113,15 @@ class Form extends Component {
           handleOnChange={(e) =>
             onInputChange(e, formType, formId, formFields, name)
           }
-          inputId={id}
+          inputId={inputId}
           inputValue={this.props.appState[formName]?.inputValue}
-          key={id}
+          key={inputId}
           name={name}
           parentFormType={formType}
           placeHolder={placeHolder}
-          removeExtraInput={name.includes(id) ? this.removeExtraInput : null}
+          removeExtraInput={
+            name.includes(inputId) ? this.removeExtraInput : null
+          }
           type={type}
         />
       );

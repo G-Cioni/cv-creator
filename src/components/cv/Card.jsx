@@ -1,41 +1,40 @@
-import React from 'react';
+import React from "react";
 
 const Card = ({ formData, className }) => {
-  console.log(formData);
   const cardDetails = formData
     ? Object.keys(formData).reduce(
         (accumulator, detail) => {
           const { inputValue: text, id, name } = formData[detail];
           const { details, extraDetails } = accumulator;
-          const detailClassName = name.includes('-')
-            ? name.substring(0, name.indexOf('-'))
+          const detailClassName = name.includes("-")
+            ? name.substring(0, name.indexOf("-"))
             : name;
 
-          if (['workDuty'].includes(detailClassName)) {
+          if (["workDuty"].includes(detailClassName)) {
             extraDetails.push(
               <p key={id} className={detailClassName}>
                 {text}
-              </p>,
+              </p>
             );
-          } else if (['description'].includes(detailClassName)) {
+          } else if (["description"].includes(detailClassName)) {
             details.push(
               <p key={id} className={detailClassName}>
                 {text}
-              </p>,
+              </p>
             );
           } else {
             details.push(
               <span key={id} className={detailClassName}>
                 {text}
-              </span>,
+              </span>
             );
           }
           return accumulator;
         },
         {
           details: [],
-          extraDetails: [],
-        },
+          extraDetails: []
+        }
       )
     : null;
 

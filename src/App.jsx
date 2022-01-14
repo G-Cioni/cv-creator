@@ -2,7 +2,7 @@ import "./styles/App.css";
 import React, { Component } from "react";
 import Forms from "./components/forms/Forms";
 import Cv from "./components/cv/Cv";
-import { getFormName } from "./helpers/utils";
+import { getName } from "./helpers/utils";
 
 class App extends Component {
   constructor() {
@@ -14,9 +14,8 @@ class App extends Component {
 
   onInputChange(e, formType, formId, formFields, inputName) {
     e.preventDefault();
-    const formName = getFormName(formType, formId);
+    const formName = getName(formType, formId);
     this.setState((state) => {
-      console.log(state);
       return {
         ...state,
         [formName]: {
