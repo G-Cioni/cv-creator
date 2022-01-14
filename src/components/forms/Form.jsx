@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import Input from './Input';
-import Button from './Button';
-import uniqid from 'uniqid';
-import { getFormName } from '../../helpers/utils';
+import React, { Component } from "react";
+import Input from "./Input";
+import Button from "./Button";
+import uniqid from "uniqid";
+import { getFormName } from "../../helpers/utils";
 
 class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
       ...this.props.formData,
-      extraInputsCounter: [],
+      extraInputsCounter: []
     };
     this.addExtraInput = this.addExtraInput.bind(this);
     this.removeExtraInput = this.removeExtraInput.bind(this);
@@ -23,7 +23,7 @@ class Form extends Component {
       extraInputsCounter,
       extraInputType,
       extraInputPlaceHolder,
-      extraInputName,
+      extraInputName
     } = this.state;
     const newCounter = extraInputsCounter.concat(uniqid());
 
@@ -38,11 +38,11 @@ class Form extends Component {
             ...accumulator,
             [`${extraInputName}-${id}`]: {
               id,
-              inputValue: '',
+              inputValue: "",
               name: `${extraInputName}-${id}`,
               placeHolder: extraInputPlaceHolder,
-              type: extraInputType,
-            },
+              type: extraInputType
+            }
           };
         }
         return accumulator;
@@ -54,9 +54,9 @@ class Form extends Component {
           ...state,
           formFields: {
             ...state.formFields,
-            ...extraInputs,
+            ...extraInputs
           },
-          extraInputsCounter: newCounter,
+          extraInputsCounter: newCounter
         };
       });
     }
@@ -71,8 +71,8 @@ class Form extends Component {
         return {
           ...state,
           extraInputsCounter: state.extraInputsCounter.filter(
-            (id) => id !== inputId,
-          ),
+            (id) => id !== inputId
+          )
         };
       });
     }
@@ -89,7 +89,7 @@ class Form extends Component {
       extraInputName,
       extraInputPlaceHolder,
       formFields,
-      formType,
+      formType
     } = this.state;
 
     const {
@@ -98,7 +98,7 @@ class Form extends Component {
       formId,
       hasExtraInputs,
       onInputChange,
-      removeForm,
+      removeForm
     } = this.props;
 
     // Creates an array of all the input fields to then render
@@ -126,7 +126,7 @@ class Form extends Component {
 
     return (
       <div className="form">
-        <form onSubmit={(e) => onInputChange(e, formType, formId, formFields)}>
+        <form>
           {inputs}
           {hasExtraInputs ? (
             <Button
@@ -136,15 +136,14 @@ class Form extends Component {
           ) : null}
           {/* Only renders "Add form" button if its the last form of its type */}
           {counter?.indexOf(formId) === counter?.length - 1 ? (
-            <Button onClick={() => addForm(formType)} text={'Add Form'} />
+            <Button onClick={() => addForm(formType)} text={"Add Form"} />
           ) : null}
           {removeForm && counter.length > 1 ? (
             <Button
               onClick={() => removeForm(formType, formId)}
-              text={'Remove Form'}
+              text={"Remove Form"}
             />
           ) : null}
-          <button type="submit">Save</button>
         </form>
       </div>
     );
