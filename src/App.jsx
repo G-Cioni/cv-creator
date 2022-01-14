@@ -1,8 +1,8 @@
-import './styles/App.css';
-import React, { Component } from 'react';
-import Forms from './components/forms/Forms';
-import Cv from './components/cv/Cv';
-import { getFormName } from './helpers/utils';
+import "./styles/App.css";
+import React, { Component } from "react";
+import Forms from "./components/forms/Forms";
+import Cv from "./components/cv/Cv";
+import { getFormName } from "./helpers/utils";
 
 class App extends Component {
   constructor() {
@@ -23,9 +23,9 @@ class App extends Component {
           ...state[formName],
           [inputName]: {
             ...formFields[inputName],
-            inputValue: e.target.value,
-          },
-        },
+            inputValue: e.target.value
+          }
+        }
       };
     });
   }

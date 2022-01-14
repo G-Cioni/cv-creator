@@ -105,6 +105,7 @@ class Form extends Component {
     const inputs = Object.keys(formFields).map((inputName) => {
       const { id, placeHolder, name, type } = formFields[inputName];
       const formName = getFormName(formType, formId);
+      console.log(id, name);
       return (
         <Input
           counter={extraInputsCounter}
@@ -126,7 +127,7 @@ class Form extends Component {
 
     return (
       <div className="form">
-        <form>
+        <form onSubmit={(e) => e.preventDefault()}>
           {inputs}
           {hasExtraInputs ? (
             <Button
