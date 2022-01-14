@@ -129,25 +129,23 @@ class Form extends Component {
 
     return (
       <div className="form">
-        <form onSubmit={(e) => e.preventDefault()}>
-          {inputs}
-          {hasExtraInputs ? (
-            <Button
-              onClick={this.addExtraInput}
-              text={`Add ${extraInputPlaceHolder}`}
-            />
-          ) : null}
-          {/* Only renders "Add form" button if its the last form of its type */}
-          {counter?.indexOf(formId) === counter?.length - 1 ? (
-            <Button onClick={() => addForm(formType)} text={"Add Form"} />
-          ) : null}
-          {removeForm && counter.length > 1 ? (
-            <Button
-              onClick={() => removeForm(formType, formId)}
-              text={"Remove Form"}
-            />
-          ) : null}
-        </form>
+        {inputs}
+        {hasExtraInputs ? (
+          <Button
+            onClick={this.addExtraInput}
+            text={`Add ${extraInputPlaceHolder}`}
+          />
+        ) : null}
+        {/* Only renders "Add form" button if its the last form of its type */}
+        {counter?.indexOf(formId) === counter?.length - 1 ? (
+          <Button onClick={() => addForm(formType)} text={"Add Form"} />
+        ) : null}
+        {removeForm && counter.length > 1 ? (
+          <Button
+            onClick={() => removeForm(formType, formId)}
+            text={"Remove Form"}
+          />
+        ) : null}
       </div>
     );
   }

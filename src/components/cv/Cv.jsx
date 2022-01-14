@@ -1,6 +1,6 @@
-import React from 'react';
-import Card from './Card';
-import { checkValuePresence, getCardDetails } from '../../helpers/utils';
+import React from "react";
+import Card from "./Card";
+import { checkValuePresence, getCardDetails } from "../../helpers/utils";
 
 const Cv = ({ allFormsData }) => {
   // Creates a cards object which will be rendered in JSX
@@ -18,8 +18,8 @@ const Cv = ({ allFormsData }) => {
               key={id}
               className={className}
               formData={allFormsData[cardName]}
-            />,
-          ),
+            />
+          )
         };
 
         return accumulator;
@@ -38,7 +38,7 @@ const Cv = ({ allFormsData }) => {
     certificates,
     certificatesHasValue,
     languages,
-    languagesHasValue,
+    languagesHasValue
   } = cards;
 
   return (
@@ -50,23 +50,23 @@ const Cv = ({ allFormsData }) => {
       <div id="workEducation">
         <div id="workExperiencesCV">
           <h2 className="cvTitle">
-            {workExperiencesHasValue ? 'Work Experience' : null}
+            {workExperiencesHasValue ? "Work Experience" : null}
           </h2>
           {workExperiences}
         </div>
         <div id="educationCv">
-          <h2 className="cvTitle">{educationHasValue ? 'Education' : null}</h2>
+          <h2 className="cvTitle">{educationHasValue ? "Education" : null}</h2>
           {education}
         </div>
       </div>
       <div id="scl">
-        <h2 className="cvTitle">{skillsHasValue ? 'Skills' : null}</h2>
+        <h2 className="cvTitle">{skillsHasValue ? "Skills" : null}</h2>
         {skills}
         <h2 className="cvTitle">
-          {certificatesHasValue ? 'Certificates' : null}
+          {certificatesHasValue ? "Certificates" : null}
         </h2>
         {certificates}
-        <h2 className="cvTitle">{languagesHasValue ? 'Languages' : null}</h2>
+        <h2 className="cvTitle">{languagesHasValue ? "Languages" : null}</h2>
         {languages}
       </div>
     </div>
