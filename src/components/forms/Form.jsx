@@ -92,8 +92,14 @@ class Form extends Component {
       formType,
     } = this.state;
 
-    const { addForm, counter, formId, hasExtraInputs, onFormSave, removeForm } =
-      this.props;
+    const {
+      addForm,
+      counter,
+      formId,
+      hasExtraInputs,
+      onInputChange,
+      removeForm,
+    } = this.props;
 
     // Creates an array of all the input fields to then render
     const inputs = Object.keys(formFields).map((inputName) => {
@@ -104,7 +110,7 @@ class Form extends Component {
           counter={extraInputsCounter}
           extraInputName={extraInputName ?? null}
           handleOnChange={(e) =>
-            onFormSave(e, formType, formId, formFields, name)
+            onInputChange(e, formType, formId, formFields, name)
           }
           inputId={id}
           inputValue={this.props.appState[formName]?.inputValue}
@@ -120,7 +126,7 @@ class Form extends Component {
 
     return (
       <div className="form">
-        <form onSubmit={(e) => onFormSave(e, formType, formId, formFields)}>
+        <form onSubmit={(e) => onInputChange(e, formType, formId, formFields)}>
           {inputs}
           {hasExtraInputs ? (
             <Button

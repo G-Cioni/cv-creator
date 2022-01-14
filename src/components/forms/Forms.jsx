@@ -99,7 +99,7 @@ class Forms extends Component {
       languagesFormsCounter,
     } = this.state.counters;
 
-    const { onFormSave } = this.props;
+    const { onInputChange } = this.props;
 
     // Generates arrays for each form type which will then be rendered
     const personalForms = personalFormsCounter.map((formId) => (
@@ -107,7 +107,7 @@ class Forms extends Component {
         formData={personalInfo}
         formId={formId}
         key={formId}
-        onFormSave={onFormSave}
+        onInputChange={onInputChange}
         appState={this.props.appState}
       />
     ));
@@ -117,7 +117,7 @@ class Forms extends Component {
         formId={formId}
         hasExtraInputs={true}
         key={formId}
-        onFormSave={onFormSave}
+        onInputChange={onInputChange}
         appState={this.props.appState}
       />
     ));
@@ -129,7 +129,7 @@ class Forms extends Component {
         formId={formId}
         hasExtraInputs={true}
         key={formId}
-        onFormSave={onFormSave}
+        onInputChange={onInputChange}
         removeForm={this.removeForm}
         appState={this.props.appState}
       />
@@ -141,7 +141,7 @@ class Forms extends Component {
         formData={education}
         formId={formId}
         key={formId}
-        onFormSave={onFormSave}
+        onInputChange={onInputChange}
         removeForm={this.removeForm}
         appState={this.props.appState}
       />
@@ -152,7 +152,7 @@ class Forms extends Component {
         formId={formId}
         hasExtraInputs={true}
         key={formId}
-        onFormSave={onFormSave}
+        onInputChange={onInputChange}
         appState={this.props.appState}
       />
     ));
@@ -162,7 +162,7 @@ class Forms extends Component {
         formId={formId}
         hasExtraInputs={true}
         key={formId}
-        onFormSave={onFormSave}
+        onInputChange={onInputChange}
         appState={this.props.appState}
       />
     ));
@@ -172,7 +172,7 @@ class Forms extends Component {
         formId={formId}
         hasExtraInputs={true}
         key={formId}
-        onFormSave={onFormSave}
+        onInputChange={onInputChange}
         appState={this.props.appState}
       />
     ));

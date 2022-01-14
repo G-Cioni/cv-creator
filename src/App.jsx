@@ -8,11 +8,11 @@ class App extends Component {
   constructor() {
     super();
     this.state = {};
-    this.onFormSave = this.onFormSave.bind(this);
+    this.onInputChange = this.onInputChange.bind(this);
     this.deleteFormState = this.deleteFormState.bind(this);
   }
 
-  onFormSave(e, formType, formId, formFields, inputName) {
+  onInputChange(e, formType, formId, formFields, inputName) {
     e.preventDefault();
     const formName = getFormName(formType, formId);
     this.setState((state) => {
@@ -41,7 +41,7 @@ class App extends Component {
     return (
       <div id="App">
         <Forms
-          onFormSave={this.onFormSave}
+          onInputChange={this.onInputChange}
           deleteFormState={this.deleteFormState}
           appState={this.state}
         />
