@@ -11,27 +11,8 @@ class Form extends Component {
       ...this.props.formData,
       extraInputsCounter: [],
     };
-    this.onInputChange = this.onInputChange.bind(this);
     this.addExtraInput = this.addExtraInput.bind(this);
     this.removeExtraInput = this.removeExtraInput.bind(this);
-  }
-
-  // Updates state on input change
-  onInputChange(e, field) {
-    console.log(this.state);
-    console.log(this.props);
-    this.setState((state) => {
-      return {
-        ...state,
-        formFields: {
-          ...state.formFields,
-          [field]: {
-            ...state.formFields[field],
-            inputValue: e.target.value,
-          },
-        },
-      };
-    });
   }
 
   // Adds an extra input and takes into consideration it's context
