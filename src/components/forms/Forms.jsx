@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import Form from "./Form";
-import formData from "../../helpers/formData";
-import uniqid from "uniqid";
-import { getCounterName, getName } from "../../helpers/utils";
+import React, { Component } from 'react';
+import Form from './Form';
+import formData from '../../helpers/formData';
+import uniqid from 'uniqid';
+import { getCounterName, getName } from '../../helpers/utils';
 
 class Forms extends Component {
   constructor(props) {
@@ -15,8 +15,8 @@ class Forms extends Component {
         educationFormsCounter: [],
         skillsFormsCounter: [],
         certificatesFormsCounter: [],
-        languagesFormsCounter: []
-      }
+        languagesFormsCounter: [],
+      },
     };
     this.addForm = this.addForm.bind(this);
     this.removeForm = this.removeForm.bind(this);
@@ -31,8 +31,8 @@ class Forms extends Component {
         ...state,
         counters: {
           ...state.counters,
-          [counterName]: state.counters[counterName].concat(uniqid())
-        }
+          [counterName]: state.counters[counterName].concat(uniqid()),
+        },
       };
     });
   }
@@ -49,9 +49,9 @@ class Forms extends Component {
           counters: {
             ...state.counters,
             [counterName]: state.counters[counterName].filter(
-              (id) => id !== formId
-            )
-          }
+              (id) => id !== formId,
+            ),
+          },
         };
       });
       deleteFormState(formName);
@@ -67,13 +67,13 @@ class Forms extends Component {
         accumulator[counterName] = counters[counterName].concat(uniqid());
         return accumulator;
       },
-      {}
+      {},
     );
 
     this.setState((state) => {
       return {
         ...state,
-        counters: updatedCounters
+        counters: updatedCounters,
       };
     });
   }
@@ -86,7 +86,7 @@ class Forms extends Component {
       education,
       skills,
       certificates,
-      languages
+      languages,
     } = formData;
 
     const {
@@ -96,7 +96,7 @@ class Forms extends Component {
       educationFormsCounter,
       skillsFormsCounter,
       certificatesFormsCounter,
-      languagesFormsCounter
+      languagesFormsCounter,
     } = this.state.counters;
 
     const { onInputChange } = this.props;
@@ -119,6 +119,7 @@ class Forms extends Component {
         key={formId}
         onInputChange={onInputChange}
         appState={this.props.appState}
+        deleteInputState={this.props.deleteInputState}
       />
     ));
     const workForms = workFormsCounter.map((formId) => (
@@ -132,6 +133,7 @@ class Forms extends Component {
         onInputChange={onInputChange}
         removeForm={this.removeForm}
         appState={this.props.appState}
+        deleteInputState={this.props.deleteInputState}
       />
     ));
     const educationForms = educationFormsCounter.map((formId) => (
@@ -154,6 +156,7 @@ class Forms extends Component {
         key={formId}
         onInputChange={onInputChange}
         appState={this.props.appState}
+        deleteInputState={this.props.deleteInputState}
       />
     ));
     const certificatesForms = certificatesFormsCounter.map((formId) => (
@@ -164,6 +167,7 @@ class Forms extends Component {
         key={formId}
         onInputChange={onInputChange}
         appState={this.props.appState}
+        deleteInputState={this.props.deleteInputState}
       />
     ));
     const languagesForms = languagesFormsCounter.map((formId) => (
@@ -174,6 +178,7 @@ class Forms extends Component {
         key={formId}
         onInputChange={onInputChange}
         appState={this.props.appState}
+        deleteInputState={this.props.deleteInputState}
       />
     ));
 

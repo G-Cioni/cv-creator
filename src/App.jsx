@@ -1,8 +1,8 @@
-import "./styles/App.css";
-import React, { Component } from "react";
-import Forms from "./components/forms/Forms";
-import Cv from "./components/cv/Cv";
-import { getName } from "./helpers/utils";
+import './styles/App.css';
+import React, { Component } from 'react';
+import Forms from './components/forms/Forms';
+import Cv from './components/cv/Cv';
+import { getName } from './helpers/utils';
 
 class App extends Component {
   constructor() {
@@ -10,6 +10,7 @@ class App extends Component {
     this.state = {};
     this.onInputChange = this.onInputChange.bind(this);
     this.deleteFormState = this.deleteFormState.bind(this);
+    this.deleteInputState = this.deleteInputState.bind(this);
   }
 
   onInputChange(e, formType, formId, formFields, inputName) {
@@ -22,10 +23,17 @@ class App extends Component {
           ...state[formName],
           [inputName]: {
             ...formFields[inputName],
-            inputValue: e.target.value
-          }
-        }
+            inputValue: e.target.value,
+          },
+        },
       };
+    });
+  }
+
+  deleteInputState(formName, inputName) {
+    this.setState((state) => {
+      delete state[formName][inputName];
+      return state;
     });
   }
 
@@ -42,6 +50,7 @@ class App extends Component {
         <Forms
           onInputChange={this.onInputChange}
           deleteFormState={this.deleteFormState}
+          deleteInputState={this.deleteInputState}
           appState={this.state}
         />
         <Cv allFormsData={this.state} />
