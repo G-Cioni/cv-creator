@@ -32,7 +32,7 @@ class App extends Component {
 
   deleteInputState(formName, inputName) {
     this.setState((state) => {
-      delete state[formName][inputName];
+      if (state[formName]) delete state[formName][inputName];
       return state;
     });
   }
