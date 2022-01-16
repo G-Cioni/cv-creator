@@ -14,6 +14,7 @@ const Cv = ({ allFormsData }) => {
             key={id}
           />
         ) : null;
+
         accumulator[cardArray] = accumulator[cardArray] ?? [];
 
         accumulator = {
@@ -24,7 +25,9 @@ const Cv = ({ allFormsData }) => {
         };
         accumulator = {
           ...accumulator,
-          [`${cardArray}HasValue`]: accumulator[cardArray][0] !== null,
+          hasValue: {
+            [cardArray]: accumulator[cardArray][0] !== null,
+          },
         };
 
         return accumulator;
@@ -33,18 +36,15 @@ const Cv = ({ allFormsData }) => {
 
   const {
     certificates,
-    certificatesHasValue,
     contact,
     education,
-    educationHasValue,
+    hasValue,
     languages,
-    languagesHasValue,
     personalInfo,
     skills,
-    skillsHasValue,
     workExperiences,
-    workExperiencesHasValue,
   } = cards;
+  console.log(cards);
 
   return (
     <div id="Cv">
@@ -55,23 +55,25 @@ const Cv = ({ allFormsData }) => {
       <div id="workEducation">
         <div id="workExperiencesCV">
           <h2 className="cvTitle">
-            {workExperiencesHasValue ? 'Work Experience' : null}
+            {hasValue?.workExperiences ? 'Work Experience' : null}
           </h2>
           {workExperiences}
         </div>
         <div id="educationCv">
-          <h2 className="cvTitle">{educationHasValue ? 'Education' : null}</h2>
+          <h2 className="cvTitle">
+            {hasValue?.education ? 'Education' : null}
+          </h2>
           {education}
         </div>
       </div>
       <div id="scl">
-        <h2 className="cvTitle">{skillsHasValue ? 'Skills' : null}</h2>
+        <h2 className="cvTitle">{hasValue?.skills ? 'Skills' : null}</h2>
         {skills}
         <h2 className="cvTitle">
-          {certificatesHasValue ? 'Certificates' : null}
+          {hasValue?.certificates ? 'Certificates' : null}
         </h2>
         {certificates}
-        <h2 className="cvTitle">{languagesHasValue ? 'Languages' : null}</h2>
+        <h2 className="cvTitle">{hasValue?.languages ? 'Languages' : null}</h2>
         {languages}
       </div>
     </div>
