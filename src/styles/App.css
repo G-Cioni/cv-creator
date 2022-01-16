@@ -1,31 +1,29 @@
 :root {
   --border-radius: 0.3em;
-  --cv-height: calc(var(--cv-width) * 1.4142); /* A4 paper aspect ratio*/
-  /*  Can set % of --cv-left-side with decimals */
+  --box-shadow: 0.3px 0.3px 5px black;
+  --color-accent-1-hover: hsl(210, 100%, 72%);
+  --color-accent-1: hsl(210, 100%, 69%);
+  --color-accent-2: hsl(200, 100%, 42%);
+  --color-bg-cv: white;
+  --color-bg-primary: hsl(0, 0%, 87%);
+  --color-bg-secondary: hsl(0, 0%, 90%);
+  --color-text: hsl(0, 0%, 21%);
+  /* A4 paper aspect ratio */
+  --cv-height: calc(var(--cv-width) * 1.4142);
+  /* Can set % of --cv-left-side by multiplying by a decimal */
   --cv-left-width: calc(var(--cv-width) * 0.6);
-  /*  Right side is calculated automatically when --cv-left-side is set */
+  /* --cv-right-width is calculated automatically based on --cv-left-side */
   --cv-right-width: calc(var(--cv-width) - var(--cv-left-width));
   --cv-width: 41em;
-  --primary-bg-color: hsl(0, 0%, 87%);
-  --secondary-bg-color: hsl(0, 0%, 90%);
-  --secondary-bg-color-1: hsl(0, 0%, 21%);
-  --secondary-bg-color-2: hsl(210, 100%, 69%);
-  --secondary-bg-color-2-hover: hsl(210, 100%, 72%);
-  --secondary-bg-color-3: hsl(200, 100%, 42%);
-  --box-shadow: 0.3px 0.3px 5px black;
-}
-
-body {
-  background-color: var(--primary-bg-color);
 }
 
 /* =====
     App
    ===== */
-
 #App {
   align-items: center;
-  color: var(--secondary-bg-color-1);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text);
   display: grid;
   grid-gap: 1em;
   grid-template-columns: auto auto;
@@ -37,89 +35,90 @@ body {
 /* =======
     Forms
    ======= */
-
 #Forms {
+  background-color: var(--color-bg-secondary);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
-  width: 25em;
   margin: 1.5vh;
-  background-color: var(--secondary-bg-color);
+  width: 25em;
 }
+
 .form {
-  margin: 1.5em auto;
-  padding: 0.2em 0.4em;
-  border-color: var(--secondary-bg-color-3);
+  border-color: var(--color-accent-2);
   border-left-style: solid;
   border-radius: var(--border-radius);
   border-right-style: solid;
   border-width: 0.15rem;
+  margin: 1.5em auto;
+  padding: 0.2em 0.4em;
 }
 
 .formSection {
   margin: 1em;
 }
+
 .formTitle {
   margin: 1em 0.2em -0.5em 0.2em;
 }
 
-/* Inputs */
-
+/* || Inputs */
 input,
 textarea {
   border-radius: var(--border-radius);
+  border: none;
   display: block;
   margin: 0.3em auto;
-  border: none;
 }
 input:focus,
 textarea:focus {
-  outline: none;
-  border-color: var(--secondary-bg-color-2);
+  border-color: var(--color-accent-1);
   border-style: solid;
   border-width: 0.05rem;
+  outline: none;
 }
 input {
+  font-size: 0.9rem;
   height: 2em;
   padding: 0em 0.5em;
-  font-size: 0.9rem;
   width: 95%;
 }
 
 textarea {
-  height: 4em;
-  resize: vertical;
-  padding: 0.5em;
   font-size: 0.9em;
+  height: 4em;
   min-height: 2em;
+  padding: 0.5em;
+  resize: vertical;
   width: 95.7%;
 }
 
-/* Buttons */
+/* || Buttons */
 button {
+  background-color: var(--color-accent-1);
   border-radius: var(--border-radius);
+  border: none;
+  color: var(--color-text);
   display: block;
+  font-weight: 600;
+  height: 2em;
   margin: 0.4em auto;
   width: 99%;
-  height: 2em;
-  background-color: var(--secondary-bg-color-2);
-  color: var(--secondary-bg-color-1);
-  font-weight: 600;
-  border: none;
 }
 button:hover {
-  background-color: var(--secondary-bg-color-2-hover);
+  background-color: var(--color-accent-1-hover);
 }
 button:focus {
-  background-color: var(--secondary-bg-color-2);
+  background-color: var(--color-accent-2);
+  outline: none;
 }
 
 /* ====
     Cv
    ==== */
-
 #Cv {
   align-items: start;
   align-self: start;
+  background-color: var(--color-bg-cv);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   display: grid;
@@ -130,13 +129,12 @@ button:focus {
   grid-template-columns: 3.7fr 2.3fr;
   grid-template-rows: auto 1fr;
   height: var(--cv-height);
+  margin-bottom: 1.5vh;
   margin-right: 2em;
+  overflow-y: scroll;
   position: sticky;
   top: 1.5vh;
   width: var(--cv-width);
-  background-color: white;
-  margin-bottom: 1.5vh;
-  overflow-y: scroll;
 }
 
 .cvTitle {
@@ -168,8 +166,9 @@ button:focus {
   text-align: right;
 }
 
-/* Cards */
-
+/* =====
+   Cards
+   ===== */
 span,
 p {
   display: block;
@@ -183,20 +182,10 @@ p {
   font-size: 0.8rem;
 }
 
-.desiredRole,
-.company,
-.school {
-  color: var(--secondary-bg-color-3);
-}
-
+/* || Personal Info Card */
 .personalInfoCard {
   margin: 1em auto 1em 1em;
   max-width: 60%;
-}
-
-.description {
-  margin-bottom: 0em;
-  word-wrap: break-word;
 }
 
 .title,
@@ -208,14 +197,21 @@ p {
   margin-right: 0.2em;
   word-wrap: break-word;
 }
+
 .desiredRole {
   font-size: 1.3rem;
   font-weight: 500;
   word-wrap: break-word;
 }
 
+.description {
+  margin-bottom: 0em;
+  word-wrap: break-word;
+}
+
+/* ||Contact Card */
 .contactCard {
-  border-color: var(--secondary-bg-color-3);
+  border-color: var(--color-accent-2);
   border-left-style: solid;
   border-radius: var(--border-radius);
   border-width: 0.15rem;
@@ -234,9 +230,11 @@ p {
   word-wrap: break-word;
 }
 
+/* || Work Experience and Education Card */
+
 .workExperiencesCard,
 .educationCard {
-  border-color: var(--secondary-bg-color-3);
+  border-color: var(--color-accent-2);
   border-left-style: solid;
   border-radius: var(--border-radius);
   border-right-style: solid;
@@ -252,41 +250,53 @@ p {
   width: calc(var(--cv-left-width));
 }
 
+.desiredRole,
+.company,
+.school {
+  color: var(--color-accent-2);
+}
+
 .position,
 .degree {
   font-size: 1.4rem;
   font-weight: 500;
   grid-area: primary;
-  word-wrap: break-word;
-  width: calc(var(--cv-left-width) * 0.55);
   margin-right: 0em;
+  width: calc(var(--cv-left-width) * 0.55);
+  word-wrap: break-word;
 }
 
 .company,
 .school {
   font-size: 1.2rem;
   grid-area: secondary;
-  word-wrap: break-word;
   width: calc(var(--cv-left-width) * 0.6);
-}
-
-.workCity,
-.educationCity {
-  grid-area: city;
+  word-wrap: break-word;
 }
 
 .to,
 .from,
 .workCity,
 .educationCity {
-  color: var(--secondary-bg-color-3);
+  color: var(--color-accent-2);
   font-size: 0.8rem;
+  margin-left: auto;
   text-align: right;
   width: calc(var(--cv-left-width) * 0.27);
   word-wrap: break-word;
-  margin-left: auto;
+}
+.workCity,
+.educationCity {
+  grid-area: city;
 }
 
+.workDuty {
+  margin: 1em 0em 0em 0.5em;
+  width: calc(var(--cv-left-width) * 1.2);
+  word-wrap: break-word;
+}
+
+/* Grid Areas for Work Experience and Education Card */
 .to {
   grid-area: to;
 }
@@ -298,16 +308,12 @@ p {
   grid-area: extraDetails;
 }
 
-.workDuty {
-  margin: 1em 0em 0em 0.5em;
-  width: calc(var(--cv-left-width) * 1.2);
-  word-wrap: break-word;
-}
+/* || Skills, Languages and Certificates */
 
 .skill,
 .language,
 .certificate {
-  background-color: var(--secondary-bg-color-2);
+  background-color: var(--color-accent-1);
   border-radius: var(--border-radius);
   display: inline-block;
   margin: 0.5em 0em 0em 0.3em;
@@ -329,10 +335,10 @@ p {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--secondary-bg-color-2);
+  background: var(--color-accent-1);
   border-radius: var(--border-radius);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--secondary-bg-color-3);
+  background: var(--color-accent-2);
 }
