@@ -1,16 +1,30 @@
 import './styles/App.css';
-import React, { Component } from 'react';
-import Forms from './components/forms/Forms';
-import Cv from './components/cv/Cv';
 import { getName } from './helpers/utils';
+import Cv from './components/cv/Cv';
+import Forms from './components/forms/Forms';
+import React, { Component } from 'react';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {};
-    this.onInputChange = this.onInputChange.bind(this);
     this.deleteFormState = this.deleteFormState.bind(this);
     this.deleteInputState = this.deleteInputState.bind(this);
+    this.onInputChange = this.onInputChange.bind(this);
+  }
+
+  deleteFormState(formName) {
+    this.setState((state) => {
+      delete state[formName];
+      return state;
+    });
+  }
+
+  deleteInputState(formName, inputName) {
+    this.setState((state) => {
+      if (state[formName]) delete state[formName][inputName];
+      return state;
+    });
   }
 
   onInputChange(e, formType, formId, formFields, inputName) {
@@ -30,28 +44,14 @@ class App extends Component {
     });
   }
 
-  deleteInputState(formName, inputName) {
-    this.setState((state) => {
-      if (state[formName]) delete state[formName][inputName];
-      return state;
-    });
-  }
-
-  deleteFormState(formName) {
-    this.setState((state) => {
-      delete state[formName];
-      return state;
-    });
-  }
-
   render() {
     return (
       <div id="App">
         <Forms
-          onInputChange={this.onInputChange}
+          appState={this.state}
           deleteFormState={this.deleteFormState}
           deleteInputState={this.deleteInputState}
-          appState={this.state}
+          onInputChange={this.onInputChange}
         />
         <Cv allFormsData={this.state} />
       </div>

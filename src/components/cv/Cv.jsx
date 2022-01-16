@@ -1,12 +1,12 @@
-import React from "react";
-import Card from "./Card";
-import { checkValuePresence, getCardDetails } from "../../helpers/utils";
+import { checkValuePresence, getCardDetails } from '../../helpers/utils';
+import Card from './Card';
+import React from 'react';
 
 const Cv = ({ allFormsData }) => {
   // Creates a cards object which will be rendered in JSX
   const cards = allFormsData
     ? Object.keys(allFormsData).reduce((accumulator, cardName) => {
-        const { id, cardArray, className } = getCardDetails(cardName);
+        const { cardArray, className, id } = getCardDetails(cardName);
 
         accumulator[cardArray] = accumulator[cardArray] ?? [];
 
@@ -15,11 +15,11 @@ const Cv = ({ allFormsData }) => {
           [`${cardArray}HasValue`]: checkValuePresence(allFormsData, cardName),
           [cardArray]: accumulator[cardArray].concat(
             <Card
-              key={id}
               className={className}
               formData={allFormsData[cardName]}
-            />
-          )
+              key={id}
+            />,
+          ),
         };
 
         return accumulator;
@@ -27,18 +27,18 @@ const Cv = ({ allFormsData }) => {
     : null;
 
   const {
-    personalInfo,
-    contact,
-    workExperiences,
-    workExperiencesHasValue,
-    education,
-    educationHasValue,
-    skills,
-    skillsHasValue,
     certificates,
     certificatesHasValue,
+    contact,
+    education,
+    educationHasValue,
     languages,
-    languagesHasValue
+    languagesHasValue,
+    personalInfo,
+    skills,
+    skillsHasValue,
+    workExperiences,
+    workExperiencesHasValue,
   } = cards;
 
   return (
@@ -50,23 +50,23 @@ const Cv = ({ allFormsData }) => {
       <div id="workEducation">
         <div id="workExperiencesCV">
           <h2 className="cvTitle">
-            {workExperiencesHasValue ? "Work Experience" : null}
+            {workExperiencesHasValue ? 'Work Experience' : null}
           </h2>
           {workExperiences}
         </div>
         <div id="educationCv">
-          <h2 className="cvTitle">{educationHasValue ? "Education" : null}</h2>
+          <h2 className="cvTitle">{educationHasValue ? 'Education' : null}</h2>
           {education}
         </div>
       </div>
       <div id="scl">
-        <h2 className="cvTitle">{skillsHasValue ? "Skills" : null}</h2>
+        <h2 className="cvTitle">{skillsHasValue ? 'Skills' : null}</h2>
         {skills}
         <h2 className="cvTitle">
-          {certificatesHasValue ? "Certificates" : null}
+          {certificatesHasValue ? 'Certificates' : null}
         </h2>
         {certificates}
-        <h2 className="cvTitle">{languagesHasValue ? "Languages" : null}</h2>
+        <h2 className="cvTitle">{languagesHasValue ? 'Languages' : null}</h2>
         {languages}
       </div>
     </div>

@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
+import { getCounterName, getName } from '../../helpers/utils';
 import Form from './Form';
 import formData from '../../helpers/formData';
+import React, { Component } from 'react';
 import uniqid from 'uniqid';
-import { getCounterName, getName } from '../../helpers/utils';
 
 class Forms extends Component {
   constructor(props) {
     super(props);
     this.state = {
       counters: {
-        personalFormsCounter: [],
-        contactFormsCounter: [],
-        workFormsCounter: [],
-        educationFormsCounter: [],
-        skillsFormsCounter: [],
         certificatesFormsCounter: [],
+        contactFormsCounter: [],
+        educationFormsCounter: [],
         languagesFormsCounter: [],
+        personalFormsCounter: [],
+        skillsFormsCounter: [],
+        workFormsCounter: [],
       },
     };
     this.addForm = this.addForm.bind(this);
@@ -80,23 +80,23 @@ class Forms extends Component {
 
   render() {
     const {
-      personalInfo,
-      contact,
-      workExperiences,
-      education,
-      skills,
       certificates,
+      contact,
+      education,
       languages,
+      personalInfo,
+      skills,
+      workExperiences,
     } = formData;
 
     const {
-      personalFormsCounter,
-      contactFormsCounter,
-      workFormsCounter,
-      educationFormsCounter,
-      skillsFormsCounter,
       certificatesFormsCounter,
+      contactFormsCounter,
+      educationFormsCounter,
       languagesFormsCounter,
+      personalFormsCounter,
+      skillsFormsCounter,
+      workFormsCounter,
     } = this.state.counters;
 
     const { onInputChange } = this.props;
@@ -104,81 +104,81 @@ class Forms extends Component {
     // Generates arrays for each form type which will then be rendered
     const personalForms = personalFormsCounter.map((formId) => (
       <Form
+        appState={this.props.appState}
         formData={personalInfo}
         formId={formId}
         key={formId}
         onInputChange={onInputChange}
-        appState={this.props.appState}
       />
     ));
     const contactForms = contactFormsCounter.map((formId) => (
       <Form
+        appState={this.props.appState}
+        deleteInputState={this.props.deleteInputState}
         formData={contact}
         formId={formId}
         hasExtraInputs={true}
         key={formId}
         onInputChange={onInputChange}
-        appState={this.props.appState}
-        deleteInputState={this.props.deleteInputState}
       />
     ));
     const workForms = workFormsCounter.map((formId) => (
       <Form
         addForm={this.addForm}
+        appState={this.props.appState}
         counter={workFormsCounter}
+        deleteInputState={this.props.deleteInputState}
         formData={workExperiences}
         formId={formId}
         hasExtraInputs={true}
         key={formId}
         onInputChange={onInputChange}
         removeForm={this.removeForm}
-        appState={this.props.appState}
-        deleteInputState={this.props.deleteInputState}
       />
     ));
     const educationForms = educationFormsCounter.map((formId) => (
       <Form
         addForm={this.addForm}
+        appState={this.props.appState}
         counter={educationFormsCounter}
         formData={education}
         formId={formId}
         key={formId}
         onInputChange={onInputChange}
         removeForm={this.removeForm}
-        appState={this.props.appState}
       />
     ));
     const skillsForms = skillsFormsCounter.map((formId) => (
       <Form
+        appState={this.props.appState}
+        deleteInputState={this.props.deleteInputState}
         formData={skills}
         formId={formId}
         hasExtraInputs={true}
         key={formId}
         onInputChange={onInputChange}
-        appState={this.props.appState}
-        deleteInputState={this.props.deleteInputState}
       />
     ));
     const certificatesForms = certificatesFormsCounter.map((formId) => (
       <Form
+        appState={this.props.appState}
+        deleteInputState={this.props.deleteInputState}
         formData={certificates}
         formId={formId}
         hasExtraInputs={true}
         key={formId}
         onInputChange={onInputChange}
-        appState={this.props.appState}
-        deleteInputState={this.props.deleteInputState}
       />
     ));
     const languagesForms = languagesFormsCounter.map((formId) => (
       <Form
+        appState={this.props.appState}
+        deleteInputState={this.props.deleteInputState}
         formData={languages}
         formId={formId}
         hasExtraInputs={true}
         key={formId}
         onInputChange={onInputChange}
-        appState={this.props.appState}
-        deleteInputState={this.props.deleteInputState}
       />
     ));
 

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import Input from './Input';
-import Button from './Button';
-import uniqid from 'uniqid';
 import { getName } from '../../helpers/utils';
+import Button from './Button';
+import Input from './Input';
+import React, { Component } from 'react';
+import uniqid from 'uniqid';
 
 class Form extends Component {
   constructor(props) {
@@ -63,11 +63,7 @@ class Form extends Component {
   }
 
   // Removes a specific input field from the state and counter
-
-  //todo name and inputId are identical. Remove one of the two and find the cause
   removeExtraInput(name, formName) {
-    console.log(name);
-    console.log(formName);
     const { extraInputsCounter } = this.state;
     if (extraInputsCounter.length > 1) {
       this.setState((state) => {
@@ -90,9 +86,9 @@ class Form extends Component {
 
   render() {
     const {
-      extraInputsCounter,
       extraInputName,
       extraInputPlaceHolder,
+      extraInputsCounter,
       formFields,
       formType,
     } = this.state;
@@ -111,10 +107,12 @@ class Form extends Component {
       const { id: defaultId, placeHolder, name, type } = formFields[inputName];
       const formName = getName(formType, formId);
       const inputId = name.includes(defaultId) ? name : getName(name, formId);
+      console.log(inputId, name);
       return (
         <Input
           counter={extraInputsCounter}
           extraInputName={extraInputName ?? null}
+          formName={formName}
           handleOnChange={(e) =>
             onInputChange(e, formType, formId, formFields, name)
           }
@@ -128,7 +126,6 @@ class Form extends Component {
             name.includes(inputId) ? this.removeExtraInput : null
           }
           type={type}
-          formName={formName}
         />
       );
     });

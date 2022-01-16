@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
 import Button from './Button';
+import React, { Component } from 'react';
 
 class Input extends Component {
   render() {
     const {
       counter,
       extraInputName,
+      formName,
       handleOnChange,
       inputValue,
       name,
       placeHolder,
       removeExtraInput,
       type,
-      formName,
     } = this.props;
 
     // Conditionally renders an input field or a textarea
