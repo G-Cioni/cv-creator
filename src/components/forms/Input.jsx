@@ -7,7 +7,6 @@ class Input extends Component {
       counter,
       extraInputName,
       handleOnChange,
-      inputId,
       inputValue,
       name,
       placeHolder,
@@ -34,7 +33,7 @@ class Input extends Component {
         )}
         {removeExtraInput && counter.length > 1 ? (
           <Button
-            onClick={() => removeExtraInput(name, inputId, formName)}
+            onClick={() => removeExtraInput(name, formName)}
             text={`Remove ${extraInputName}`}
           />
         ) : null}

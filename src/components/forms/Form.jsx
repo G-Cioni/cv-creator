@@ -65,7 +65,7 @@ class Form extends Component {
   // Removes a specific input field from the state and counter
 
   //todo name and inputId are identical. Remove one of the two and find the cause
-  removeExtraInput(name, inputId, formName) {
+  removeExtraInput(name, formName) {
     console.log(name);
     console.log(formName);
     const { extraInputsCounter } = this.state;
@@ -74,8 +74,8 @@ class Form extends Component {
         delete state.formFields[name];
         return {
           ...state,
-          extraInputsCounter: state.extraInputsCounter.filter((id) =>
-            name.includes(id),
+          extraInputsCounter: state.extraInputsCounter.filter(
+            (id) => !name.includes(id),
           ),
         };
       });
