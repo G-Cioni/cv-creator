@@ -18,7 +18,9 @@ const Cv = ({ allFormsData }) => {
 
         accumulator = {
           ...accumulator,
-          [cardArray]: accumulator[cardArray].concat(card),
+          [cardArray]: accumulator[cardArray]
+            .filter((card) => card !== null)
+            .concat(card),
         };
         accumulator = {
           ...accumulator,
