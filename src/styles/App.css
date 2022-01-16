@@ -67,8 +67,12 @@ textarea {
 button {
   border-radius: var(--border-radius);
   display: block;
-  margin: 0.3em auto;
+  margin: 0.4em auto;
   width: 95%;
+  height: 2em;
+  background-color: var(--secondary-bg-color-2);
+  color: var(--secondary-bg-color-1);
+  font-weight: 600;
 }
 
 /* ====
