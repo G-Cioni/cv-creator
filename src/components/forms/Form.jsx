@@ -107,7 +107,6 @@ class Form extends Component {
       const { id: defaultId, placeHolder, name, type } = formFields[inputName];
       const formName = getName(formType, formId);
       const inputId = name.includes(defaultId) ? name : getName(name, formId);
-      console.log(inputId, name);
       return (
         <Input
           counter={extraInputsCounter}
