@@ -16,19 +16,12 @@ const Cv = ({ allFormsData }) => {
         ) : null;
 
         accumulator[cardArray] = accumulator[cardArray] ?? [];
+        accumulator[cardArray] = accumulator[cardArray]
+          .filter((card) => card !== null)
+          .concat(card);
 
-        accumulator = {
-          ...accumulator,
-          [cardArray]: accumulator[cardArray]
-            .filter((card) => card !== null)
-            .concat(card),
-        };
-        accumulator = {
-          ...accumulator,
-          hasValue: {
-            [cardArray]: accumulator[cardArray][0] !== null,
-          },
-        };
+        accumulator.hasValue = accumulator.hasValue ?? {};
+        accumulator.hasValue[cardArray] = accumulator[cardArray][0] !== null;
 
         return accumulator;
       }, {})
@@ -44,7 +37,6 @@ const Cv = ({ allFormsData }) => {
     skills,
     workExperiences,
   } = cards;
-  console.log(cards);
 
   return (
     <div id="Cv">
