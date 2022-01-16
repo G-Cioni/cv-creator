@@ -7,20 +7,21 @@ const Cv = ({ allFormsData }) => {
   const cards = allFormsData
     ? Object.keys(allFormsData).reduce((accumulator, cardName) => {
         const { cardArray, className, id } = getCardDetails(cardName);
+        const card = checkValuePresence(allFormsData, cardName) ? (
+          <Card
+            className={className}
+            formData={allFormsData[cardName]}
+            key={id}
+          />
+        ) : null;
 
         accumulator[cardArray] = accumulator[cardArray] ?? [];
+        accumulator[cardArray] = accumulator[cardArray]
+          .filter((card) => card !== null)
+          .concat(card);
 
-        accumulator = {
-          ...accumulator,
-          [`${cardArray}HasValue`]: checkValuePresence(allFormsData, cardName),
-          [cardArray]: accumulator[cardArray].concat(
-            <Card
-              className={className}
-              formData={allFormsData[cardName]}
-              key={id}
-            />,
-          ),
-        };
+        accumulator.hasValue = accumulator.hasValue ?? {};
+        accumulator.hasValue[cardArray] = accumulator[cardArray][0] !== null;
 
         return accumulator;
       }, {})
@@ -28,17 +29,13 @@ const Cv = ({ allFormsData }) => {
 
   const {
     certificates,
-    certificatesHasValue,
     contact,
     education,
-    educationHasValue,
+    hasValue,
     languages,
-    languagesHasValue,
     personalInfo,
     skills,
-    skillsHasValue,
     workExperiences,
-    workExperiencesHasValue,
   } = cards;
 
   return (
@@ -50,23 +47,25 @@ const Cv = ({ allFormsData }) => {
       <div id="workEducation">
         <div id="workExperiencesCV">
           <h2 className="cvTitle">
-            {workExperiencesHasValue ? 'Work Experience' : null}
+            {hasValue?.workExperiences ? 'Work Experience' : null}
           </h2>
           {workExperiences}
         </div>
         <div id="educationCv">
-          <h2 className="cvTitle">{educationHasValue ? 'Education' : null}</h2>
+          <h2 className="cvTitle">
+            {hasValue?.education ? 'Education' : null}
+          </h2>
           {education}
         </div>
       </div>
       <div id="scl">
-        <h2 className="cvTitle">{skillsHasValue ? 'Skills' : null}</h2>
+        <h2 className="cvTitle">{hasValue?.skills ? 'Skills' : null}</h2>
         {skills}
         <h2 className="cvTitle">
-          {certificatesHasValue ? 'Certificates' : null}
+          {hasValue?.certificates ? 'Certificates' : null}
         </h2>
         {certificates}
-        <h2 className="cvTitle">{languagesHasValue ? 'Languages' : null}</h2>
+        <h2 className="cvTitle">{hasValue?.languages ? 'Languages' : null}</h2>
         {languages}
       </div>
     </div>
