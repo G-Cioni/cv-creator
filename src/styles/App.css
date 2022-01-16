@@ -6,11 +6,18 @@
   /*  Right side is calculated automatically when --cv-left-side is set */
   --cv-right-width: calc(var(--cv-width) - var(--cv-left-width));
   --cv-width: 41em;
+  --primary-bg-color: hsl(0, 0%, 82%);
+  --secondary-bg-color: hsl(0, 0%, 90%);
   --secondary-bg-color-1: hsl(0, 0%, 21%);
   --secondary-bg-color-2: hsl(210, 100%, 69%);
   --secondary-bg-color-2-hover: hsl(210, 100%, 72%);
   --secondary-bg-color-3: hsl(204, 42%, 27%);
   --secondary-bg-color-4: hsl(61, 78%, 46%);
+  --box-shadow: 0.3px 0.3px 5px black;
+}
+
+body {
+  background-color: var(--primary-bg-color);
 }
 
 /* =====
@@ -34,9 +41,10 @@
 
 #Forms {
   border-radius: var(--border-radius);
-  border: 1px solid black;
+  box-shadow: var(--box-shadow);
   width: 25em;
   margin: 0.4em;
+  background-color: var(--secondary-bg-color);
 }
 .form {
   margin: 1.5em auto;
@@ -64,6 +72,15 @@ textarea {
   font-size: 0.9rem;
   margin: 0.3em auto;
   width: 95%;
+  border: none;
+  padding: 0em 0.5em;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--secondary-bg-color-2);
+  border-style: solid;
+  border-width: 0.05rem;
 }
 input {
   height: 2em;
@@ -79,7 +96,7 @@ button {
   border-radius: var(--border-radius);
   display: block;
   margin: 0.4em auto;
-  width: 95%;
+  width: 99%;
   height: 2em;
   background-color: var(--secondary-bg-color-2);
   color: var(--secondary-bg-color-1);
@@ -97,7 +114,7 @@ button:hover {
   align-items: start;
   align-self: start;
   border-radius: var(--border-radius);
-  border: 1px solid black;
+  box-shadow: var(--box-shadow);
   display: grid;
   grid-gap: 0em 1em;
   grid-template-areas:
@@ -105,11 +122,12 @@ button:hover {
     'workEducation scl ';
   grid-template-columns: 3.7fr 2.3fr;
   grid-template-rows: auto 1fr;
-  height: minmax(var(--cv-height) max-content);
+  height: var(--cv-height);
   margin-right: 2em;
   position: sticky;
   top: 1vh;
   width: var(--cv-width);
+  background-color: white;
 }
 
 .cvTitle {
