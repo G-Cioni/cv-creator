@@ -123,7 +123,7 @@ button:focus {
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   display: grid;
-  grid-gap: 0em 1em;
+  grid-gap: 0em 0.5em;
   grid-template-areas:
     'personalContact personalContact'
     'workEducation scl ';
@@ -196,6 +196,7 @@ p {
 
 .description {
   margin-bottom: 0em;
+  word-wrap: break-word;
 }
 
 .title,
@@ -205,10 +206,12 @@ p {
   font-size: 1.8rem;
   font-weight: bold;
   margin-right: 0.2em;
+  word-wrap: break-word;
 }
 .desiredRole {
   font-size: 1.3rem;
   font-weight: 500;
+  word-wrap: break-word;
 }
 
 .contactCard {
@@ -217,8 +220,8 @@ p {
   border-radius: var(--border-radius);
   border-width: 0.15rem;
   height: max-content;
-  margin: 1em 1em 0.5em auto;
-  max-width: var(--cv-right-width);
+  margin: 1em 0em 0.5em auto;
+  max-width: calc(var(--cv-right-width) * 0.9);
   width: max-content;
   word-wrap: break-word;
 }
@@ -228,6 +231,7 @@ p {
 .location,
 .webSite {
   margin: 0.4em;
+  word-wrap: break-word;
 }
 
 .workExperiencesCard,
@@ -245,6 +249,7 @@ p {
     'extraDetails extraDetails extraDetails';
   margin-bottom: 1.5em;
   padding: 0.5em;
+  width: calc(var(--cv-left-width));
 }
 
 .position,
@@ -252,12 +257,17 @@ p {
   font-size: 1.4rem;
   font-weight: 500;
   grid-area: primary;
+  word-wrap: break-word;
+  width: calc(var(--cv-left-width) * 0.55);
+  margin-right: 0em;
 }
 
 .company,
 .school {
   font-size: 1.2rem;
   grid-area: secondary;
+  word-wrap: break-word;
+  width: calc(var(--cv-left-width) * 0.6);
 }
 
 .workCity,
@@ -272,6 +282,9 @@ p {
   color: var(--secondary-bg-color-3);
   font-size: 0.8rem;
   text-align: right;
+  width: calc(var(--cv-left-width) * 0.27);
+  word-wrap: break-word;
+  margin-left: auto;
 }
 
 .to {
@@ -286,16 +299,20 @@ p {
 }
 
 .workDuty {
-  margin: 1em auto 0em auto;
+  margin: 1em 0em 0em 0.5em;
+  width: calc(var(--cv-left-width) * 1.2);
+  word-wrap: break-word;
 }
 
 .skill,
-.language {
+.language,
+.certificate {
   background-color: var(--secondary-bg-color-2);
   border-radius: var(--border-radius);
   display: inline-block;
-  margin: 0.5em;
+  margin: 0.5em 0em 0em 0.3em;
   padding: 0.2em 0.4em;
+  word-wrap: break-word;
 }
 
 /*==========
@@ -303,22 +320,19 @@ p {
   ==========*/
 
 ::-webkit-scrollbar {
-  width: 0.4rem;
   height: 0.4rem;
+  width: 0.4rem;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--secondary-bg-color-2);
   border-radius: var(--border-radius);
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--secondary-bg-color-3);
 }
