@@ -95,13 +95,6 @@ const formData = {
         inputValue: '',
         type: 'input',
       },
-      workCity: {
-        name: 'workCity',
-        placeHolder: 'City',
-        id: uniqid(),
-        inputValue: '',
-        type: 'input',
-      },
       from: {
         name: 'from',
         placeHolder: 'From',
@@ -112,6 +105,13 @@ const formData = {
       to: {
         name: 'to',
         placeHolder: 'To',
+        id: uniqid(),
+        inputValue: '',
+        type: 'input',
+      },
+      workCity: {
+        name: 'workCity',
+        placeHolder: 'City',
         id: uniqid(),
         inputValue: '',
         type: 'input',
@@ -137,13 +137,6 @@ const formData = {
         inputValue: '',
         type: 'input',
       },
-      educationCity: {
-        name: 'educationCity',
-        placeHolder: 'City',
-        id: uniqid(),
-        inputValue: '',
-        type: 'input',
-      },
       from: {
         name: 'from',
         placeHolder: 'From',
@@ -154,6 +147,13 @@ const formData = {
       to: {
         name: 'to',
         placeHolder: 'To',
+        id: uniqid(),
+        inputValue: '',
+        type: 'input',
+      },
+      educationCity: {
+        name: 'educationCity',
+        placeHolder: 'City',
         id: uniqid(),
         inputValue: '',
         type: 'input',
