@@ -7,19 +7,22 @@ const Cv = ({ allFormsData }) => {
   const cards = allFormsData
     ? Object.keys(allFormsData).reduce((accumulator, cardName) => {
         const { cardArray, className, id } = getCardDetails(cardName);
-
+        const card = checkValuePresence(allFormsData, cardName) ? (
+          <Card
+            className={className}
+            formData={allFormsData[cardName]}
+            key={id}
+          />
+        ) : null;
         accumulator[cardArray] = accumulator[cardArray] ?? [];
 
         accumulator = {
           ...accumulator,
-          [`${cardArray}HasValue`]: checkValuePresence(allFormsData, cardName),
-          [cardArray]: accumulator[cardArray].concat(
-            <Card
-              className={className}
-              formData={allFormsData[cardName]}
-              key={id}
-            />,
-          ),
+          [cardArray]: accumulator[cardArray].concat(card),
+        };
+        accumulator = {
+          ...accumulator,
+          [`${cardArray}HasValue`]: accumulator[cardArray][0] !== null,
         };
 
         return accumulator;
