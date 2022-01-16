@@ -17,12 +17,15 @@
   --cv-width: 41em;
 }
 
+body {
+  background-color: var(--color-bg-primary);
+}
+
 /* =====
     App
    ===== */
 #App {
   align-items: center;
-  background-color: var(--color-bg-primary);
   color: var(--color-text);
   display: grid;
   grid-gap: 1em;
