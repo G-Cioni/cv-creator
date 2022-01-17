@@ -1,8 +1,7 @@
 import { checkValuePresence, getCardDetails } from '../../helpers/utils';
 import Card from './Card';
 import React, { Component } from 'react';
-import Image from './Image';
-import emptyAvatar from '../../images/emptyAvatar.png';
+import Avatar from './Avatar';
 
 class Cv extends Component {
   // Creates a cards object which will be rendered in JSX
@@ -45,7 +44,7 @@ class Cv extends Component {
 
     return (
       <div id="Cv">
-        <Image />
+        <Avatar />
         <div id="personalContact">
           {personalInfo}
           {contact}

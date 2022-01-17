@@ -11,35 +11,28 @@ class Avatar extends Component {
   }
 
   onChange(e) {
-    this.setState((state) => {
-      return {
-        ...state,
-        image: e.target.files[0],
-      };
-    });
-  }
-
-  componentDidUpdate() {
-    const { image } = this.state;
-    if (image) {
+    if (e.target.files[0]) {
       const reader = new FileReader();
       reader.onloadend = () =>
         this.setState((state) => {
           return {
             ...state,
+            image: e.target.files[0],
             preview: reader.result,
           };
         });
-      reader.readAsDataURL(image);
+      reader.readAsDataURL(e.target.files[0]);
     } else {
       this.setState((state) => {
         return {
           ...state,
-          preview: null,
+          image: null,
+          preview: emptyAvatar,
         };
       });
     }
   }
+
   render() {
     const fileInputRef = React.createRef();
     const { preview } = this.state;
