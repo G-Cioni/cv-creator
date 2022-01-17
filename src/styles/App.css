@@ -150,6 +150,7 @@ img {
   height: calc(var(--cv-right-width) * 0.6);
   object-fit: cover;
   width: calc(var(--cv-right-width) * 0.6);
+  cursor: pointer;
 }
 
 #avatar {
