@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import emptyAvatar from '../../images/emptyAvatar.png';
 
-class Image extends Component {
+class Avatar extends Component {
   constructor(props) {
     super(props);
     this.state = {
       image: null,
-      preview: null,
+      preview: emptyAvatar,
     };
   }
 
@@ -30,21 +31,37 @@ class Image extends Component {
           };
         });
       reader.readAsDataURL(image);
+    } else {
+      this.setState((state) => {
+        return {
+          ...state,
+          preview: null,
+        };
+      });
     }
   }
   render() {
-    const { image, preview } = this.state;
+    const fileInputRef = React.createRef();
+    const { preview } = this.state;
     return (
       <div>
+        <img
+          src={preview}
+          alt={'profilePic'}
+          onClick={() => {
+            fileInputRef.current.click();
+          }}
+        />
         <input
           type="file"
           onChange={(e) => this.onChange(e)}
           accept="image/*"
+          style={{ display: 'none' }}
+          ref={fileInputRef}
         />
-        <img src={preview} />
       </div>
     );
   }
 }
 
-export default Image;
+export default Avatar;
