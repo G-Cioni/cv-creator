@@ -44,10 +44,9 @@ class Cv extends Component {
 
     return (
       <div id="Cv">
-        <Avatar />
-        <div id="personalContact">
+        <div id="personalInfoAvatar">
           {personalInfo}
-          {contact}
+          <Avatar />
         </div>
         <div id="workEducation">
           <div id="workExperiencesCV">
@@ -63,7 +62,11 @@ class Cv extends Component {
             {education}
           </div>
         </div>
-        <div id="scl">
+        <div id="cscl">
+          <h2 className="cvTitle">
+            {hasValue?.contact ? 'Contact Details' : null}
+          </h2>
+          {contact}
           <h2 className="cvTitle">{hasValue?.skills ? 'Skills' : null}</h2>
           {skills}
           <h2 className="cvTitle">

@@ -39,7 +39,7 @@ class Avatar extends Component {
     const fileInputRef = React.createRef();
     const { preview } = this.state;
     return (
-      <div>
+      <div id="avatar">
         <img
           src={preview}
           alt={'profilePic'}
@@ -60,7 +60,7 @@ class Avatar extends Component {
               fileInputRef.current.click();
             }}
           >
-            Upload image
+            Click image to upload
           </div>
         ) : null}
       </div>

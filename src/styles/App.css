@@ -131,8 +131,8 @@ button:focus {
   display: grid;
   grid-gap: 0em 0.5em;
   grid-template-areas:
-    'personalContact personalContact'
-    'workEducation scl ';
+    'personalInfoAvatar personalInfoAvatar'
+    'workEducation cscl ';
   grid-template-columns: 3.7fr 2.3fr;
   grid-template-rows: auto 1fr;
   height: var(--cv-height);
@@ -145,19 +145,28 @@ button:focus {
 }
 
 img {
-  height: auto;
-  width: 5em;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  height: calc(var(--cv-right-width) * 0.6);
+  object-fit: cover;
+  width: calc(var(--cv-right-width) * 0.6);
 }
+
+#avatar {
+  height: max-content;
+  margin: 1.1em 0.8em 0.5em auto;
+}
+
 .cvTitle {
   font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 0.5em;
-  margin-top: 0em;
+  margin-top: 0.3em;
 }
 
-#personalContact {
+#personalInfoAvatar {
   display: flex;
-  grid-area: personalContact;
+  grid-area: personalInfoAvatar;
   width: 100%;
 }
 
@@ -168,11 +177,11 @@ img {
   margin-left: 1em;
 }
 
-/* Stands for "skills-certificates-languages" */
-#scl {
+/* Stands for "contact-skills-certificates-languages" */
+#cscl {
   display: flex;
   flex-direction: column;
-  grid-area: scl;
+  grid-area: cscl;
   margin-right: 1em;
   text-align: right;
 }
@@ -196,7 +205,7 @@ p {
 /* || Personal Info Card */
 .personalInfoCard {
   margin: 1em auto 1em 1em;
-  max-width: 60%;
+  max-width: calc(var(--cv-left-width) * 1.05);
 }
 
 .title,
@@ -222,12 +231,8 @@ p {
 
 /* ||Contact Card */
 .contactCard {
-  border-color: var(--color-accent-2);
-  border-left-style: solid;
-  border-radius: var(--border-radius);
-  border-width: 0.15rem;
   height: max-content;
-  margin: 1em 0em 0.5em auto;
+  margin: 0em 0em 0.5em auto;
   max-width: calc(var(--cv-right-width) * 0.9);
   width: max-content;
   word-wrap: break-word;
@@ -237,7 +242,7 @@ p {
 .email,
 .location,
 .webSite {
-  margin: 0.4em;
+  margin-bottom: 0.4em;
   word-wrap: break-word;
 }
 
@@ -256,7 +261,6 @@ p {
     'primary primary to'
     'secondary secondary city '
     'extraDetails extraDetails extraDetails';
-  margin-bottom: 1.5em;
   padding: 0.5em;
   width: calc(var(--cv-left-width));
 }
