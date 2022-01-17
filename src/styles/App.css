@@ -144,6 +144,10 @@ button:focus {
   width: var(--cv-width);
 }
 
+img {
+  height: auto;
+  width: 5em;
+}
 .cvTitle {
   font-size: 1.5rem;
   font-weight: 500;

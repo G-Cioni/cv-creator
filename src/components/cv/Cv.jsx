@@ -1,6 +1,7 @@
 import { checkValuePresence, getCardDetails } from '../../helpers/utils';
 import Card from './Card';
 import React from 'react';
+import Image from './Image';
 
 const Cv = ({ allFormsData }) => {
   // Creates a cards object which will be rendered in JSX
@@ -40,6 +41,7 @@ const Cv = ({ allFormsData }) => {
 
   return (
     <div id="Cv">
+      <Image />
       <div id="personalContact">
         {personalInfo}
         {contact}
