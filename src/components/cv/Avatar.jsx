@@ -11,17 +11,19 @@ class Avatar extends Component {
   }
 
   onChange(e) {
-    if (e.target.files[0]) {
+    const newAvatar = e.target.files[0];
+    const newAvatarType = newAvatar ? newAvatar.type.substr(0, 5) : null;
+    if (newAvatar && newAvatarType === 'image') {
       const reader = new FileReader();
       reader.onloadend = () =>
         this.setState((state) => {
           return {
             ...state,
-            image: e.target.files[0],
+            image: newAvatar,
             preview: reader.result,
           };
         });
-      reader.readAsDataURL(e.target.files[0]);
+      reader.readAsDataURL(newAvatar);
     } else {
       this.setState((state) => {
         return {
@@ -52,6 +54,15 @@ class Avatar extends Component {
           style={{ display: 'none' }}
           ref={fileInputRef}
         />
+        {preview === emptyAvatar ? (
+          <div
+            onClick={() => {
+              fileInputRef.current.click();
+            }}
+          >
+            Upload image
+          </div>
+        ) : null}
       </div>
     );
   }
