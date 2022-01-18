@@ -165,8 +165,10 @@ img {
 }
 
 #avatar {
+  cursor: pointer;
   height: max-content;
   margin: 1.1em 0.8em 0.5em auto;
+  text-align: center;
 }
 
 .cvTitle {
@@ -375,14 +377,14 @@ p {
 
 @media (max-width: 768px) {
   #App {
+    gap: 0em;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    gap: 0em;
   }
   #Forms,
   #Cv {
-    width: var(--cv-width);
     margin: 1.5em auto;
+    width: var(--cv-width);
   }
   #Cv {
     margin-top: 0em;
