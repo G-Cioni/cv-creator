@@ -95,7 +95,6 @@ textarea {
   padding: 0.5em;
   resize: vertical;
   width: 95.7%;
-  margin-left: 0.1em;
 }
 
 .inputWithRemoveBtn {
@@ -374,15 +373,18 @@ p {
   background: var(--color-accent-2);
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
   #App {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
+    gap: 0em;
   }
   #Forms,
   #Cv {
     width: var(--cv-width);
-    margin: auto;
-    margin-top: 1em;
+    margin: 1.5em auto;
+  }
+  #Cv {
+    margin-top: 0em;
   }
 }
