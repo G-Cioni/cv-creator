@@ -375,6 +375,9 @@ p {
   background: var(--color-accent-2);
 }
 
+/* ================= 
+   Responsive Design
+   ================= */
 @media (max-width: 768px) {
   #App {
     gap: 0em;
@@ -389,7 +392,31 @@ p {
   #Cv {
     margin-top: 0em;
   }
+  .formTitle {
+    font-size: 2.8em;
+    margin-bottom: 0.1em;
+  }
+  .form {
+    border-width: 0.3em;
+  }
   button {
-    width: 97.5%;
+    margin: 0.4em auto;
+    width: 94.5%;
+    font-size: 1.7rem;
+  }
+
+  input,
+  textarea {
+    font-size: 2em;
+    width: 90%;
+  }
+
+  .inputWithRemoveBtn {
+    gap: 0em;
+  }
+
+  .inputWithRemoveBtn input {
+    width: 76%;
+    margin-right: 0em;
   }
 }
