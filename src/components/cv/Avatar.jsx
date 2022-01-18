@@ -24,14 +24,6 @@ class Avatar extends Component {
           };
         });
       reader.readAsDataURL(newAvatar);
-    } else {
-      this.setState((state) => {
-        return {
-          ...state,
-          image: null,
-          preview: emptyAvatar,
-        };
-      });
     }
   }
 
