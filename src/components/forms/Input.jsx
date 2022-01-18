@@ -5,7 +5,6 @@ class Input extends Component {
   render() {
     const {
       counter,
-      extraInputName,
       formName,
       handleOnChange,
       inputValue,
