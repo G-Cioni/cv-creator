@@ -1,13 +1,13 @@
 :root {
   --border-radius: 0.3em;
   --box-shadow: 0.3px 0.3px 5px black;
-  --color-accent-1-hover: hsl(210, 100%, 72%);
-  --color-accent-1: hsl(210, 100%, 69%);
-  --color-accent-2: hsl(200, 100%, 42%);
+  --color-accent-1-hover: hsl(212, 100%, 53%);
+  --color-accent-1: hsl(212, 100%, 61%);
+  --color-accent-2: hsl(202, 100%, 38%);
   --color-bg-cv: white;
-  --color-bg-primary: hsl(0, 0%, 87%);
-  --color-bg-secondary: hsl(0, 0%, 90%);
-  --color-text: hsl(0, 0%, 21%);
+  --color-bg-primary: hsl(214, 63%, 30%);
+  --color-bg-secondary: hsl(221, 32%, 85%);
+  --color-text: hsl(0, 0%, 10%);
   /* A4 paper aspect ratio */
   --cv-height: calc(var(--cv-width) * 1.4142);
   /* Can set % of --cv-left-side by multiplying by a decimal */
@@ -345,8 +345,8 @@ p {
   ==========*/
 
 ::-webkit-scrollbar {
-  height: 0.4rem;
-  width: 0.4rem;
+  height: 0.5rem;
+  width: 0.5rem;
 }
 
 ::-webkit-scrollbar-track {
