@@ -95,6 +95,13 @@ textarea {
   padding: 0.5em;
   resize: vertical;
   width: 95.7%;
+  margin-left: 0.1em;
+}
+
+.inputWithRemoveBtn {
+  align-items: center;
+  display: flex;
+  gap: 0.3em;
 }
 
 /* || Buttons */
@@ -117,6 +124,11 @@ button:hover {
 button:focus {
   background-color: var(--color-accent-2);
   outline: none;
+}
+
+.inputWithRemoveBtn button {
+  height: 2em;
+  width: 2em;
 }
 
 /* ====
