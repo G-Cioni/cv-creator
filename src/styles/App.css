@@ -154,7 +154,7 @@ button:focus {
   height: var(--cv-height);
   margin-bottom: 1.5vh;
   margin-right: 1.5vh;
-  overflow-y: hidden;
+  overflow-y: scroll;
   position: sticky;
   top: 1.5vh;
   width: var(--cv-width);
