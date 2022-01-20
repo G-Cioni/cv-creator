@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Card = ({ formData, className }) => {
   const cardDetails = formData
@@ -6,35 +6,36 @@ const Card = ({ formData, className }) => {
         (accumulator, detail) => {
           const { inputValue: text, id, name } = formData[detail];
           const { details, extraDetails } = accumulator;
-          const detailClassName = name.includes("-")
-            ? name.substring(0, name.indexOf("-"))
+          const inputFieldName = name.includes('-')
+            ? name.substring(0, name.indexOf('-'))
             : name;
-
-          if (["workDuty"].includes(detailClassName)) {
+          const cardDetailClassName =
+            formData[inputFieldName].inputValue !== '' ? inputFieldName : null;
+          if (['workDuty'].includes(inputFieldName)) {
             extraDetails.push(
-              <p key={id} className={detailClassName}>
+              <p key={id} className={cardDetailClassName}>
                 {text}
-              </p>
+              </p>,
             );
-          } else if (["description"].includes(detailClassName)) {
+          } else if (['description'].includes(inputFieldName)) {
             details.push(
-              <p key={id} className={detailClassName}>
+              <p key={id} className={cardDetailClassName}>
                 {text}
-              </p>
+              </p>,
             );
           } else {
             details.push(
-              <span key={id} className={detailClassName}>
+              <span key={id} className={cardDetailClassName}>
                 {text}
-              </span>
+              </span>,
             );
           }
           return accumulator;
         },
         {
           details: [],
-          extraDetails: []
-        }
+          extraDetails: [],
+        },
       )
     : null;
 
