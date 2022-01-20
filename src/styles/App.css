@@ -132,7 +132,7 @@ button:focus {
 
 #generatePdfBtn {
   margin-bottom: 1.2em;
-  width: 92%;
+  width: 87%;
 }
 
 /* ====
@@ -154,7 +154,7 @@ button:focus {
   height: var(--cv-height);
   margin-bottom: 1.5vh;
   margin-right: 1.5vh;
-  overflow-y: hidden;
+  overflow-y: scroll;
   position: sticky;
   top: 1.5vh;
   width: var(--cv-width);
@@ -432,8 +432,8 @@ p {
     font-size: 1.7rem;
   }
   #generatePdfBtn {
-    margin-bottom: 1em;
-    width: 96%;
+    margin-top: 1.7em;
+    width: 88%;
   }
 
   input,
