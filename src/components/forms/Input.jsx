@@ -35,7 +35,11 @@ class Input extends Component {
           />
         )}
         {moreThanOneExtraInput ? (
-          <Button onClick={() => removeExtraInput(name, formName)} text={`X`} />
+          <Button
+            onClick={() => removeExtraInput(name, formName)}
+            text={`X`}
+            noFocus={true}
+          />
         ) : null}
       </div>
     );

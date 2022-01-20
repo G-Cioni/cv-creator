@@ -146,6 +146,7 @@ class Form extends Component {
           <Button
             onClick={() => removeForm(formType, formId)}
             text={'Remove Form'}
+            noFocus={true}
           />
         ) : null}
       </div>
