@@ -250,6 +250,7 @@ p {
   max-width: calc(var(--cv-right-width) * 0.9);
   width: max-content;
   word-wrap: break-word;
+  color: var(--color-accent-2);
 }
 
 .phoneNumber,
