@@ -99,6 +99,11 @@ class Form extends Component {
     }
   }
 
+  componentWillUnmount() {
+    const { formId } = this.props;
+    delete localStorage[`cvCreator${formId}`];
+  }
+
   render() {
     const {
       extraInputName,
