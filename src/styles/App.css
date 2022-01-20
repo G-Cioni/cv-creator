@@ -130,6 +130,11 @@ button:focus {
   width: 2em;
 }
 
+#generatePdfBtn {
+  margin-bottom: 1.2em;
+  width: 92%;
+}
+
 /* ====
     Cv
    ==== */
@@ -425,6 +430,10 @@ p {
     margin: 0.4em auto;
     width: 94.5%;
     font-size: 1.7rem;
+  }
+  #generatePdfBtn {
+    margin-bottom: 1em;
+    width: 96%;
   }
 
   input,

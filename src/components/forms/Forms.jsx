@@ -212,6 +212,9 @@ class Forms extends Component {
           <h2 className="formTitle">Languages</h2>
           {languagesForms}
         </div>
+        <button id="generatePdfBtn" onClick={window.print}>
+          Generate pdf
+        </button>
       </div>
     );
   }
