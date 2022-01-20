@@ -219,13 +219,13 @@ p {
 /* || Personal Info Card */
 .personalInfoCard {
   display: grid;
-  height: max-content;
-  margin: 1em auto 1em 1em;
-  max-width: calc(var(--cv-left-width) * 1.05);
   grid-template-areas:
     'title first last'
     'role role role'
     'description description description';
+  height: max-content;
+  margin: 1em auto 1em 1em;
+  max-width: calc(var(--cv-left-width) * 1.05);
 }
 
 .title {
@@ -452,10 +452,10 @@ p {
     display: none;
   }
   #Cv {
-    height: 100vh;
-    width: 100vw;
     border-radius: none;
     box-shadow: none;
+    height: 100vh;
     margin: 1em 0.75em;
+    width: 100vw;
   }
 }
