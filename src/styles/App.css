@@ -424,3 +424,15 @@ p {
     margin-right: 0em;
   }
 }
+
+@media print {
+  #Forms {
+    display: none;
+  }
+  #Cv {
+    height: 100vh;
+    width: 100vw;
+    border-radius: none;
+    box-shadow: none;
+  }
+}
