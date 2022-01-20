@@ -419,4 +419,8 @@ p {
     width: 76%;
     margin-right: 0em;
   }
+  .inputWithRemoveBtn textarea {
+    width: 79%;
+    margin-right: 0em;
+  }
 }
