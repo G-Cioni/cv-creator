@@ -46,7 +46,9 @@ class App extends Component {
     localStorage.cvCreatorApp = JSON.stringify(updatedState);
   }
 
-  componentDidUpdate() {}
+  componentDidUpdate() {
+    localStorage.cvCreatorApp = JSON.stringify(this.state);
+  }
 
   render() {
     return (
