@@ -107,6 +107,7 @@ class Form extends Component {
       const { id: defaultId, placeHolder, name, type } = formFields[inputName];
       const formName = getName(formType, formId);
       const inputId = name.includes(defaultId) ? name : getName(name, formId);
+
       return (
         <Input
           counter={extraInputsCounter}
@@ -116,7 +117,13 @@ class Form extends Component {
             onInputChange(e, formType, formId, formFields, name)
           }
           inputId={inputId}
-          inputValue={this.props.appState[formName]?.inputValue}
+          inputValue={
+            this.props.appState[formName] &&
+            this.props.appState[formName][inputName] &&
+            this.props.appState[formName][inputName].inputValue
+              ? this.props.appState[formName][inputName].inputValue
+              : ''
+          }
           key={inputId}
           name={name}
           parentFormType={formType}

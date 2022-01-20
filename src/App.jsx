@@ -7,7 +7,8 @@ import React, { Component } from 'react';
 class App extends Component {
   constructor() {
     super();
-    this.state = {};
+    localStorage.cvCreatorApp = localStorage.cvCreatorApp ?? JSON.stringify({});
+    this.state = JSON.parse(localStorage.cvCreatorApp);
     this.deleteFormState = this.deleteFormState.bind(this);
     this.deleteInputState = this.deleteInputState.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
@@ -30,19 +31,22 @@ class App extends Component {
   onInputChange(e, formType, formId, formFields, inputName) {
     e.preventDefault();
     const formName = getName(formType, formId);
-    this.setState((state) => {
-      return {
-        ...state,
-        [formName]: {
-          ...state[formName],
-          [inputName]: {
-            ...formFields[inputName],
-            inputValue: e.target.value,
-          },
+    const updatedState = {
+      ...this.state,
+      [formName]: {
+        ...this.state[formName],
+        [inputName]: {
+          ...formFields[inputName],
+          inputValue: e.target.value,
         },
-      };
-    });
+      },
+    };
+
+    this.setState(updatedState);
+    localStorage.cvCreatorApp = JSON.stringify(updatedState);
   }
+
+  componentDidUpdate() {}
 
   render() {
     return (

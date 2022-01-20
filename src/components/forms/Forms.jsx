@@ -7,17 +7,20 @@ import uniqid from 'uniqid';
 class Forms extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      counters: {
-        certificatesFormsCounter: [],
-        contactFormsCounter: [],
-        educationFormsCounter: [],
-        languagesFormsCounter: [],
-        personalFormsCounter: [],
-        skillsFormsCounter: [],
-        workFormsCounter: [],
-      },
-    };
+    localStorage.cvCreatorForms =
+      localStorage.cvCreatorForms ??
+      JSON.stringify({
+        counters: {
+          certificatesFormsCounter: [],
+          contactFormsCounter: [],
+          educationFormsCounter: [],
+          languagesFormsCounter: [],
+          personalFormsCounter: [],
+          skillsFormsCounter: [],
+          workFormsCounter: [],
+        },
+      });
+    this.state = JSON.parse(localStorage.cvCreatorForms);
     this.addForm = this.addForm.bind(this);
     this.removeForm = this.removeForm.bind(this);
   }
@@ -64,7 +67,10 @@ class Forms extends Component {
     // Adds first uniqid to each form counter
     const updatedCounters = Object.keys(counters).reduce(
       (accumulator, counterName) => {
-        accumulator[counterName] = counters[counterName].concat(uniqid());
+        accumulator[counterName] =
+          counters[counterName].length < 1
+            ? counters[counterName].concat(uniqid())
+            : counters[counterName];
         return accumulator;
       },
       {},
@@ -78,6 +84,9 @@ class Forms extends Component {
     });
   }
 
+  componentDidUpdate() {
+    localStorage.cvCreatorForms = JSON.stringify(this.state);
+  }
   render() {
     const {
       certificates,
