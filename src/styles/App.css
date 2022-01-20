@@ -14,7 +14,7 @@
   --cv-left-width: calc(var(--cv-width) * 0.6);
   /* --cv-right-width is calculated automatically based on --cv-left-side */
   --cv-right-width: calc(var(--cv-width) - var(--cv-left-width));
-  --cv-width: 41em;
+  --cv-width: 50em;
 }
 
 body {
@@ -149,7 +149,7 @@ button:focus {
   height: var(--cv-height);
   margin-bottom: 1.5vh;
   margin-right: 1.5vh;
-  overflow-y: scroll;
+  overflow-y: hidden;
   position: sticky;
   top: 1.5vh;
   width: var(--cv-width);
@@ -256,6 +256,7 @@ p {
 .email,
 .location,
 .webSite {
+  -webkit-print-color-adjust: exact;
   margin-bottom: 0.4em;
   word-wrap: break-word;
 }
@@ -344,13 +345,14 @@ p {
 .skill,
 .language,
 .certificate {
+  -webkit-print-color-adjust: exact;
   background-color: var(--color-accent-1);
   border-radius: var(--border-radius);
   display: inline-block;
   margin: 0em 0em 0.4em 0.3em;
+  max-width: calc(var(--cv-right-width) * 0.76);
   padding: 0.2em 0.4em;
   word-wrap: break-word;
-  max-width: calc(var(--cv-right-width) * 0.76);
 }
 
 /*==========
@@ -434,5 +436,6 @@ p {
     width: 100vw;
     border-radius: none;
     box-shadow: none;
+    margin: 1em 0.75em;
   }
 }
