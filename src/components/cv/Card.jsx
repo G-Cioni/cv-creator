@@ -11,7 +11,7 @@ const Card = ({ formData, className }) => {
             : name;
           const cardDetailClassName =
             formData[inputFieldName]?.inputValue !== '' ? inputFieldName : null;
-          if (['workDuty'].includes(inputFieldName)) {
+          if (['extraDetail'].includes(inputFieldName)) {
             extraDetails.push(
               <p key={id} className={cardDetailClassName}>
                 {text}

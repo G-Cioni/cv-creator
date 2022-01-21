@@ -66,8 +66,8 @@ localStorage.cvCreatorFormData =
       formTitle: 'Work Experiences',
       formType: 'workExperiences',
       extraInputType: 'textarea',
-      extraInputPlaceHolder: 'Work Duty',
-      extraInputName: 'workDuty',
+      extraInputPlaceHolder: 'Extra Detail',
+      extraInputName: 'extraDetail',
       formFields: {
         position: {
           name: 'position',
@@ -111,8 +111,8 @@ localStorage.cvCreatorFormData =
       formTitle: 'Education',
       formType: 'education',
       extraInputType: 'textarea',
-      extraInputPlaceHolder: 'Extra information',
-      extraInputName: 'extraInformation',
+      extraInputPlaceHolder: 'Extra Detail',
+      extraInputName: 'extraDetail',
       formFields: {
         degree: {
           name: 'degree',
