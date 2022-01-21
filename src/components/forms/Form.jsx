@@ -181,7 +181,6 @@ class Form extends Component {
             text={`Add ${formData.formTitle} Form`}
           />
         ) : null}
-        {console.log(this.props.formData)}
         {removeForm && counter.length > 1 ? (
           <Button
             onClick={() => removeForm(formType, formId)}

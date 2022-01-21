@@ -150,8 +150,10 @@ class Forms extends Component {
         addForm={this.addForm}
         appState={this.props.appState}
         counter={educationFormsCounter}
+        deleteInputState={this.props.deleteInputState}
         formData={education}
         formId={formId}
+        hasExtraInputs={true}
         key={formId}
         onInputChange={onInputChange}
         removeForm={this.removeForm}

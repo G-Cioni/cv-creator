@@ -110,6 +110,9 @@ localStorage.cvCreatorFormData =
     education: {
       formTitle: 'Education',
       formType: 'education',
+      extraInputType: 'textarea',
+      extraInputPlaceHolder: 'Extra information',
+      extraInputName: 'extraInformation',
       formFields: {
         degree: {
           name: 'degree',
