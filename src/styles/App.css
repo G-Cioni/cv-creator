@@ -44,6 +44,7 @@ body {
   box-shadow: var(--box-shadow);
   margin: 1.5vh;
   width: 25em;
+  align-self: start;
 }
 
 .form {
@@ -130,9 +131,14 @@ button:focus {
   width: 2em;
 }
 
-#generatePdfBtn {
-  margin-bottom: 1.2em;
+#generatePdfBtn,
+#exampleDataBtn {
   width: 87%;
+  margin-bottom: 1.2em;
+}
+
+#exampleDataBtn {
+  margin-top: 1.2em;
 }
 
 /* ====
@@ -154,6 +160,7 @@ button:focus {
   height: var(--cv-height);
   margin-bottom: 1.5vh;
   margin-right: 1.5vh;
+  margin-top: 1.5vh;
   overflow-y: scroll;
   position: sticky;
   top: 1.5vh;
@@ -420,9 +427,15 @@ p {
     width: 94.5%;
     font-size: 1.7rem;
   }
-  #generatePdfBtn {
-    margin-top: 1.7em;
+
+  #generatePdfBtn,
+  #exampleDataBtn {
     width: 88%;
+    margin-top: 1.7em;
+  }
+
+  #exampleDataBtn {
+    margin-bottom: -0.5em;
   }
 
   input,

@@ -115,14 +115,15 @@ class Form extends Component {
 
     const {
       addForm,
+      appState,
       counter,
       formData,
       formId,
       hasExtraInputs,
       onInputChange,
       removeForm,
+      styles,
     } = this.props;
-
     // Creates an array of all the input fields to then render
     let inputs;
     if (formFields) {
@@ -146,10 +147,10 @@ class Form extends Component {
             }
             inputId={inputId}
             inputValue={
-              this.props.appState[formName] &&
-              this.props.appState[formName][inputName] &&
-              this.props.appState[formName][inputName].inputValue
-                ? this.props.appState[formName][inputName].inputValue
+              appState.allFormsData[formName] &&
+              appState.allFormsData[formName][inputName] &&
+              appState.allFormsData[formName][inputName].inputValue
+                ? appState.allFormsData[formName][inputName].inputValue
                 : ''
             }
             key={inputId}
@@ -164,9 +165,8 @@ class Form extends Component {
         );
       });
     }
-
     return (
-      <div className="form">
+      <div className="form" style={{ display: styles?.display }}>
         {inputs}
         {hasExtraInputs ? (
           <Button

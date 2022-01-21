@@ -108,7 +108,8 @@ class Forms extends Component {
       workFormsCounter,
     } = this.state.counters;
 
-    const { appState, deleteInputState, onInputChange } = this.props;
+    const { appState, exampleDataActive, deleteInputState, toggleExampleData } =
+      this.props;
 
     // Generates arrays for each form type which will then be rendered
     const personalForms = personalFormsCounter.map((formId) => (
@@ -117,7 +118,7 @@ class Forms extends Component {
         formData={personalInfo}
         formId={formId}
         key={formId}
-        onInputChange={onInputChange}
+        styles={exampleDataActive ? { display: 'none' } : null}
       />
     ));
     const contactForms = contactFormsCounter.map((formId) => (
@@ -128,7 +129,7 @@ class Forms extends Component {
         formId={formId}
         hasExtraInputs={true}
         key={formId}
-        onInputChange={onInputChange}
+        styles={exampleDataActive ? { display: 'none' } : null}
       />
     ));
     const workForms = workFormsCounter.map((formId) => (
@@ -141,7 +142,7 @@ class Forms extends Component {
         formId={formId}
         hasExtraInputs={true}
         key={formId}
-        onInputChange={onInputChange}
+        styles={exampleDataActive ? { display: 'none' } : null}
         removeForm={this.removeForm}
       />
     ));
@@ -155,7 +156,7 @@ class Forms extends Component {
         formId={formId}
         hasExtraInputs={true}
         key={formId}
-        onInputChange={onInputChange}
+        styles={exampleDataActive ? { display: 'none' } : null}
         removeForm={this.removeForm}
       />
     ));
@@ -167,7 +168,7 @@ class Forms extends Component {
         formId={formId}
         hasExtraInputs={true}
         key={formId}
-        onInputChange={onInputChange}
+        styles={exampleDataActive ? { display: 'none' } : null}
       />
     ));
     const certificatesForms = certificatesFormsCounter.map((formId) => (
@@ -178,7 +179,7 @@ class Forms extends Component {
         formId={formId}
         hasExtraInputs={true}
         key={formId}
-        onInputChange={onInputChange}
+        styles={exampleDataActive ? { display: 'none' } : null}
       />
     ));
     const languagesForms = languagesFormsCounter.map((formId) => (
@@ -189,37 +190,61 @@ class Forms extends Component {
         formId={formId}
         hasExtraInputs={true}
         key={formId}
-        onInputChange={onInputChange}
+        styles={exampleDataActive ? { display: 'none' } : null}
       />
     ));
 
     return (
       <div id="Forms">
-        <div className="formSection">
+        <button id="exampleDataBtn" onClick={toggleExampleData}>
+          {exampleDataActive ? 'Hide Example' : 'Show Example'}
+        </button>
+        <div
+          style={exampleDataActive ? { display: 'none' } : null}
+          className="formSection"
+        >
           <h2 className="formTitle">Personal Info</h2>
           {personalForms}
         </div>
-        <div className="formSection">
+        <div
+          style={exampleDataActive ? { display: 'none' } : null}
+          className="formSection"
+        >
           <h2 className="formTitle">Contact Details</h2>
           {contactForms}
         </div>
-        <div className="formSection">
+        <div
+          style={exampleDataActive ? { display: 'none' } : null}
+          className="formSection"
+        >
           <h2 className="formTitle">Work Experiences</h2>
           {workForms}
         </div>
-        <div className="formSection">
+        <div
+          style={exampleDataActive ? { display: 'none' } : null}
+          className="formSection"
+        >
           <h2 className="formTitle">Education</h2>
           {educationForms}
         </div>
-        <div className="formSection">
+        <div
+          style={exampleDataActive ? { display: 'none' } : null}
+          className="formSection"
+        >
           <h2 className="formTitle">Skills</h2>
           {skillsForms}
         </div>
-        <div className="formSection">
+        <div
+          style={exampleDataActive ? { display: 'none' } : null}
+          className="formSection"
+        >
           <h2 className="formTitle">Certificates</h2>
           {certificatesForms}
         </div>
-        <div className="formSection">
+        <div
+          style={exampleDataActive ? { display: 'none' } : null}
+          className="formSection"
+        >
           <h2 className="formTitle">Languages</h2>
           {languagesForms}
         </div>

@@ -1,19 +1,21 @@
 import { checkValuePresence, getCardDetails } from '../../helpers/utils';
 import Avatar from './Avatar';
 import Card from './Card';
+import exampleFormData from '../../helpers/exampleFormData';
 import React, { Component } from 'react';
 
 class Cv extends Component {
   render() {
-    const { allFormsData } = this.props;
+    const { allFormsData, exampleDataActive } = this.props;
     // Creates a cards object which will be rendered in JSX
-    const cards = allFormsData
-      ? Object.keys(allFormsData).reduce((accumulator, cardName) => {
+    const dataToUse = exampleDataActive ? exampleFormData : allFormsData;
+    const cards = dataToUse
+      ? Object.keys(dataToUse).reduce((accumulator, cardName) => {
           const { cardArray, className, id } = getCardDetails(cardName);
-          const card = checkValuePresence(allFormsData, cardName) ? (
+          const card = checkValuePresence(dataToUse, cardName) ? (
             <Card
               className={className}
-              formData={allFormsData[cardName]}
+              formData={dataToUse[cardName]}
               key={id}
             />
           ) : null;
