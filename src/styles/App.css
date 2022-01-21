@@ -103,6 +103,11 @@ textarea {
   display: flex;
   gap: 0.3em;
 }
+.inputWithRemoveBtn input,
+.inputWithRemoveBtn textarea {
+  width: 85.5%;
+  margin-right: 0em;
+}
 
 /* || Buttons */
 button {
@@ -461,12 +466,9 @@ p {
     gap: 0em;
   }
 
-  .inputWithRemoveBtn input {
-    width: 76%;
-    margin-right: 0em;
-  }
+  .inputWithRemoveBtn input,
   .inputWithRemoveBtn textarea {
-    width: 79%;
+    width: 80%;
     margin-right: 0em;
   }
 }
