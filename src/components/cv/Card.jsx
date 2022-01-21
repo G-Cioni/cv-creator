@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Card = ({ formData, className }) => {
+  // Creates an object with details and extraDetails which are rendered in JSX
   const cardDetails = formData
     ? Object.keys(formData).reduce(
         (accumulator, detail) => {

@@ -63,6 +63,7 @@ class Form extends Component {
         },
         extraInputsCounter: newCounter,
       };
+
       this.setState(updatedState);
       localStorage[`cvCreator${formId}`] = JSON.stringify(updatedState);
     }
@@ -71,7 +72,7 @@ class Form extends Component {
   // Removes a specific input field from the state and counter
   removeExtraInput(name, formName) {
     const { extraInputsCounter } = this.state;
-    const { formId } = this.props;
+    const { deleteInputState, formId } = this.props;
 
     let updatedState;
     if (extraInputsCounter.length > 1) {
@@ -82,10 +83,11 @@ class Form extends Component {
           (id) => !name.includes(id),
         ),
       };
+
       this.setState(updatedState);
       localStorage[`cvCreator${formId}`] = JSON.stringify(updatedState);
     }
-    this.props.deleteInputState(formName, name);
+    deleteInputState(formName, name);
   }
 
   componentDidMount() {
@@ -97,6 +99,7 @@ class Form extends Component {
   }
 
   componentWillUnmount() {
+    // Saves to localStorage before unmounting
     const { formId } = this.props;
     delete localStorage[`cvCreator${formId}`];
   }

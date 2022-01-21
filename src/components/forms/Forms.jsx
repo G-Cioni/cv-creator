@@ -20,9 +20,9 @@ class Forms extends Component {
           workFormsCounter: [],
         },
       });
-    this.state = JSON.parse(localStorage.cvCreatorForms);
     this.addForm = this.addForm.bind(this);
     this.removeForm = this.removeForm.bind(this);
+    this.state = JSON.parse(localStorage.cvCreatorForms);
   }
 
   // Add a new form
@@ -62,9 +62,8 @@ class Forms extends Component {
   }
 
   componentDidMount() {
-    const { counters } = this.state;
-
     // Adds first uniqid to each form counter
+    const { counters } = this.state;
     const updatedCounters = Object.keys(counters).reduce(
       (accumulator, counterName) => {
         accumulator[counterName] =
@@ -87,6 +86,7 @@ class Forms extends Component {
   componentDidUpdate() {
     localStorage.cvCreatorForms = JSON.stringify(this.state);
   }
+
   render() {
     const {
       certificates,
@@ -108,12 +108,12 @@ class Forms extends Component {
       workFormsCounter,
     } = this.state.counters;
 
-    const { onInputChange } = this.props;
+    const { appState, deleteInputState, onInputChange } = this.props;
 
     // Generates arrays for each form type which will then be rendered
     const personalForms = personalFormsCounter.map((formId) => (
       <Form
-        appState={this.props.appState}
+        appState={appState}
         formData={personalInfo}
         formId={formId}
         key={formId}
@@ -122,8 +122,8 @@ class Forms extends Component {
     ));
     const contactForms = contactFormsCounter.map((formId) => (
       <Form
-        appState={this.props.appState}
-        deleteInputState={this.props.deleteInputState}
+        appState={appState}
+        deleteInputState={deleteInputState}
         formData={contact}
         formId={formId}
         hasExtraInputs={true}
@@ -134,9 +134,9 @@ class Forms extends Component {
     const workForms = workFormsCounter.map((formId) => (
       <Form
         addForm={this.addForm}
-        appState={this.props.appState}
+        appState={appState}
         counter={workFormsCounter}
-        deleteInputState={this.props.deleteInputState}
+        deleteInputState={deleteInputState}
         formData={workExperiences}
         formId={formId}
         hasExtraInputs={true}
@@ -148,9 +148,9 @@ class Forms extends Component {
     const educationForms = educationFormsCounter.map((formId) => (
       <Form
         addForm={this.addForm}
-        appState={this.props.appState}
+        appState={appState}
         counter={educationFormsCounter}
-        deleteInputState={this.props.deleteInputState}
+        deleteInputState={deleteInputState}
         formData={education}
         formId={formId}
         hasExtraInputs={true}
@@ -161,8 +161,8 @@ class Forms extends Component {
     ));
     const skillsForms = skillsFormsCounter.map((formId) => (
       <Form
-        appState={this.props.appState}
-        deleteInputState={this.props.deleteInputState}
+        appState={appState}
+        deleteInputState={deleteInputState}
         formData={skills}
         formId={formId}
         hasExtraInputs={true}
@@ -172,8 +172,8 @@ class Forms extends Component {
     ));
     const certificatesForms = certificatesFormsCounter.map((formId) => (
       <Form
-        appState={this.props.appState}
-        deleteInputState={this.props.deleteInputState}
+        appState={appState}
+        deleteInputState={deleteInputState}
         formData={certificates}
         formId={formId}
         hasExtraInputs={true}
@@ -183,8 +183,8 @@ class Forms extends Component {
     ));
     const languagesForms = languagesFormsCounter.map((formId) => (
       <Form
-        appState={this.props.appState}
-        deleteInputState={this.props.deleteInputState}
+        appState={appState}
+        deleteInputState={deleteInputState}
         formData={languages}
         formId={formId}
         hasExtraInputs={true}

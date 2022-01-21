@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
 import emptyAvatar from '../../images/emptyAvatar.jpg';
+import React, { Component } from 'react';
 
 class Avatar extends Component {
   constructor(props) {
@@ -32,13 +32,7 @@ class Avatar extends Component {
     const { preview } = this.state;
     return (
       <div id="avatar">
-        <img
-          src={preview}
-          alt={'profilePic'}
-          onClick={() => {
-            fileInputRef.current.click();
-          }}
-        />
+        {/*File input field is hidden. Image or Span must be clicked to upload a photo*/}
         <input
           type="file"
           onChange={(e) => this.onChange(e)}
@@ -46,14 +40,21 @@ class Avatar extends Component {
           style={{ display: 'none' }}
           ref={fileInputRef}
         />
+        <img
+          src={preview}
+          alt={'profilePic'}
+          onClick={() => {
+            fileInputRef.current.click();
+          }}
+        />
         {preview === emptyAvatar ? (
-          <div
+          <span
             onClick={() => {
               fileInputRef.current.click();
             }}
           >
             Click image to upload
-          </div>
+          </span>
         ) : null}
       </div>
     );
