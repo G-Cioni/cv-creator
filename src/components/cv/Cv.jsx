@@ -1,4 +1,8 @@
-import { checkValuePresence, getCardDetails } from '../../helpers/utils';
+import {
+  checkValuePresence,
+  consent,
+  getCardDetails,
+} from '../../helpers/utils';
 import Avatar from './Avatar';
 import Card from './Card';
 import exampleFormData from '../../helpers/exampleFormData';
@@ -79,6 +83,7 @@ class Cv extends Component {
           </h2>
           {languages}
         </div>
+        <p id="consent">{consent}</p>
       </div>
     );
   }

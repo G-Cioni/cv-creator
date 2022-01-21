@@ -34,4 +34,7 @@ const getCounterName = (formType) =>
 
 const getName = (name, id) => `${name}-${id}`;
 
-export { checkValuePresence, getCardDetails, getCounterName, getName };
+const consent =
+  'I hereby consent to the processing of the data I provided in this CV. I declare my agreement with the data protection regulations in the data privacy statement.';
+
+export { checkValuePresence, consent, getCardDetails, getCounterName, getName };

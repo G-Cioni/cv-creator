@@ -155,7 +155,8 @@ button:focus {
   grid-gap: 0em 0.5em;
   grid-template-areas:
     'personalInfoAvatar personalInfoAvatar'
-    'workEducation cscl ';
+    'workEducation cscl '
+    'consent consent';
   grid-template-columns: 3.7fr 2.3fr;
   grid-template-rows: auto 1fr;
   height: var(--cv-height);
@@ -213,6 +214,11 @@ img {
   text-align: right;
 }
 
+#consent {
+  font-size: 0.65em;
+  grid-area: consent;
+  text-align: center;
+}
 /* =====
    Cards
    ===== */
