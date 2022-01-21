@@ -257,6 +257,7 @@ p {
 }
 
 .description {
+  font-size: 0.95em;
   margin-bottom: 0em;
   word-wrap: break-word;
 }
