@@ -43,11 +43,11 @@ From The Odin Project's [curriculum](https://www.theodinproject.com/paths/full-s
 - React **State Management**
 - **Thinking** in React
 - How to use **Class Components** in React
-- Upload and displaying images
-- Generating pdf files
+- **Uploading and displaying images**
+- **Generating pdf files**
 
 ## Author
 
-👤 **Gianluca Cioni **
+👤 **Gianluca Cioni**
 
 - GitHub: [GianlucaCioni](https://github.com/GianlucaCioni)
