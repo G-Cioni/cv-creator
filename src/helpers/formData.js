@@ -38,6 +38,13 @@ localStorage.cvCreatorFormData =
       extraInputPlaceHolder: 'Website',
       extraInputName: 'webSite',
       formFields: {
+        location: {
+          name: 'location',
+          placeHolder: 'Location',
+          id: uniqid(),
+          inputValue: '',
+          type: 'input',
+        },
         phoneNumber: {
           name: 'phoneNumber',
           placeHolder: 'Phone Number',
@@ -48,13 +55,6 @@ localStorage.cvCreatorFormData =
         email: {
           name: 'email',
           placeHolder: 'Email',
-          id: uniqid(),
-          inputValue: '',
-          type: 'input',
-        },
-        location: {
-          name: 'location',
-          placeHolder: 'Location',
           id: uniqid(),
           inputValue: '',
           type: 'input',
