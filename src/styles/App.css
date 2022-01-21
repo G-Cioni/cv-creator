@@ -309,6 +309,7 @@ p {
   grid-area: secondary;
   width: calc(var(--cv-left-width) * 0.6);
   word-wrap: break-word;
+  margin-bottom: 0.2em;
 }
 
 .to,
@@ -328,8 +329,8 @@ p {
   grid-area: city;
 }
 
-.workDuty {
-  margin: 1em 0em 0em 0.5em;
+.extraDetail {
+  margin: 0.5em 0em 0em 0.5em;
   width: calc(var(--cv-left-width) * 1.2);
   word-wrap: break-word;
 }
