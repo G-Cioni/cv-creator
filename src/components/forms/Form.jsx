@@ -31,43 +31,40 @@ class Form extends Component {
       extraInputName,
     } = this.state;
 
-    //todo can probably remove this next line after local storage maintenance is implemented
-    if (extraInputsCounter) {
-      const newCounter = extraInputsCounter.concat(uniqid());
+    const newCounter = extraInputsCounter.concat(uniqid());
 
-      if (hasExtraInputs) {
-        let extraInputs = [];
+    if (hasExtraInputs) {
+      let extraInputs = [];
 
-        // Creates a new object which temporarily holds the new state for each new input field
-        extraInputs = newCounter.reduce((accumulator, id) => {
-          //Checks if the extra input is already in state and updates the accumulator if it isn't
-          if (!extraInputsCounter.includes(id)) {
-            accumulator = {
-              ...accumulator,
-              [`${extraInputName}-${id}`]: {
-                id,
-                inputValue: '',
-                name: `${extraInputName}-${id}`,
-                placeHolder: extraInputPlaceHolder,
-                type: extraInputType,
-              },
-            };
-          }
-          return accumulator;
-        }, {});
+      // Creates a new object which temporarily holds the new state for each new input field
+      extraInputs = newCounter.reduce((accumulator, id) => {
+        //Checks if the extra input is already in state and updates the accumulator if it isn't
+        if (!extraInputsCounter.includes(id)) {
+          accumulator = {
+            ...accumulator,
+            [`${extraInputName}-${id}`]: {
+              id,
+              inputValue: '',
+              name: `${extraInputName}-${id}`,
+              placeHolder: extraInputPlaceHolder,
+              type: extraInputType,
+            },
+          };
+        }
+        return accumulator;
+      }, {});
 
-        // Adds all of the extra input fields to the state and updates the counter
-        const updatedState = {
-          ...this.state,
-          formFields: {
-            ...this.state.formFields,
-            ...extraInputs,
-          },
-          extraInputsCounter: newCounter,
-        };
-        this.setState(updatedState);
-        localStorage[`cvCreator${formId}`] = JSON.stringify(updatedState);
-      }
+      // Adds all of the extra input fields to the state and updates the counter
+      const updatedState = {
+        ...this.state,
+        formFields: {
+          ...this.state.formFields,
+          ...extraInputs,
+        },
+        extraInputsCounter: newCounter,
+      };
+      this.setState(updatedState);
+      localStorage[`cvCreator${formId}`] = JSON.stringify(updatedState);
     }
   }
 
