@@ -221,6 +221,11 @@ p {
   font-size: 0.8rem;
 }
 
+#imageUploadSpan {
+  margin-top: 0.3em;
+  font-weight: 500;
+}
+
 /* || Personal Info Card */
 .personalInfoCard {
   display: flex;

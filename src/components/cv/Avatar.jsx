@@ -49,6 +49,7 @@ class Avatar extends Component {
         />
         {preview === emptyAvatar ? (
           <span
+            id="imageUploadSpan"
             onClick={() => {
               fileInputRef.current.click();
             }}
