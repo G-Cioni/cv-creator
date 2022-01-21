@@ -474,4 +474,9 @@ p {
     width: 79%;
     margin-right: 0em;
   }
+  @media print {
+    #Cv {
+      margin: 0em;
+    }
+  }
 }
