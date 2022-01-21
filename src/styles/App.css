@@ -461,19 +461,9 @@ p {
     width: 79%;
     margin-right: 0em;
   }
-<<<<<<< HEAD
-  /* @media print {
-    :root {
-      font-size: 16px;
-    }
-    #Cv {
-      height: 29.35cm;
-    }
-  } */
 }
 
 /* Pdf generation is based on A4 */
-
 @media print {
   :root {
     font-size: 16px;
@@ -489,11 +479,5 @@ p {
     box-shadow: none;
     height: 29.3cm;
     width: 21cm;
-=======
-  @media print {
-    #Cv {
-      margin: 0em;
-    }
->>>>>>> 1a248ef7323c4e25adfb7fb8ff237513d6e60a6e
   }
 }
