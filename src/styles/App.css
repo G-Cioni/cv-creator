@@ -469,7 +469,7 @@ p {
     font-size: 16px;
   }
   @page {
-    margin: 0 0 -2cm 0;
+    margin: 0.5cm 0.5cm 0cm 0.5cm;
   }
   #Forms {
     display: none;
