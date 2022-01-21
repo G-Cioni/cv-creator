@@ -2,7 +2,7 @@
 
 Create and download your CV
 
-**Live preview: [CV Creator](https://gianlucacioni.github.io/cv-creator/)**
+### [Live Preview CV Creator](https://gianlucacioni.github.io/cv-creator/)
 
 From The Odin Project's [curriculum](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/cv-application)
 
