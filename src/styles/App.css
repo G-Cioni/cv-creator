@@ -132,7 +132,8 @@ button:focus {
 }
 
 #generatePdfBtn,
-#exampleDataBtn {
+#exampleDataBtn,
+#resetDataBtn {
   width: 87%;
   margin-bottom: 1.2em;
 }
@@ -429,7 +430,8 @@ p {
   }
 
   #generatePdfBtn,
-  #exampleDataBtn {
+  #exampleDataBtn,
+  #resetDataBtn {
     width: 88%;
     margin-top: 1.7em;
   }

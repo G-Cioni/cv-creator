@@ -15,6 +15,7 @@ class App extends Component {
     this.deleteInputState = this.deleteInputState.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
     this.toggleExampleData = this.toggleExampleData.bind(this);
+    this.resetData = this.resetData.bind(this);
   }
 
   deleteFormState(formName) {
@@ -61,6 +62,17 @@ class App extends Component {
     });
   }
 
+  resetData() {
+    const warning = 'All of your input will be permanently lost. Are you sure?';
+    if (window.confirm(warning)) {
+      localStorage.clear();
+      this.setState({
+        exampleDataActive: this.state.exampleDataActive,
+        allFormsData: {},
+      });
+    }
+  }
+
   componentDidUpdate() {
     localStorage.cvCreatorApp = JSON.stringify(this.state);
   }
@@ -74,6 +86,7 @@ class App extends Component {
           deleteInputState={this.deleteInputState}
           exampleDataActive={this.state.exampleDataActive}
           onInputChange={this.onInputChange}
+          resetData={this.resetData}
           toggleExampleData={this.toggleExampleData}
         />
         <Cv
