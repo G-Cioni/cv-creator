@@ -200,7 +200,7 @@ class Forms extends Component {
           {personalForms}
         </div>
         <div className="formSection">
-          <h2 className="formTitle">Contact Info</h2>
+          <h2 className="formTitle">Contact Details</h2>
           {contactForms}
         </div>
         <div className="formSection">
