@@ -211,6 +211,13 @@ class Forms extends Component {
         <button id="exampleDataBtn" onClick={toggleExampleData}>
           {exampleDataActive ? 'Hide Example' : 'Show Example'}
         </button>
+        <button
+          id="resetDataBtn"
+          style={exampleDataActive ? { display: 'none' } : null}
+          onClick={this.props.resetData}
+        >
+          Reset Input Data
+        </button>
         <div
           style={exampleDataActive ? { display: 'none' } : null}
           className="formSection"
