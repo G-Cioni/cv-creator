@@ -116,6 +116,7 @@ class Form extends Component {
     const {
       addForm,
       counter,
+      formData,
       formId,
       hasExtraInputs,
       onInputChange,
@@ -175,8 +176,12 @@ class Form extends Component {
         ) : null}
         {/* Only renders "Add form" button if its the last form of its type */}
         {counter?.indexOf(formId) === counter?.length - 1 ? (
-          <Button onClick={() => addForm(formType)} text={'Add Form'} />
+          <Button
+            onClick={() => addForm(formType)}
+            text={`Add ${formData.formTitle} Form`}
+          />
         ) : null}
+        {console.log(this.props.formData)}
         {removeForm && counter.length > 1 ? (
           <Button
             onClick={() => removeForm(formType, formId)}
