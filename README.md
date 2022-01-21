@@ -1,42 +1,31 @@
 # CV Creator
 
-Project to create **CV Creator** using React
+Create and download your CV
 
-From The Odin Project's [curriculum](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/cv-application).
+**Live preview: [CV Creator](https://gianlucacioni.github.io/cv-creator/)**
 
-🔗 **Live preview:** [here](https://gianlucacioni.github.io/cv-creator/)
+From The Odin Project's [curriculum](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/cv-application)
 
 ## Built with
 
 ### Technologies
 
-- React
-- JS
-- HTML
 - CSS
+- HTML
+- Javascript
+- React.js
 
 ### Tools
 
-- Visual Studio Code
-- Linux terminal
-- Git and GitHub
-- Npm
-- Webpack
-- prettier
-- eslint
-- create-react-app
-- uniqid
-
-### Third party code
-
-- [uniqid](https://www.npmjs.com/package/uniqid)
-
-## Outcome
-
-- Used React **Class Components**
-- Used CSS3 **grid** and **flex** to create layout.
-- Used **Git** and **GitHub** for version control.
-- Used **webpack**
+- [create-react-app](https://create-react-app.dev/)
+- [ESLint](https://eslint.org/)
+- [Git](https://git-scm.com/)
+- [GitHub](https://github.com/)
+- [npm](https://www.npmjs.com/)
+- [prettier](https://prettier.io/)
+- [uniqid](https://www.npmjs.com/package/uniqid/)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Webpack](https://webpack.js.org/)
 
 ### What I learned
 
@@ -48,6 +37,4 @@ From The Odin Project's [curriculum](https://www.theodinproject.com/paths/full-s
 
 ## Author
 
-👤 **Gianluca Cioni**
-
-- GitHub: [GianlucaCioni](https://github.com/GianlucaCioni)
+👤 **[Gianluca Cioni](https://github.com/GianlucaCioni)**
