@@ -223,30 +223,14 @@ p {
 
 /* || Personal Info Card */
 .personalInfoCard {
-  display: grid;
-  grid-template-areas:
-    'title first last'
-    'role role role'
-    'description description description';
+  display: flex;
+  flex-direction: column;
   height: max-content;
   margin: 1em auto 1em 1em;
   max-width: calc(var(--cv-left-width) * 1.05);
 }
 
-.title {
-  grid-area: title;
-}
-.firstName {
-  grid-area: first;
-}
-.lastName {
-  grid-area: last;
-}
-
-.title,
-.firstName,
-.lastName {
-  display: inline;
+.fullName {
   font-size: 1.8rem;
   font-weight: bold;
   margin-right: 0.2em;
@@ -256,12 +240,10 @@ p {
 .desiredRole {
   font-size: 1.3rem;
   font-weight: 500;
-  grid-area: role;
   word-wrap: break-word;
 }
 
 .description {
-  grid-area: description;
   margin-bottom: 0em;
   word-wrap: break-word;
 }
