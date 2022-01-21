@@ -7,23 +7,9 @@ localStorage.cvCreatorFormData =
       formTitle: 'Personal Info',
       formType: 'personalInfo',
       formFields: {
-        title: {
-          name: 'title',
-          placeHolder: 'Title',
-          id: uniqid(),
-          inputValue: '',
-          type: 'input',
-        },
-        firstName: {
-          name: 'firstName',
-          placeHolder: 'First Name',
-          id: uniqid(),
-          inputValue: '',
-          type: 'input',
-        },
-        lastName: {
-          name: 'lastName',
-          placeHolder: 'Last Name',
+        fullName: {
+          name: 'fullName',
+          placeHolder: 'Full Name',
           id: uniqid(),
           inputValue: '',
           type: 'input',
