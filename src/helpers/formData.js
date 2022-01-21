@@ -83,6 +83,13 @@ localStorage.cvCreatorFormData =
           inputValue: '',
           type: 'input',
         },
+        workCity: {
+          name: 'workCity',
+          placeHolder: 'City',
+          id: uniqid(),
+          inputValue: '',
+          type: 'input',
+        },
         from: {
           name: 'from',
           placeHolder: 'From',
@@ -93,13 +100,6 @@ localStorage.cvCreatorFormData =
         to: {
           name: 'to',
           placeHolder: 'To',
-          id: uniqid(),
-          inputValue: '',
-          type: 'input',
-        },
-        workCity: {
-          name: 'workCity',
-          placeHolder: 'City',
           id: uniqid(),
           inputValue: '',
           type: 'input',
@@ -128,6 +128,13 @@ localStorage.cvCreatorFormData =
           inputValue: '',
           type: 'input',
         },
+        educationCity: {
+          name: 'educationCity',
+          placeHolder: 'City',
+          id: uniqid(),
+          inputValue: '',
+          type: 'input',
+        },
         from: {
           name: 'from',
           placeHolder: 'From',
@@ -138,13 +145,6 @@ localStorage.cvCreatorFormData =
         to: {
           name: 'to',
           placeHolder: 'To',
-          id: uniqid(),
-          inputValue: '',
-          type: 'input',
-        },
-        educationCity: {
-          name: 'educationCity',
-          placeHolder: 'City',
           id: uniqid(),
           inputValue: '',
           type: 'input',
