@@ -18,6 +18,16 @@ class Input extends Component {
     const extraInputClassName = moreThanOneExtraInput
       ? 'inputWithRemoveBtn'
       : null;
+    let inputMode = '';
+    if (['Phone Number'].includes(placeHolder)) {
+      inputMode = 'tel';
+    } else if (['Email'].includes(placeHolder)) {
+      inputMode = 'email';
+    } else if (['Website'].includes(placeHolder)) {
+      inputMode = 'url';
+    } else {
+      inputMode = 'text';
+    }
     // Conditionally renders an input field or a textarea
     return (
       <div className={extraInputClassName}>
@@ -26,12 +36,14 @@ class Input extends Component {
             onChange={(e) => handleOnChange(e, name)}
             placeholder={placeHolder}
             value={inputValue}
+            inputMode={inputMode}
           />
         ) : (
           <textarea
             onChange={(e) => handleOnChange(e, name)}
             placeholder={placeHolder}
             value={inputValue}
+            inputMode={inputMode}
           />
         )}
         {moreThanOneExtraInput ? (

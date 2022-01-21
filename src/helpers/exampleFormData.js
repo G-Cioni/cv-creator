@@ -41,14 +41,14 @@ const exampleFormData = {
       inputValue: 'New York, USA',
       type: 'input',
     },
-    [`webSite-${uniqid()}`]: {
-      name: 'webSite',
+    [`website-${uniqid()}`]: {
+      name: 'website',
       id: uniqid(),
       inputValue: 'example.com/JohnSmith',
       type: 'input',
     },
-    [`webSite-${uniqid()}`]: {
-      name: 'webSite',
+    [`website-${uniqid()}`]: {
+      name: 'website',
       id: uniqid(),
       inputValue: 'anotherexample.com/JohnSmith',
       type: 'input',

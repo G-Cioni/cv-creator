@@ -36,7 +36,7 @@ localStorage.cvCreatorFormData =
       formType: 'contact',
       extraInputType: 'input',
       extraInputPlaceHolder: 'Website',
-      extraInputName: 'webSite',
+      extraInputName: 'website',
       formFields: {
         location: {
           name: 'location',
