@@ -108,8 +108,13 @@ class Forms extends Component {
       workFormsCounter,
     } = this.state.counters;
 
-    const { appState, exampleDataActive, deleteInputState, toggleExampleData } =
-      this.props;
+    const {
+      appState,
+      exampleDataActive,
+      deleteInputState,
+      onInputChange,
+      toggleExampleData,
+    } = this.props;
 
     // Generates arrays for each form type which will then be rendered
     const personalForms = personalFormsCounter.map((formId) => (
@@ -118,6 +123,7 @@ class Forms extends Component {
         formData={personalInfo}
         formId={formId}
         key={formId}
+        onInputChange={onInputChange}
         styles={exampleDataActive ? { display: 'none' } : null}
       />
     ));
@@ -129,6 +135,7 @@ class Forms extends Component {
         formId={formId}
         hasExtraInputs={true}
         key={formId}
+        onInputChange={onInputChange}
         styles={exampleDataActive ? { display: 'none' } : null}
       />
     ));
@@ -142,6 +149,7 @@ class Forms extends Component {
         formId={formId}
         hasExtraInputs={true}
         key={formId}
+        onInputChange={onInputChange}
         styles={exampleDataActive ? { display: 'none' } : null}
         removeForm={this.removeForm}
       />
@@ -156,6 +164,7 @@ class Forms extends Component {
         formId={formId}
         hasExtraInputs={true}
         key={formId}
+        onInputChange={onInputChange}
         styles={exampleDataActive ? { display: 'none' } : null}
         removeForm={this.removeForm}
       />
@@ -168,6 +177,7 @@ class Forms extends Component {
         formId={formId}
         hasExtraInputs={true}
         key={formId}
+        onInputChange={onInputChange}
         styles={exampleDataActive ? { display: 'none' } : null}
       />
     ));
@@ -179,6 +189,7 @@ class Forms extends Component {
         formId={formId}
         hasExtraInputs={true}
         key={formId}
+        onInputChange={onInputChange}
         styles={exampleDataActive ? { display: 'none' } : null}
       />
     ));
@@ -190,6 +201,7 @@ class Forms extends Component {
         formId={formId}
         hasExtraInputs={true}
         key={formId}
+        onInputChange={onInputChange}
         styles={exampleDataActive ? { display: 'none' } : null}
       />
     ));
