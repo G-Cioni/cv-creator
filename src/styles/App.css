@@ -284,6 +284,7 @@ p {
     'extraDetails extraDetails extraDetails';
   padding: 0.5em;
   width: calc(var(--cv-left-width));
+  margin-bottom: 1em;
 }
 
 .desiredRole,
