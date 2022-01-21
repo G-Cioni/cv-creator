@@ -399,10 +399,26 @@ p {
   background: var(--color-accent-2);
 }
 
+@media print {
+  #Forms {
+    display: none;
+  }
+  #Cv {
+    border-radius: none;
+    box-shadow: none;
+    height: 100vh;
+    margin: 1em 0.75em;
+    width: 100vw;
+  }
+}
+
 /* ================= 
    Responsive Design
    ================= */
 @media (max-width: 768px) {
+  :root {
+    font-size: 10px;
+  }
   #App {
     gap: 0em;
     grid-template-columns: 1fr;
@@ -457,18 +473,5 @@ p {
   .inputWithRemoveBtn textarea {
     width: 79%;
     margin-right: 0em;
-  }
-}
-
-@media print {
-  #Forms {
-    display: none;
-  }
-  #Cv {
-    border-radius: none;
-    box-shadow: none;
-    height: 100vh;
-    margin: 1em 0.75em;
-    width: 100vw;
   }
 }
