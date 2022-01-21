@@ -399,25 +399,12 @@ p {
   background: var(--color-accent-2);
 }
 
-@media print {
-  #Forms {
-    display: none;
-  }
-  #Cv {
-    border-radius: none;
-    box-shadow: none;
-    height: 100vh;
-    margin: 1em 0.75em;
-    width: 100vw;
-  }
-}
-
 /* ================= 
    Responsive Design
    ================= */
 @media (max-width: 768px) {
   :root {
-    font-size: 10px;
+    font-size: 7.5px;
   }
   #App {
     gap: 0em;
@@ -473,5 +460,33 @@ p {
   .inputWithRemoveBtn textarea {
     width: 79%;
     margin-right: 0em;
+  }
+  /* @media print {
+    :root {
+      font-size: 16px;
+    }
+    #Cv {
+      height: 29.35cm;
+    }
+  } */
+}
+
+/* Pdf generation is based on A4 */
+
+@media print {
+  :root {
+    font-size: 16px;
+  }
+  @page {
+    margin: 0 0 -2cm 0;
+  }
+  #Forms {
+    display: none;
+  }
+  #Cv {
+    border-radius: none;
+    box-shadow: none;
+    height: 29.3cm;
+    width: 21cm;
   }
 }
