@@ -9,7 +9,7 @@
   --color-bg-secondary: hsl(221, 32%, 85%);
   --color-text: hsl(0, 0%, 10%);
   /* A4 paper aspect ratio */
-  --cv-height: calc(var(--cv-width) * 1.4142);
+  --cv-height: calc(var(--cv-width) * 1.5);
   /* Can set % of --cv-left-side by multiplying by a decimal */
   --cv-left-width: calc(var(--cv-width) * 0.6);
   /* --cv-right-width is calculated automatically based on --cv-left-side */
@@ -223,6 +223,7 @@ img {
   font-size: 0.65em;
   grid-area: consent;
   text-align: center;
+  margin-bottom: 2em;
 }
 /* =====
    Cards
@@ -479,7 +480,7 @@ p {
     font-size: 16px;
   }
   @page {
-    margin: 0cm 0.5cm;
+    margin: 0.4cm 0.8cm 0cm 0.8cm;
   }
   #Forms {
     display: none;
@@ -487,7 +488,7 @@ p {
   #Cv {
     border-radius: none;
     box-shadow: none;
-    height: 29.3cm;
+    height: 30.85cm;
     width: 21cm;
   }
 }
