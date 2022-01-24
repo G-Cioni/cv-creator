@@ -98,6 +98,27 @@ class Form extends Component {
     }
   }
 
+  componentDidUpdate() {
+    // This is necessary for when the Reset Input Data is triggered
+    const { formId } = this.props;
+    const { extraInputsCounter } = this.state;
+    const newState = {
+      ...this.props.formData,
+      extraInputsCounter: [],
+    };
+
+    /* Since the Component updates after state is set, not in this if 
+    statement but in the next, the following if statement will run one 
+    more time and add the initial extra input */
+    if (extraInputsCounter.length < 1) this.addExtraInput();
+
+    // Resets state and localStorage to initial state
+    if (!localStorage[`cvCreator${formId}`]) {
+      localStorage[`cvCreator${formId}`] = JSON.stringify(newState);
+      this.setState(newState);
+    }
+  }
+
   componentWillUnmount() {
     // Saves to localStorage before unmounting
     const { formId } = this.props;
