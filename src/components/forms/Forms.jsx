@@ -14,6 +14,7 @@ class Forms extends Component {
           certificatesFormsCounter: [],
           contactFormsCounter: [],
           educationFormsCounter: [],
+          interestsFormsCounter: [],
           languagesFormsCounter: [],
           personalFormsCounter: [],
           skillsFormsCounter: [],
@@ -92,6 +93,7 @@ class Forms extends Component {
       certificates,
       contact,
       education,
+      interests,
       languages,
       personalInfo,
       skills,
@@ -102,6 +104,7 @@ class Forms extends Component {
       certificatesFormsCounter,
       contactFormsCounter,
       educationFormsCounter,
+      interestsFormsCounter,
       languagesFormsCounter,
       personalFormsCounter,
       skillsFormsCounter,
@@ -206,6 +209,19 @@ class Forms extends Component {
       />
     ));
 
+    const interestsForms = interestsFormsCounter.map((formId) => (
+      <Form
+        appState={appState}
+        deleteInputState={deleteInputState}
+        formData={interests}
+        formId={formId}
+        hasExtraInputs={true}
+        key={formId}
+        onInputChange={onInputChange}
+        styles={exampleDataActive ? { display: 'none' } : null}
+      />
+    ));
+
     return (
       <div id="Forms">
         <button id="exampleDataBtn" onClick={toggleExampleData}>
@@ -266,6 +282,13 @@ class Forms extends Component {
         >
           <h2 className="formTitle">Languages</h2>
           {languagesForms}
+        </div>
+        <div
+          style={exampleDataActive ? { display: 'none' } : null}
+          className="formSection"
+        >
+          <h2 className="formTitle">Interests</h2>
+          {interestsForms}
         </div>
         <button id="generatePdfBtn" onClick={window.print}>
           Generate pdf

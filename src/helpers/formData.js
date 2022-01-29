@@ -178,6 +178,15 @@ localStorage.cvCreatorFormData =
       extraInputName: 'language',
       formFields: {},
     },
+
+    interests: {
+      formTitle: 'Interests',
+      formType: 'interests',
+      extraInputType: 'input',
+      extraInputPlaceHolder: 'Language',
+      extraInputName: 'language',
+      formFields: {},
+    },
   });
 
 const formData = JSON.parse(localStorage.cvCreatorFormData);
