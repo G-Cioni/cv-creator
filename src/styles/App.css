@@ -482,13 +482,14 @@ p {
   @page {
     margin: 0.4cm 0.8cm 0cm 0.8cm;
   }
+
   #Forms {
     display: none;
   }
   #Cv {
     border-radius: none;
     box-shadow: none;
-    height: 30.85cm;
+    height: 30.6cm;
     width: 21cm;
   }
 }
